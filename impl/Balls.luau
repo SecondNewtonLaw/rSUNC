@@ -1,8 +1,16 @@
 --!strict
 
 --[=[
-    balls
+	@class Balls
+	Contains functions which interact and modify balls.
 ]=]
-function balls(): ()
+local balls = {}
+
+--[=[
+    @within Balls
+    balls
+    @return ()
+]=]
+function balls.balls(): ()
     
 end
