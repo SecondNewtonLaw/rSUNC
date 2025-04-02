@@ -37,6 +37,18 @@ function closures.newlclosure<T..., U...>(fn: (T...) -> U...): (T...) -> U...
     return nil :: any
 end
 
+--[=[
+	Hooks the given function with the desired hook.
 
+	@within Closures
+	@param fn (T1...) -> U1... -- Function to hook.
+	@param hook (T2...) -> U2... -- The hook.
+	@return (T1...) -> U1... -- The old/original function.
+
+]=]
+
+function closures.hookfunction<T1..., U1..., T2..., U2...>(fn: (T1...) -> U1..., hook: (T2...) -> U2...): (T1...) ->U1...
+	return nil :: any
+end
 
 return closures
