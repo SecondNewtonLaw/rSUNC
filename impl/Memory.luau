@@ -36,11 +36,16 @@ end
 --[=[
     Suspends all GC operations temporarily, returning the current state of the Garbage Collector to resume it.
     @within memory
-    @return GcState -- The current state of the Garbage Collector
+    @return GcState -- The current state of the Garbage Collector, before suspension.
 
     :::warning Memory Usage
     After this function is called, memory usage may increase, as after this call the garbage collector is simply no longer collecting memory.
     You may forcefully request the GC to run using `memory.gc` or `memory.stepgc`. Granting you full control over the GC.
+    :::
+
+    :::warning Resumption after Suspension
+    After the Garbage Collector is suspended, a call to `memory.resumegc` must follow eventually.
+    If the thread does not resume the GC and it stops execution (i.e.: thread yields or dies), it will automatically resume itself on the next scheduler cycle in order to prevent a memory leak.
     :::
 
     @error Already suspended -- The Garbage collector is already suspended. You must first resume it using memory.resumegc before calling memory.suspendgc again.
@@ -52,13 +57,9 @@ end
 --[=[
     Resumes the Garbage Collector from the previous state
     @within memory
-    @param gcState GcState? -- The current state of the Garbage Collector
 
-    :::tip Automatic Resumption
-    You may automatically resume the garbage collector with **no state**, however it is recommended that you pass it in for redundancy.
-    :::
-]=]
-function memory.resumegc(gcState: any): ()
+    ]=]
+function memory.resumegc(): ()
 	return nil :: any
 end
 
