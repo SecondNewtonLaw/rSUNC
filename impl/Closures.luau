@@ -154,4 +154,7 @@ end
 function closures.wrapclosure<T..., U...>(fn: (T...) -> U...): (T...) -> U...
 	return nil :: any
 end
+
+
+
 return closures

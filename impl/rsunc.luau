@@ -11,7 +11,9 @@ local rsunc = {}
     @return { [any]: any } -- The global environment of the executor.
 
     :::info Sandboxing
-    All threads must be sandboxed. This means that modifications to the current thread's global environment should __NOT__ pollute the result of `getgenv`. However, modifications done to the table returned by `getgenv` must observable by all threads in the VM.
+    All threads must be sandboxed. This means that modifications to the current thread's global environment should __NOT__ pollute the result of `getgenv`.
+    
+    Modifications done to the table returned by `getgenv` must be observable to all threads an executor makes, but not observable to other threads within the VM, such as game threads.
     :::
 
     ### Example:
@@ -41,6 +43,20 @@ local rsunc = {}
 ]=]
 function rsunc.getgenv(): { [any]: any }
 	return nil :: any
+end
+
+--[=[
+    Returns the global environment of main thread of Luau. This environment is __different__ from the executor environment.
+
+    @within rsunc
+    @return {[any]: any}
+
+    :::info Sandboxing
+    You must __NOT__ modify this environment under __ANY__ circumstance. __ANY__ modification will be observable by all threads in the VM.
+    :::
+]=]
+function rsunc.getrenv(): { [any]: any }
+    return nil :: any
 end
 
 --[=[
