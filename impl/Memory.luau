@@ -59,8 +59,9 @@ end
 --[=[
     Resumes the Garbage Collector from the previous state
     @within memory
+    @error Garbage Collector Not Suspended -- The garbage collector is not suspended, you cannot resume it!
 
-    ]=]
+]=]
 function memory.resumegc(): ()
 	return nil :: any
 end
