@@ -155,6 +155,55 @@ function closures.wrapclosure<T..., U...>(fn: (T...) -> U...): (T...) -> U...
 	return nil :: any
 end
 
+--[=[
+	Compiles and loads the given `luauCode`. If `chunkName` is not provided, it must default to either: a pseudo-randomly generated string, or `=loadstring`.
 
+	@within Closures
+	@param luauCode string -- The code to compile and load.
+	@param chunkName string? -- The name of the chunk to load.
+	@return (T...) -> U... | nil -- The loaded function, if loading succeeded.
+	@return string? -- The error message, if loading failed.
+
+	@error N/A -- This function does not explicitly error, however it returns an error message if the code fails to load in the second return.
+]=]
+function closures.loadstring<T..., U...>(luauCode: string, chunkName: string?): ((T...) -> U... | nil, string?)
+	return nil :: any
+end
+
+--[=[
+	Provides a hash for the given function
+
+	@within Closures
+	@param fn (T...) -> U... -- The function to hash.
+	@param hashFormat "sha384" | "blake2b" -- The hash format to use, defaults to `sha384` if left empty.
+	@param hashType "Instructions" | "Constants" | "InstructionsAndConstants" | "Bytecode" -- The hash type to use, defaults to 'InstructionsAndConstants' if left empty.
+	@return string -- The hash of the function.
+
+	:::info Implementing Instructions
+	You must hash the instructions (code) of the function. This does **not** include natively generated code.
+	:::
+
+	:::info Implementing Constants
+	You must add all constants into a big string, and hash that.
+	i.e.: "APPA", "BCCA", "CVVVA" would be merged into "APPABCCACVVVA" and then hashed together to obtain the hash.
+	:::
+
+	:::info Implementing InstructionsAndConstants
+	You must simply add the hashes of 'Instructions' and 'Constants' together, and take the hash of that. 
+	:::
+
+	:::info Implementing Bytecode
+	You must completely reconstruct the function into its bytecode, and hash it.
+	:::
+
+	@error Unsupported hash type. -- The given hash type is not supported by the executor.
+]=]
+function closures.getfunctionhash<T..., U...>(
+	fn: (T...) -> U...,
+	hashFormat: "sha384" | "blake2b",
+	hashType: "Instructions" | "Constants" | "InstructionsAndConstants" | "Bytecode"
+): string
+	return nil :: any
+end
 
 return closures

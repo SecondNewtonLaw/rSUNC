@@ -75,7 +75,7 @@ end
     @within rsunc
     @return { _G: {[any]: any}, shared: {[any]: any} } 
 
-    ]=]
+]=]
 function rsunc.getscriptglobals(): { _G: { [any]: any }, shared: { [any]: any } }
 	return nil :: any
 end
