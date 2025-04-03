@@ -10,7 +10,7 @@ local memory = {}
 --      - memory.getcollectionthreshold(): () -- Hard, Luau doesn't have an std::size_t type built-in!
 
 --[=[
-    Executes a full garbage collection cycle.
+    Executes a full garbage collection cycle, of regardless if it should be ran or not.
     This will temporarily [stop the world](https://stackoverflow.com/questions/40182392/does-java-garbage-collect-always-has-to-stop-the-world) to execute a full GC step.
     :::warning
     This may have a performance cost, and could temporarily pause Roblox!
@@ -21,7 +21,7 @@ local memory = {}
 function memory.gc(): () end
 
 --[=[
-    Executes a step on the garbage collection cycle.
+    Executes a step on the garbage collection cycle, of regardless if it should be ran or not.
 
     @within Memory
 ]=]
