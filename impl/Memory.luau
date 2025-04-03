@@ -1,6 +1,7 @@
 --[=[
     Provides functions to manipulate the Garbage Collector and memory in general.
     @class memory
+    @tag Library
 ]=]
 local memory = {}
 
@@ -8,6 +9,7 @@ do
 	--[=[
         Contains the state of the Luau Garbage Collector at one point in time.
         @class GcState
+        @tag Type
     ]=]
 	local GcState = {}
 	--[=[

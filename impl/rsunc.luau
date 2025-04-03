@@ -1,6 +1,7 @@
 --!strict
 --[=[
     @class rsunc
+    @tag Library
 ]=]
 local rsunc = {}
 

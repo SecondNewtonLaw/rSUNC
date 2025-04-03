@@ -3,7 +3,16 @@ gitRepoUrl = "https://github.com/SecondNewtonLaw/rSUNC" # From Git
 
 gitSourceBranch = "dev"
 changelog = true
-classOrder = []
+classOrder = [
+    "~~ Libraries ~~",
+    "rsunc",
+    "closures",
+    "memory",
+    "runtime",
+    "fun",
+    "~~ Types ~~",
+    "GcState"
+]
 
 [docusaurus]
 onBrokenLinks = "throw"

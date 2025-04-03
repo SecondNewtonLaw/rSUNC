@@ -1,15 +1,16 @@
 --!strict
 
 --[=[
-	@class Closures
-	Contains functions which interact and modify closures and their behaviour.
+    Contains functions which interact and modify closures and their behaviour.
+    @class closures
+    @tag Library
 ]=]
 local closures = {}
 
 --[=[
 	Provides a hash for the given function
 
-	@within Closures
+	@within closures
 	@param fn (T...) -> U... -- The function to hash.
 	@param hashType "Instructions" | "Constants" | "InstructionsAndConstants" -- The hash type to use, defaults to 'InstructionsAndConstants' if left empty.
 	@return string -- The hash of the function.
@@ -39,7 +40,7 @@ end
 --[=[
 	Hooks the given function with the desired hook. This function supports hooking all kinds of closures, from Lua to C, C to Lua, etc.
 
-	@within Closures
+	@within closures
 	@param fn (T...) -> U... -- Function to hook.
 	@param hook (T...) -> U... -- The hook.
 	@return (T...) -> U... -- The old/original function.
@@ -128,7 +129,7 @@ end
 --[=[
 	Compiles and loads the given `luauCode`. If `chunkName` is not provided, it must default to either: a pseudo-randomly generated string, or `=loadstring`.
 
-	@within Closures
+	@within closures
 	@param luauCode string -- The code to compile and load.
 	@param chunkName string? -- The name of the chunk to load.
 	@return ((T...) -> U...) | nil -- The loaded function, if loading succeeded.
@@ -143,7 +144,7 @@ end
 --[=[
 	Wraps the given closure into a upvalue-less C closure.
 
-	@within Closures
+	@within closures
 	@param fn (T...) -> U... -- Function to wrap
 	@param debugName string? -- The name of the function, optional.
 	@return (T...) -> U...
@@ -155,7 +156,7 @@ end
 --[=[
 	Wraps the given closure into a upvalue-less L closure.
 
-	@within Closures
+	@within closures
 	@param fn (T...) -> U... -- Function to wrap
 	@return (T...) -> U... -- 
 
@@ -174,7 +175,7 @@ end
 --[=[
 	Wraps the given closure into an upvalue-less version of itself.
 
-	@within Closures
+	@within closures
 	@param fn (T...) -> U... -- Function to wrap
 	@return (T...) -> U... -- A copy of the function, without upvalues.
 

@@ -2,6 +2,7 @@
     Contains functions that modify the Lua(u) Virtual Machine runtime.
 
     @class runtime
+    @tag Library
 ]=]
 local runtime = {}
 
