@@ -24,19 +24,19 @@ local rsunc = {}
         HelloVariable = "Hello"
         print(HelloVariable) -- prints 'Hello'
         print(HelloVariableViaGetGenv)  -- prints 'nil'
-        print(getgenv().HelloVariableViaGetgenv)  -- prints 'nil'    
+        print(getgenv().HelloVariableViaGetGenv)  -- prints 'nil'    
 
-        getgenv().HelloVariableViaGetgenv = HelloVariable -- Set HelloVariableViaGetgenv to the value of HelloVariable (can be observed by Thread 2!)
+        getgenv().HelloVariableViaGetGenv = HelloVariable -- Set HelloVariableViaGetGenv to the value of HelloVariable (can be observed by Thread 2!)
         print(HelloVariable) -- prints 'Hello'
         print(HelloVariableViaGetGenv)  -- prints 'Hello'
-        print(getgenv().HelloVariableViaGetgenv)  -- prints 'Hello'
+        print(getgenv().HelloVariableViaGetGenv)  -- prints 'Hello'
     end
     -- ...
     do
         -- Thread 2 (runs after thread 1)
         print(HelloVariable) -- prints 'nil'
         print(HelloVariableViaGetGenv)  -- prints 'Hello'
-        print(getgenv().HelloVariableViaGetgenv)  -- prints 'Hello'
+        print(getgenv().HelloVariableViaGetGenv)  -- prints 'Hello'
     end
 
     ```
