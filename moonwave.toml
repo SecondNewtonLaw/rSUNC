@@ -10,8 +10,10 @@ classOrder = [
     "memory",
     "runtime",
     "fun",
+    "scheduler",
     "~~ Types ~~",
-    "GcState"
+    "GcState",
+    "SchedulerJobStepConnection"
 ]
 
 [docusaurus]

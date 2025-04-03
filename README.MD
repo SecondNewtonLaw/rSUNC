@@ -14,5 +14,6 @@ This project uses [Moonwave](https://eryn.io/moonwave/) a documentation generato
 #### Contributors
         Updated as new contributors come in
 - Dottik (SecondNewtonLaw)
+- Pixeluted
 - senS
 - GRH
