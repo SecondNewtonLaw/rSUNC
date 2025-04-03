@@ -47,7 +47,7 @@ end
 	@error Too many upvalues! -- The function to hook has more upvalues than the function you want to hook it with. (This error may not show on some implementations.)
 
 	:::info Implementations
-	Some implementations of this function may bypass upvalue limits for you. If this is not the case, wrap `hook` in a `newcclosure`/`newlclosure` before calling `hookfunction`.
+	Some implementations of this function may bypass upvalue limits for you. If this is not the case, wrap `hook` in a `newcclosure`/ `newlclosure` before calling `hookfunction`.
 	:::
 
 	:::tip Restoring Hooked Functions
@@ -126,4 +126,32 @@ function closures.hookfunction<T..., U...>(fn: (T...) -> U..., hook: (T...) -> U
 	return nil :: any
 end
 
+--[=[
+	Wraps the given closure into an upvalue-less version of itself.
+
+	@within Closures
+	@param fn (T...) -> U... -- Function to wrap
+	@return (T...) -> U... -- A copy of the function, without upvalues.
+
+	:::info 
+	This function is a proxy to the correct implementation of `newcclosure`/ `newlclosure`.
+	:::
+
+	### Examples:
+
+	```lua
+	local b = "b"
+	local function a() -- Upvalue Count: 1 ('b')
+		b = "a"
+	end
+
+	assert(#debug.getupvalues(a) == 1) -- Validate the behaviour of debug.getupvalues.
+	assert(#debug.getupvalues(closures.wrapclosure(a)) == 0)
+
+	-- If this script errors, your wrapclosure may not be working properly.
+	```
+]=]
+function closures.wrapclosure<T..., U...>(fn: (T...) -> U...): (T...) -> U...
+	return nil :: any
+end
 return closures
