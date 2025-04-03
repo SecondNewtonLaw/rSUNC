@@ -145,8 +145,9 @@ end
 		b = "a"
 	end
 
-	assert(#debug.getupvalues(a) == 1) -- Validate the behaviour of debug.getupvalues.
-	assert(#debug.getupvalues(closures.wrapclosure(a)) == 0)
+	assert(#debug.getupvalues(a) == 1, "debug.getupvalues failure") -- Validate the behaviour of debug.getupvalues.
+	assert(#debug.getupvalues(closures.wrapclosure(a)) == 0, "wrapped closure has upreferences/upvalues")
+	assert(islclosure(a) == iscclosure(closures.wrapclosure(a)), "closure type-mismatch")
 
 	-- If this script errors, your wrapclosure may not be working properly.
 	```
@@ -161,7 +162,7 @@ end
 	@within Closures
 	@param luauCode string -- The code to compile and load.
 	@param chunkName string? -- The name of the chunk to load.
-	@return (T...) -> U... | nil -- The loaded function, if loading succeeded.
+	@return ((T...) -> U...) | nil -- The loaded function, if loading succeeded.
 	@return string? -- The error message, if loading failed.
 
 	@error N/A -- This function does not explicitly error, however it returns an error message if the code fails to load in the second return.
@@ -175,8 +176,7 @@ end
 
 	@within Closures
 	@param fn (T...) -> U... -- The function to hash.
-	@param hashFormat "sha384" | "blake2b" -- The hash format to use, defaults to `sha384` if left empty.
-	@param hashType "Instructions" | "Constants" | "InstructionsAndConstants" | "Bytecode" -- The hash type to use, defaults to 'InstructionsAndConstants' if left empty.
+	@param hashType "Instructions" | "Constants" | "InstructionsAndConstants" -- The hash type to use, defaults to 'InstructionsAndConstants' if left empty.
 	@return string -- The hash of the function.
 
 	:::info Implementing Instructions
@@ -185,23 +185,18 @@ end
 
 	:::info Implementing Constants
 	You must add all constants into a big string, and hash that.
-	i.e.: "APPA", "BCCA", "CVVVA" would be merged into "APPABCCACVVVA" and then hashed together to obtain the hash.
+	i.e.: "`APPA`", "`BCCA`", "`CVVVA`" would be merged into "`APPABCCACVVVA`" and then hashed together to obtain the hash.
 	:::
 
 	:::info Implementing InstructionsAndConstants
-	You must simply add the hashes of 'Instructions' and 'Constants' together, and take the hash of that. 
-	:::
-
-	:::info Implementing Bytecode
-	You must completely reconstruct the function into its bytecode, and hash it.
+	You must simply add the hashes of '`Instructions`' and '`Constants`' together, and take the hash of that. 
 	:::
 
 	@error Unsupported hash type. -- The given hash type is not supported by the executor.
 ]=]
 function closures.getfunctionhash<T..., U...>(
 	fn: (T...) -> U...,
-	hashFormat: "sha384" | "blake2b",
-	hashType: "Instructions" | "Constants" | "InstructionsAndConstants" | "Bytecode"
+	hashType: "Instructions" | "Constants" | "InstructionsAndConstants"
 ): string
 	return nil :: any
 end
