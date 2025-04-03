@@ -113,4 +113,21 @@ end
 ]=]
 function runtime.setluaufflag(flagName: string, flagValue: boolean): () end
 
+--[=[
+    Disables the error logging Roblox does on the VM. This is **NOT** the same as disabling error logging in the VM itself, it simply inutilizes the `ScriptContext.Error` signal.
+    
+    @within runtime
+    
+    :::info Implementation
+    This function can be implemented using hooksignal or getconnections, but it must continue to work ***even*** if new connections are added to the event.
+    :::
+]=]
+function runtime.disableerrorlogging(): () end
+--[=[
+    Enables the error logging Roblox does on the VM. This is **NOT** the same as disabling error logging in the VM itself, it simply enables the `ScriptContext.Error` signal again after being disabled.
+    
+    @within runtime
+]=]
+function runtime.enableerrorlogging(): () end
+
 return runtime
