@@ -89,6 +89,17 @@ function memory.stepgc(): () end
     :::info Remarks
     This function checks both registry keys and values in search of the given object. This means that if `getreg()[object]` holds a value, this function must return true. 
     :::
+
+
+    ### Examples
+    ```lua
+    local part = Instance.new("Part")
+
+    getreg()[part] = true
+    assert(memory.isreferenced(part) == true, "memory.isreferenced must return true once the object is present in the registry, be it in a key, or in a value!")
+    getreg()[part] = nil
+    assert(memory.isreferenced(part) == false, "memory.isreferenced must return false once the object is no longer present in the registry!")
+    ```
 ]=]
 function memory.isreferenced<T>(object: T): boolean
 	return nil :: any
