@@ -1,5 +1,5 @@
 # Why should you use rSUNC?
 
-rSUNC is built from the ground up with brand new libraries and functions. They provide a brand new way of using executors, as well as handing off more control to script developers and providing new functions required thanks to the changes brought in to ROBLOX's Luau VM, such as Native Code Generation!
+rSUNC has been built from the ground up with new libraries and functions, providing a new way of using executors. These functions hand off more control to script developers as well as providing functions for the changes brought forward by the change of Luau, such as Native Code Generation!
 
-These libraries ensure that rSUNC can stay up-to-date with the latest developments, as well as providing a brand new working base for new executors, who would otherwise be implementing UNC, a standard that has began to show its age more and more.
+These libraries ensure that rSUNC can stay up-to-date with the latest changes, as well as providing a new working base for executors, who would otherwise be implementing UNC, a standard that has began to show its age more and more with the passing of time, and has been deprecated for quite some time now.
