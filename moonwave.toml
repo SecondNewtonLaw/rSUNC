@@ -1,21 +1,18 @@
-title = "RbxStu Unified Naming Convention"  # From Git
+title = "RbxStu Unified Naming Convention"              # From Git
 gitRepoUrl = "https://github.com/SecondNewtonLaw/rSUNC" # From Git
 
 gitSourceBranch = "dev"
 changelog = true
-classOrder = [
-    "~~ Libraries ~~",
-    "rsunc",
-    "closures",
-    "memory",
-    "instances",
-    "scheduler",
-    "runtime",
-    "fun",
-    "~~ Types ~~",
-    "GcState",
-    "SchedulerJobStepConnection"
-]
+
+[[classOrder]]
+section = "Libraries"
+tag = "Library"
+
+[[classOrder]]
+section = "Custom Types"
+tag = "Type"
+
+apiCategories = ["Constructor", "Optional"]
 
 [docusaurus]
 onBrokenLinks = "throw"

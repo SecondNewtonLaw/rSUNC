@@ -5,25 +5,6 @@
 ]=]
 local memory = {}
 
-do
-	--[=[
-        Contains the state of the Luau Garbage Collector at one point in time.
-        @class GcState
-        @tag Type
-    ]=]
-	local GcState = {}
-	--[=[
-        @prop GCThreshold userdata<std::size_t>
-        @within GcState
-        @readonly
-
-        :::warning Representation in Luau
-        This is a `std::size_t`, which is a 64-bit integer. Lua(u) cannot represent the type effectively. In order to counteract this, a string is returned when indexed by Lua(u).
-        :::
-    ]=]
-	GcState.GCThreshold = 0
-end
-
 --[=[
     Returns a list of objects currently 'alive' in the garbage collector.
 
@@ -97,5 +78,20 @@ function memory.gc(): () end
     @within memory
 ]=]
 function memory.stepgc(): () end
+
+--[=[
+    Checks if the given object is currently referenced in the Lua(u) registry.
+
+    @within memory
+    @param object any -- The object to check.
+    @return boolean
+
+    :::info Remarks
+    This function checks both registry keys and values in search of the given object. This means that if `getreg()[object]` holds a value, this function must return true. 
+    :::
+]=]
+function memory.isreferenced<T>(object: T): boolean
+	return nil :: any
+end
 
 return memory

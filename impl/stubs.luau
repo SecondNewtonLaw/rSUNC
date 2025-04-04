@@ -1,7 +1,0 @@
---[=[
-    @class ~~ Types ~~
-]=]
-
---[=[
-    @class ~~ Libraries ~~
-]=]

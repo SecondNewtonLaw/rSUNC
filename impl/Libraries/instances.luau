@@ -1,6 +1,7 @@
 --[=[
     Provides functions to manipulate instances.
     @class instances
+    @tag Library
 ]=]
 local instances = {}
 
