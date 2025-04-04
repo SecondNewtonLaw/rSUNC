@@ -66,9 +66,14 @@ end
     
     @param object1 Instance -- The instance to replace.
     @param object2 Instance -- The instance to replace it with.
+    @error The reference cannot be modified (not in cache) -- The reference you provided cannot be modified, this is due to it not being on the instance cache.
 
     :::tip Usage
     You can use this function to replace references to an instance all throughout the game. i.e.: replacing a Value instance and affecting all already obtained references to it.
+    :::
+
+    :::note Remarks
+    Some instances, such as the DataModel (aka `game`) are not affected by this function.
     :::
 ]=]
 function instances.replacereference<T>(object1: T & Instance, object2: T & Instance): () end
