@@ -8,9 +8,10 @@ classOrder = [
     "rsunc",
     "closures",
     "memory",
+    "instances",
+    "scheduler",
     "runtime",
     "fun",
-    "scheduler",
     "~~ Types ~~",
     "GcState",
     "SchedulerJobStepConnection"
