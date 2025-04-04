@@ -40,6 +40,7 @@ end
     Invalidates the reference of the given instance.
 
     @param object Instance -- The instance to invalidate.
+    @error The reference cannot be invalidated (not in cache) -- The reference you provided cannot be invalidated, this is due to it not being on the instance cache.
 
     :::tip Usage
     Invalidating the reference to an instance allows you to make subsequent calls to certain functions return a different pointer instead of the one you have. This also makes the reference you hold unique to you up to that point.
