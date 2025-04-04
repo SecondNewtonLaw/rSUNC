@@ -96,7 +96,7 @@ end
 	end
 	
 	a() -- Set variables
-	local original = hookfunction(a, b) -- If this call fails, consider implcitly wrapping `b` in a newlclosure!
+	local original = closures.hookfunction(a, b) -- If this call fails, consider implcitly wrapping `b` in a newlclosure!
 
 	a()
 	assert(a == "E" and b == "F" and c == "D") -- If this errors, the upvalues are improperly set, and this could lead to a crash!
@@ -110,7 +110,7 @@ end
 		upref = f == "Hello"
 	end
 
-	local old; old = hookfunction(coroutine.resume, dummyFunc) -- Hook C -> L. This test also checks that hookfunction can bypass upvalue limits.
+	local old; old = closures.hookfunction(coroutine.resume, dummyFunc) -- Hook C -> L. This test also checks that hookfunction can bypass upvalue limits.
 	coroutine.resume("Hello")
 	
 	if not upref then
@@ -118,12 +118,20 @@ end
 	end
 	
 	upref = false
-	hookfunction(coroutine.resume, old)
+	closures.hookfunction(coroutine.resume, old)
 	pcall(coroutine.resume, "Hello")
 	```
 ]=]
 function closures.hookfunction<T..., U...>(fn: (T...) -> U..., hook: (T...) -> U...): (T...) -> U...
 	return nil :: any
+end
+
+--[=[
+	Restores any hooks done to `restoreWhat`, regardless of the hook type (i.e., C closure hook, Luau closure hook, ...) and of how many hooks were done to `restoreWhat`.
+
+	@param restoreWhat (T...) -> U... -- The function that should be restored.
+]=]
+function closures.restorefunction<T..., U...>(restoreWhat: (T...)->U...):()
 end
 
 --[=[

@@ -24,7 +24,7 @@ organizationName = "SecondNewtonLaw"
 projectName = "rSUNC"
 url = "https://SecondNewtonLaw.github.io"
 baseUrl = "/rSUNC"
-tagline = "The RbxStu Unified Naming Convention"
+tagline = "A new Unified Naming Convention, for a new ROBLOX"
 
 [footer]
 style = "dark"
@@ -36,3 +36,24 @@ copyright = "Copyright © 2025 SecondNewtonLaw. Built with Moonwave and Docusaur
 # [[footer.links.items]]
 # label = "example"
 # href = "https://example.com/"
+
+[home]
+enabled = true
+includeReadme = true
+
+[[navbar.items]]
+href = "https://discord.gg/xruheb5psN"
+label = "Discord"
+position = "right"
+
+[[home.features]]
+title = "Simple"
+description = "rSUNC promises to be a simple, yet useful standard for new executors."
+
+[[home.features]]
+title = "Innovative"
+description = "rSUNC takes a new approach at creating functions, thinking of everything a user may need or want!"
+
+[[home.features]]
+title = "Constantly Developed"
+description = "rSUNC is being constantly developed and improved. Any suggestions and new functions are accepted on our discord server!"
