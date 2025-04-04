@@ -131,4 +131,15 @@ function runtime.disableerrorlogging(): () end
 ]=]
 function runtime.enableerrorlogging(): () end
 
+--[=[
+    Returns the Version hash of the current, running ROBLOX version. _The version hash is hash that follows the 'version' string in `version-...`.
+
+    @return string -- The ROBLOX build hash.
+    @within runtime
+    @tag Optional
+]=]
+function runtime.getrbxbuildhash(): string 
+    return nil::any
+end
+
 return runtime

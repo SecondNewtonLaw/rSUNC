@@ -8,6 +8,7 @@ local instances = {}
 --[=[
     Clones a reference of the given instance.
 
+    @within instances
     @param object Instance -- The instance to clone.
     @return Instance -- A brand new reference to the given instance.
 
@@ -22,6 +23,7 @@ end
 --[=[
     Compares the underlying instances of two object references.
     
+    @within instances
     @param object1 Instance -- The first instance.
     @param object2 Instance -- The second instance.
     @return boolean -- If true, both references point to the same instance, else false.
@@ -39,6 +41,7 @@ end
 --[=[
     Invalidates the reference of the given instance.
 
+    @within instances
     @param object Instance -- The instance to invalidate.
     @error The reference cannot be invalidated (not in cache) -- The reference you provided cannot be invalidated, this is due to it not being on the instance cache.
 
@@ -51,6 +54,7 @@ function instances.invalidatereference<T>(object: T & Instance): () end
 --[=[
     Checks if the reference to the given instance is still valid.
 
+    @within instances
     @param object Instance -- The instance to check.
     @return boolean -- If true, the reference to the instance is still valid.
 
@@ -65,6 +69,7 @@ end
 --[=[
     Makes all references that are `object1` point to what `object2` is referencing instead.
     
+    @within instances
     @param object1 Instance -- The instance to replace.
     @param object2 Instance -- The instance to replace it with.
     @error The reference cannot be modified (not in cache) -- The reference you provided cannot be modified, this is due to it not being on the instance cache.
@@ -78,5 +83,21 @@ end
     :::
 ]=]
 function instances.replacereference<T>(object1: T & Instance, object2: T & Instance): () end
+
+--[=[
+    Gets the version of the ROBLOX place you are in.
+
+    @within instances
+    @return number -- The version of the place.
+
+    :::tip Usage
+    This function can be used to guarantee features work only on a version deemed 'safe' of the game. Useful for premium scripts.
+    :::
+]=]
+function instances.getplaceversion(): number
+    return nil ::any
+end
+
+
 
 return instances
