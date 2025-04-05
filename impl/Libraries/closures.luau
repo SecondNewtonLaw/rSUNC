@@ -278,4 +278,22 @@ end
 ]=]
 function closures.makeunhookable<T..., U...>(fn: (T...) -> U...): () end
 
+--[=[
+	Returns true if the function points to the same code. The function should return false if the function type results in a mis-match (i.e., `fn1` is a Luau closure and `fn2` is a C closure).
+
+	@within closures
+	@param fn1 (T...) -> U... -- The first function to compare.
+	@param fn2 (T...) -> U... -- The second function to compare.
+	@return boolean -- Whether the two functions point to the same code.
+
+	:::danger newcclosures
+	For newcclosures, the result must be derived from the 'deepest' closure it wraps.
+	
+	For example, if `fn1` is a newcclosure that wraps a newcclosure that wraps a luau function, and `fn2` is a Luau function, you must search to the deepst call fn1 can do and check if it is `fn2`.
+	The same should happen if `fn2` is the nested newcclosure and `fn1` is a luau function.
+	:::
+]=]
+function closures.comparefunction<T1..., U1..., T2..., U2...>(fn1: (T1...) -> U1..., fn2: (T2...) -> U2...): boolean
+	return nil :: any
+end
 return closures
