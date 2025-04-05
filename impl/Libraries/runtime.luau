@@ -33,7 +33,7 @@ function runtime.enablenative() end
     @within runtime
 ]=]
 function runtime.getstringatom(str: string): number
-	return nil :: any
+    return nil :: any
 end
 
 --[=[
@@ -45,7 +45,7 @@ end
     @within runtime
 ]=]
 function runtime.getstringhash(str: string): number
-	return nil :: any
+    return nil :: any
 end
 
 --[=[
@@ -83,7 +83,7 @@ function runtime.disablepointerencoding(): () end
     :::
 ]=]
 function runtime.isinstance(obj: Instance): boolean
-	return nil :: any
+    return nil :: any
 end
 
 --[=[
@@ -123,8 +123,8 @@ function runtime.enableerrorlogging(): () end
     @within runtime
     @tag Optional
 ]=]
-function runtime.getrbxbuildhash(): string 
-    return nil::any
+function runtime.getrbxbuildhash(): string
+    return nil :: any
 end
 
 --[=[

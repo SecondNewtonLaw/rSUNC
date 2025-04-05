@@ -31,5 +31,4 @@ do
     global._ENV = {}
 end
 
-
 return global

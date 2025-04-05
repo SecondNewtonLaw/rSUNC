@@ -1,0 +1,3 @@
+syntax = "Luau"
+indent_type = "Spaces"
+line_endings = "Windows"

@@ -30,7 +30,7 @@ SchedulerJobStepConnection.IsEnabled = true
         @within SchedulerJobStepConnection
     ]=]
 function SchedulerJobStepConnection:Enable(): ()
-	return nil
+    return nil
 end
 
 --[=[
@@ -39,7 +39,7 @@ end
         @within SchedulerJobStepConnection
     ]=]
 function SchedulerJobStepConnection:Disable(): ()
-	return nil
+    return nil
 end
 
 --[=[
@@ -49,5 +49,5 @@ end
         @within SchedulerJobStepConnection
     ]=]
 function SchedulerJobStepConnection:Disconnect(): ()
-	return nil
+    return nil
 end
