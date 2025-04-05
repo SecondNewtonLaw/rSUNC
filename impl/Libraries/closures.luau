@@ -286,11 +286,11 @@ function closures.makeunhookable<T..., U...>(fn: (T...) -> U...): () end
 	@param fn2 (T...) -> U... -- The second function to compare.
 	@return boolean -- Whether the two functions point to the same code.
 
-	:::danger newcclosures
-	For newcclosures, the result must be derived from the 'deepest' closure it wraps.
+	:::danger newcclosures / newlclosures
+	For wrapped closures (`newcclosure`, `newlclosure`), the result must be derived from the 'deepest' closure it wraps.
 	
-	For example, if `fn1` is a newcclosure that wraps a newcclosure that wraps a luau function, and `fn2` is a Luau function, you must search to the deepst call fn1 can do and check if it is `fn2`.
-	The same should happen if `fn2` is the nested newcclosure and `fn1` is a luau function.
+	For example, if `fn1` is a wrapped closure that wraps another wrapped closure that wraps a luau function, and `fn2` is that same Luau function, you must search to the deepest call `fn1` can do and check if it points to the same function as `fn2`.
+	The same should happen if `fn2` is the nested wrapped closure and `fn1` is a luau function.
 	:::
 
 	This function does not check if the function code is the same, only if the two functions point to the same 'Prototype' or 'C function'.
@@ -302,10 +302,12 @@ function closures.makeunhookable<T..., U...>(fn: (T...) -> U...): () end
 	local x = function() end
 	print(comparefunction(function() end, function() end)) -- false
 	print(comparefunction(x, x)) -- true
-	print(comparefunction(x, clonefunction(x))) -- true
+	print(comparefunction(x, clonefunction(x))) -- true	
 	print(comparefunction(x, newcclosure(x))) -- true
 	print(comparefunction(newcclosure(x), x)) -- true
+	print(comparefunction(newlclosure(x), newcclosure(x))) -- true
 	print(comparefunction(print, newcclosure(print))) -- true
+	print(comparefunction(print, newlclosure(print))) -- true
 	print(comparefunction(print, newcclosure(warn))) -- false
 	print(comparefunction(newcclosure(print), newcclosure(print))) -- true
 	print(comparefunction(
@@ -324,4 +326,5 @@ function closures.makeunhookable<T..., U...>(fn: (T...) -> U...): () end
 function closures.comparefunction<T1..., U1..., T2..., U2...>(fn1: (T1...) -> U1..., fn2: (T2...) -> U2...): boolean
 	return nil :: any
 end
+
 return closures
