@@ -79,7 +79,7 @@ end
     :::
 
     :::note Remarks
-    Some instances, such as the DataModel (aka `game`) are not affected by this function.
+    Some instances, such as the DataModel (aka `game`), are not affected by this function.
     :::
 ]=]
 function instances.replacereference<T>(object1: T & Instance, object2: T & Instance): () end

@@ -66,7 +66,7 @@ function runtime.enablepointerencoding(): () end
     @within runtime
 
     :::tip Executor Development
-    This can help locate objects in memory to find out about their true structure in-memory.
+    This can help locate objects in memory to find out about their true structure in memory.
     :::
 ]=]
 function runtime.disablepointerencoding(): () end
@@ -75,7 +75,7 @@ function runtime.disablepointerencoding(): () end
     Returns whether the given object is a userdata of type Instance.
 
     @param obj userdata -- The object to check.
-    @return boolean -- Whether the object is a userdata of type Instance.
+    @return boolean -- Whether the object is a `userdata` of type `Instance`.
     @within runtime
 
     :::warning Implementation
@@ -100,12 +100,12 @@ end
 function runtime.setluaufflag(flagName: string, flagValue: boolean): () end
 
 --[=[
-    Disables the error logging Roblox does on the VM. This is **NOT** the same as disabling error logging in the VM itself, it simply inutilizes the `ScriptContext.Error` signal.
+    Disables the error logging Roblox does on the VM. This is **NOT** the same as disabling error logging in the VM itself, it simply disables the `ScriptContext.Error` signal.
     
     @within runtime
     
     :::info Implementation
-    This function can be implemented using hooksignal or getconnections, but it must continue to work ***even*** if new connections are added to the event.
+    This function can be implemented using `hooksignal` or `getconnections`, but it must continue to work ***even*** if new connections are added to the event.
     :::
 ]=]
 function runtime.disableerrorlogging(): () end
@@ -117,7 +117,7 @@ function runtime.disableerrorlogging(): () end
 function runtime.enableerrorlogging(): () end
 
 --[=[
-    Returns the Version hash of the current, running ROBLOX version. _The version hash is hash that follows the 'version' string in `version-...`.
+    Returns the Version hash of the current, running ROBLOX version. The version hash is the hash that follows the 'version' string in `version-...`.
 
     @return string -- The ROBLOX build hash.
     @within runtime

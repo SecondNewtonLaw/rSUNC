@@ -62,7 +62,7 @@ function memory.getgcstate(): any
 end
 
 --[=[
-    Executes a full garbage collection cycle, of regardless if it should be ran or not.
+    Executes a full garbage collection cycle, regardless if it should be ran or not.
     This will temporarily [stop the world](https://stackoverflow.com/questions/40182392/does-java-garbage-collect-always-has-to-stop-the-world) to execute a full GC step.
     :::warning
     This may have a performance cost depending on how big the heap is, and could temporarily pause Roblox!
@@ -73,7 +73,7 @@ end
 function memory.gc(): () end
 
 --[=[
-    Executes a step on the garbage collection cycle, of regardless if it should be ran or not.
+    Executes a step on the garbage collection cycle, regardless if it should be ran or not.
 
     @within memory
 ]=]
@@ -87,7 +87,7 @@ function memory.stepgc(): () end
     @return boolean
 
     :::info Remarks
-    This function checks both registry keys and values in search of the given object. This means that if `getreg()[object]` holds a value, this function must return true. 
+    This function checks both registry keys and values in search of the given object. This means that if `getreg()[object]` holds a value, this function must return true.
     :::
 
 
