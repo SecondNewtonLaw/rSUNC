@@ -20,9 +20,7 @@ local closures = {}
 
 	@error Unsupported hash type. -- The given hash type is not supported by the executor.
 ]=]
-function closures.getfunctionhash<T..., U...>(
-	fn: (T...) -> U...
-): string
+function closures.getfunctionhash<T..., U...>(fn: (T...) -> U...): string
 	return nil :: any
 end
 
@@ -34,6 +32,7 @@ end
 	@param hook (T...) -> U... -- The hook.
 	@return (T...) -> U... -- The old/original function.
 	@error Too many upvalues! -- The function to hook has more upvalues than the function you want to hook it with. (This error may not show on some implementations.)
+	@error this function cannot be hooked from Luau -- The function has been marked as unhookable by `makeunhookable` or by native executor code.
 
 	:::info Implementations
 	Some implementations of this function may bypass upvalue limits for you. If this is not the case, wrap `hook` in a `newcclosure`/ `newlclosure` before calling `hookfunction`.
@@ -119,12 +118,18 @@ end
 	Restores any hooks done to `restoreWhat`, regardless of the hook type (i.e., C closure hook, Luau closure hook, ...) and of how many hooks were done to `restoreWhat`.
 
 	@param restoreWhat (T...) -> U... -- The function that should be restored.
+	@error function is not hooked -- The function is not hooked, and thus cannot be restored. Use `ishooked` before calling this function!
 ]=]
-function closures.restorefunction<T..., U...>(restoreWhat: (T...)->U...):()
-end
+function closures.restorefunction<T..., U...>(restoreWhat: (T...) -> U...): () end
 
 --[=[
 	Compiles and loads the given `luauCode`. If `chunkName` is not provided, it must default to either: a pseudo-randomly generated string, or `=loadstring`.
+
+	Loadstring must compile the code with the following compile configuration:
+		- Optimization Level 1
+		- Debug Level 1
+
+	The function must also mark the environment as 'unsafe' to disable environment optimizations as per Luau specifications. 
 
 	@within closures
 	@param luauCode string -- The code to compile and load.
@@ -198,5 +203,76 @@ end
 function closures.wrapclosure<T..., U...>(fn: (T...) -> U...): (T...) -> U...
 	return nil :: any
 end
+
+--[=[
+	Checks if the given function is an executor closure.
+
+	@within closures
+	@param fn (T...) -> U... -- The function to check.
+	@return boolean -- Whether the function is an executor closure.
+
+	:::info Implementation
+	The function can use any method to function, as long as it returns true for executor Luau and C functions, as well as hooked functions, and false for any non-executor functions.
+	:::
+]=]
+function closures.isourclosure<T..., U...>(fn: (T...) -> U...): boolean
+	return nil :: any
+end
+
+--[=[
+	Clones the given function, providing a unique copy of it that is completely unrelated to `fn`.
+
+	@within closures
+	@param fn (T...) -> U... -- The function to clone.
+	@return (T...) -> U... -- A clone of the function.
+
+	:::danger Obfuscator Support
+	You must note that a cloned Luau function must have the SAME environment as the original function. If you do not provide an environment and an obfuscator depends on it for upvalues, you may face script errors.
+		
+	This has been documented behaviour on scripts obfuscated by obfuscators such as Luraph, where `newlclosure` and/or `clonefunction` do not properly set the environment of the cloned function, which causes script errors.
+	:::
+]=]
+function closures.clonefunction<T..., U...>(fn: (T...) -> U...): (T...) -> U...
+	return nil :: any
+end
+
+--[=[
+	Returns if the given function can be hooked.
+
+	@within closures
+	@param fn (T...) -> U... -- The function to check.
+	@return boolean -- Whether the function can be hooked.
+
+	:::tip Whitelists
+	You can use this function if your executor abides by rSUNC to determine if the environment is proper for your whitelist.
+	:::
+]=]
+function closures.isunhookable<T..., U...>(fn: (T...) -> U...): boolean
+	return nil :: any
+end
+
+--[=[
+	Returns if the given function has been hooked.
+
+	@within closures
+	@param fn (T...) -> U... -- The function to check.
+	@return boolean -- Whether the function has been hooked.
+
+	:::tip Whitelists
+	You can use this function if your executor abides by rSUNC to determine if the environment is proper for your whitelist.
+	:::
+]=]
+function closures.ishooked<T..., U...>(fn: (T...) -> U...): boolean
+	return nil :: any
+end
+
+--[=[
+	Makes a function unable to be hooked. This function automatically reverts ANY hooks placed on the function if there are any set.
+
+	@within closures
+	@param fn (T...) -> U... -- The function to make unhookable and remove all hooks of.
+
+]=]
+function closures.makeunhookable<T..., U...>(fn: (T...) -> U...): () end
 
 return closures
