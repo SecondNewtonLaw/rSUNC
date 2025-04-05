@@ -215,10 +215,10 @@ end
 	@return boolean -- Whether the function is an executor closure.
 
 	:::info Implementation
-	The function can use any method to function, as long as it returns true for executor Luau and C functions, as well as hooked functions, and false for any non-executor functions.
+	The function may use any method, as long as it returns true for executor Luau and C functions, as well as hooked functions, and false for any non-executor functions. This means that functions retrieved from loadstring or getscriptclosure will also return true.
 	:::
 ]=]
-function closures.isourclosure<T..., U...>(fn: (T...) -> U...): boolean
+function closures.isexecutorclosure<T..., U...>(fn: (T...) -> U...): boolean
 	return nil :: any
 end
 
