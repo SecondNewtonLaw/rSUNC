@@ -292,6 +292,34 @@ function closures.makeunhookable<T..., U...>(fn: (T...) -> U...): () end
 	For example, if `fn1` is a newcclosure that wraps a newcclosure that wraps a luau function, and `fn2` is a Luau function, you must search to the deepst call fn1 can do and check if it is `fn2`.
 	The same should happen if `fn2` is the nested newcclosure and `fn1` is a luau function.
 	:::
+
+	This function does not check if the function code is the same, only if the two functions point to the same 'Prototype' or 'C function'.
+
+	### Examples
+
+	```lua
+	print"comparefunction test"
+	local x = function() end
+	print(comparefunction(function() end, function() end)) -- false
+	print(comparefunction(x, x)) -- true
+	print(comparefunction(x, clonefunction(x))) -- true
+	print(comparefunction(x, newcclosure(x))) -- true
+	print(comparefunction(newcclosure(x), x)) -- true
+	print(comparefunction(print, newcclosure(print))) -- true
+	print(comparefunction(print, newcclosure(warn))) -- false
+	print(comparefunction(newcclosure(print), newcclosure(print))) -- true
+	print(comparefunction(
+		newcclosure(
+			newcclosure(
+				newcclosure(
+					print
+				)
+			)
+		),
+		print)
+	) -- true
+	print"comparefunction test end"
+	```
 ]=]
 function closures.comparefunction<T1..., U1..., T2..., U2...>(fn1: (T1...) -> U1..., fn2: (T2...) -> U2...): boolean
 	return nil :: any
