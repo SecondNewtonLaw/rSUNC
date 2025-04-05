@@ -5,6 +5,10 @@ gitSourceBranch = "dev"
 changelog = true
 
 [[classOrder]]
+section = "Uncategorized/Miscellaneous"
+tag = "Miscellaneous"
+
+[[classOrder]]
 section = "Libraries"
 tag = "Library"
 
@@ -12,7 +16,7 @@ tag = "Library"
 section = "Custom Types"
 tag = "Type"
 
-apiCategories = ["Constructor", "Optional"]
+apiCategories = ["Constructor", "Optional", "Global"]
 
 [docusaurus]
 onBrokenLinks = "throw"

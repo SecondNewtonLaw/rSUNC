@@ -8,31 +8,20 @@
 local closures = {}
 
 --[=[
-	Provides a hash for the given function
+	Provides a Blake2B hash with a digest size of 64 in hex format for the given function
 
 	@within closures
 	@param fn (T...) -> U... -- The function to hash.
-	@param hashType "Instructions" | "Constants" | "InstructionsAndConstants" -- The hash type to use, defaults to 'InstructionsAndConstants' if left empty.
-	@return string -- The hash of the function.
+	@return string -- The hex representation of the Blake2B hash of the function.
 
-	:::info Implementing Instructions
-	You must hash the instructions (code) of the function. This does **not** include natively generated code.
-	:::
-
-	:::info Implementing Constants
-	You must add all constants into a big string, and hash that.
-	i.e.: "`APPA`", "`BCCA`", "`CVVVA`" would be merged into "`APPABCCACVVVA`" and then hashed together to obtain the hash.
-	:::
-
-	:::info Implementing InstructionsAndConstants
-	You must simply add the hashes of '`Instructions`' and '`Constants`' together, and take the hash of that. 
+	:::info Implementation
+	You must use the instructions and constants of the given function to obtain the hash.
 	:::
 
 	@error Unsupported hash type. -- The given hash type is not supported by the executor.
 ]=]
 function closures.getfunctionhash<T..., U...>(
-	fn: (T...) -> U...,
-	hashType: "Instructions" | "Constants" | "InstructionsAndConstants"
+	fn: (T...) -> U...
 ): string
 	return nil :: any
 end

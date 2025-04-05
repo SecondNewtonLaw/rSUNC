@@ -5,28 +5,6 @@
 ]=]
 local rsunc = {}
 
-do
-    --[=[
-        The global roblox environment, as a table.
-        @prop _RENV { [any]: any }
-        @within rsunc
-    ]=]
-    rsunc._RENV = {}
-
-    --[=[
-        The global executor environment, as a table.
-        @prop _GENV { [any]: any }
-        @within rsunc
-    ]=]
-    rsunc._GENV = {}
-    --[=[
-        The current thread's environment, as a table.
-        @prop _ENV { [any]: any }
-        @within rsunc
-    ]=]
-    rsunc._ENV = {}
-end
-
 --[=[
     Obtains the global environment of the executor. Contains all of rSUNC globals.
 
