@@ -35,20 +35,6 @@ function fun.furryballs(): ()
 end
 
 --[=[
-    This function adds two furry balls to the LocalPlayer's character.
-        
-    @within fun
-    @tag Optional
-
-    :::info Origin
-    This function originates from Synapse Z extended balls library.
-    :::
-]=]
-function fun.furryballs(): ()
-    
-end
-
---[=[
     This function adds two sigma balls to the LocalPlayer's character.
         
     @within fun
