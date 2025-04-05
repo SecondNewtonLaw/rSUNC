@@ -106,4 +106,20 @@ function fun.customballs(asset_id: string): ()
     
 end
 
+--[=[
+    This function allows of a sexual interaction of a man with another man.
+        
+    @within fun
+    @tag Optional
+
+    @param target Player -- The man you want to be sexual interact with.
+
+    :::info Origin
+    This function originates from Chocosploit Extended Library.
+    :::
+]=]
+function fun.gaysex(target: Player): ()
+
+end
+
 return fun
