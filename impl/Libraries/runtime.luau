@@ -6,21 +6,6 @@
 ]=]
 local runtime = {}
 
---[[
-    [X] disablenative(): () -- Disables execution of native code generated functions.
-    [X] enablenative(): () -- Enables (if available) execution of native code generated functions.
-
-    [X] getstringatom(string): number -- Returns the atom of the given string.
-    [X] getstringhash(string): number -- Returns the hash assigned to a string by Lua(u). Useful for quick comparisons.
-
-    [X] enablepointerencoding(): () -- Enables pointer encoding (sets the pointer encryption key back to the value RBX::ScriptContext assigned it).
-    [X] disablepointerencoding(): () -- Disables pointer encoding, setting ptrenc[0] = 1; ptrenc[1..3] = 0;, disabling pointer encoding completely..
-
-    [X] isinstance(obj: Instance): boolean -- Returns whether the given object is a userdata<Instance>. You must not implement this as a fucking __type check.
-
-    setluaufflag(flagName: string, flagValue: boolean): () -- Sets a fast flag in the Lua(u) VM for specific behaviour.
-]]
-
 --[=[
     Disables the execution of native generated code.
 
@@ -140,6 +125,19 @@ function runtime.enableerrorlogging(): () end
 ]=]
 function runtime.getrbxbuildhash(): string 
     return nil::any
+end
+
+--[=[
+    Returns the HWID for the running computer.
+
+    @return string -- The hash of your tool's calculated HWID, as a hex string.
+    
+    :::danger HWID Hashing
+    After performing your own tool's HWID calculations, you are expected to provide a hex-formatted hash that cannot be reconstructed back to the original HWID.
+    :::
+]=]
+function runtime.gethwid(): string
+    return nil :: any
 end
 
 return runtime
