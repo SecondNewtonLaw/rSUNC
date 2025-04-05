@@ -43,7 +43,7 @@ local rsunc = {}
     ```
 ]=]
 function rsunc.getgenv(): { [any]: any }
-	return nil :: any
+    return nil :: any
 end
 
 --[=[
@@ -67,7 +67,7 @@ end
     @return {[any]: any} -- The Luau registry
 ]=]
 function rsunc.getreg(): { [any]: any }
-	return nil :: any
+    return nil :: any
 end
 
 --[=[
@@ -78,7 +78,7 @@ end
 
 ]=]
 function rsunc.getscriptglobals(): { _G: { [any]: any }, shared: { [any]: any } }
-	return nil :: any
+    return nil :: any
 end
 
 return rsunc

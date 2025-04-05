@@ -17,7 +17,7 @@ local memory = {}
     :::
 ]=]
 function memory.getgc(includeTables: boolean): { vector | buffer | { [any]: any } | string | (...any) -> ...any }
-	return nil :: any
+    return nil :: any
 end
 
 --[=[
@@ -38,7 +38,7 @@ end
     @error Already suspended -- The Garbage collector is already suspended. You must first resume it using memory.resumegc before calling memory.suspendgc again.
 ]=]
 function memory.suspendgc(): any
-	return nil :: any
+    return nil :: any
 end
 
 --[=[
@@ -48,7 +48,7 @@ end
 
 ]=]
 function memory.resumegc(): ()
-	return nil :: any
+    return nil :: any
 end
 
 --[=[
@@ -58,7 +58,7 @@ end
     @return GcState -- The current state of the Garbage Collector
 ]=]
 function memory.getgcstate(): any
-	return nil :: any
+    return nil :: any
 end
 
 --[=[
@@ -102,7 +102,7 @@ function memory.stepgc(): () end
     ```
 ]=]
 function memory.isreferenced<T>(object: T): boolean
-	return nil :: any
+    return nil :: any
 end
 
 return memory

@@ -40,5 +40,4 @@ function scheduler:ConnectToPostStep<T..., U...>(jobName: SchedulerJobName, call
     return nil :: any
 end
 
-
 return scheduler

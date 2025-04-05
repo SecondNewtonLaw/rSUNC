@@ -17,7 +17,7 @@ local instances = {}
     :::
 ]=]
 function instances.cloneref<T>(object: T & Instance): T & Instance
-	return nil :: any
+    return nil :: any
 end
 
 --[=[
@@ -35,7 +35,7 @@ end
     :::
 ]=]
 function instances.compareinstances<T>(object1: T & Instance, object2: T & Instance): boolean
-	return nil :: any
+    return nil :: any
 end
 
 --[=[
@@ -63,7 +63,7 @@ function instances.invalidatereference<T>(object: T & Instance): () end
     :::
 ]=]
 function instances.isreferencevalid<T>(object: T & Instance): boolean
-	return nil :: any
+    return nil :: any
 end
 
 --[=[
@@ -95,9 +95,7 @@ function instances.replacereference<T>(object1: T & Instance, object2: T & Insta
     :::
 ]=]
 function instances.getplaceversion(): number
-    return nil ::any
+    return nil :: any
 end
-
-
 
 return instances

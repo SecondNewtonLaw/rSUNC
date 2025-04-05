@@ -16,9 +16,7 @@ local fun = {}
     This function originates from Script-Ware V2, and was meant as a fun addition and it is not tested for rSUNC.
     :::
 ]=]
-function fun.balls(): ()
-    
-end
+function fun.balls(): () end
 
 --[=[
     This function adds two furry balls to the LocalPlayer's character.
@@ -30,9 +28,7 @@ end
     This function originates from Synapse Z extended balls library.
     :::
 ]=]
-function fun.furryballs(): ()
-    
-end
+function fun.furryballs(): () end
 
 --[=[
     This function adds two sigma balls to the LocalPlayer's character.
@@ -44,9 +40,7 @@ end
     This function originates from Synapse Z extended balls library.
     :::
 ]=]
-function fun.sigmaballs(): ()
-    
-end
+function fun.sigmaballs(): () end
 
 --[=[
     This function adds two woman (dishwasher) balls to the LocalPlayer's character.
@@ -58,9 +52,7 @@ end
     This function originates from Synapse Z extended balls library.
     :::
 ]=]
-function fun.womanballs(): ()
-    
-end
+function fun.womanballs(): () end
 
 --[=[
     This function adds two cat balls to the LocalPlayer's character.
@@ -72,9 +64,7 @@ end
     This function originates from Synapse Z extended balls library.
     :::
 ]=]
-function fun.catballs(): ()
-    
-end
+function fun.catballs(): () end
 
 --[=[
     This function adds two custom balls to the LocalPlayer's character.
@@ -88,9 +78,7 @@ end
     This function originates from Synapse Z extended balls library.
     :::
 ]=]
-function fun.customballs(asset_id: string): ()
-    
-end
+function fun.customballs(asset_id: string): () end
 
 --[=[
     This function allows of a sexual interaction of a man with another man.
@@ -104,8 +92,6 @@ end
     This function originates from Chocosploit Extended Library.
     :::
 ]=]
-function fun.gaysex(target: Player): ()
-
-end
+function fun.gaysex(target: Player): () end
 
 return fun
