@@ -14,11 +14,13 @@ local closures = {}
 	@param fn (T...) -> U... -- The function to hash.
 	@param hash "SHA384" | "BLAKE2B" | "BLAKE3" -- The hash type, defaults to SHA384.
 	@return string -- The hex representation of the Blake2B hash of the function.
+	
 
 	:::info Implementation
 	You must use the instructions and constants of the given function to obtain the hash.
 	:::
 
+	@error function must be a Luau closure. -- The first parameter was a C function instead of a Luau function.
 	@error Unsupported hash type. -- The given hash type is not supported by the executor.
 ]=]
 function closures.getfunctionhash<T..., U...>(fn: (T...) -> U..., hash: "SHA384" | "BLAKE2B" | "BLAKE3"): string
