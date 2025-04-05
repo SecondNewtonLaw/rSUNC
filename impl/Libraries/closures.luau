@@ -35,10 +35,10 @@ end
 	@param hook (T...) -> U... -- The hook.
 	@return (T...) -> U... -- The old/original function.
 	@error Too many upvalues! -- The function to hook has more upvalues than the function you want to hook it with. (This error may not show on some implementations.)
-	@error this function cannot be hooked from Luau -- The function has been marked as unhookable by `makeunhookable` or by native executor code.
+	@error This function cannot be hooked from Luau -- The function has been marked as unhookable by `makeunhookable` or by native executor code.
 
 	:::info Implementations
-	Some implementations of this function may bypass upvalue limits for you. If this is not the case, wrap `hook` in a `newcclosure`/ `newlclosure` before calling `hookfunction`.
+	Some implementations of this function may bypass upvalue limits for you. If this is not the case, wrap `hook` in `newcclosure`/`newlclosure` before calling `hookfunction`.
 	:::
 
 	:::tip Restoring Hooked Functions
@@ -87,7 +87,7 @@ end
 	end
 	
 	a() -- Set variables
-	local original = closures.hookfunction(a, b) -- If this call fails, consider implcitly wrapping `b` in a newlclosure!
+	local original = closures.hookfunction(a, b) -- If this call fails, consider implicitly wrapping `b` in a newlclosure!
 
 	a()
 	assert(a == "E" and b == "F" and c == "D") -- If this errors, the upvalues are improperly set, and this could lead to a crash!
@@ -121,7 +121,7 @@ end
 	Restores any hooks done to `restoreWhat`, regardless of the hook type (i.e., C closure hook, Luau closure hook, ...) and of how many hooks were done to `restoreWhat`.
 
 	@param restoreWhat (T...) -> U... -- The function that should be restored.
-	@error function is not hooked -- The function is not hooked, and thus cannot be restored. Use `ishooked` before calling this function!
+	@error Function is not hooked -- The function is not hooked, and thus cannot be restored. Use `ishooked` before calling this function!
 ]=]
 function closures.restorefunction<T..., U...>(restoreWhat: (T...) -> U...): () end
 
@@ -166,7 +166,7 @@ end
 	@return (T...) -> U... -- 
 
 	:::info Obfuscators
-	Obfuscators like Luraph:tm: use the function environment to wrap closures and bypass upvalue limits. Make sure that the environment of the pushed wrapper proxies the environment of the original function using `__index`. This should fix issues relating to Luraph:tm: not working with this function.
+	Obfuscators like Luraph™ use the function environment to wrap closures and bypass upvalue limits. Make sure that the environment of the pushed wrapper proxies the environment of the original function using `__index`. This should fix issues relating to Luraph™ not working with this function.
 	:::
 
 	:::warning
@@ -198,7 +198,7 @@ end
 
 	assert(#debug.getupvalues(a) == 1, "debug.getupvalues failure") -- Validate the behaviour of debug.getupvalues.
 	assert(#debug.getupvalues(closures.wrapclosure(a)) == 0, "wrapped closure has upreferences/upvalues")
-	assert(islclosure(a) == iscclosure(closures.wrapclosure(a)), "closure type-mismatch")
+	assert(islclosure(a) == iscclosure(closures.wrapclosure(a)), "closure type mismatch")
 
 	-- If this script errors, your wrapclosure may not be working properly.
 	```
@@ -289,8 +289,8 @@ function closures.makeunhookable<T..., U...>(fn: (T...) -> U...): () end
 	:::danger newcclosures
 	For newcclosures, the result must be derived from the 'deepest' closure it wraps.
 	
-	For example, if `fn1` is a newcclosure that wraps a newcclosure that wraps a luau function, and `fn2` is a Luau function, you must search to the deepst call fn1 can do and check if it is `fn2`.
-	The same should happen if `fn2` is the nested newcclosure and `fn1` is a luau function.
+	For example, if `fn1` is a newcclosure that wraps a newcclosure that wraps a luau function, and `fn2` is a Luau function, you must search to the deepest call fn1 can do and check if it is `fn2`.
+	The same should happen if `fn2` is the nested `newcclosure` and `fn1` is a luau function.
 	:::
 
 	This function does not check if the function code is the same, only if the two functions point to the same 'Prototype' or 'C function'.
