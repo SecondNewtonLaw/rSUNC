@@ -8,10 +8,11 @@
 local closures = {}
 
 --[=[
-	Provides a Blake2B hash with a digest size of 64 in hex format for the given function
+	Provides a hash with a digest size of 48 (384 bits) in hex format for the given function
 
 	@within closures
 	@param fn (T...) -> U... -- The function to hash.
+	@param hash "SHA384" | "BLAKE2B" | "BLAKE3" -- The hash type, defaults to SHA384.
 	@return string -- The hex representation of the Blake2B hash of the function.
 
 	:::info Implementation
@@ -20,7 +21,7 @@ local closures = {}
 
 	@error Unsupported hash type. -- The given hash type is not supported by the executor.
 ]=]
-function closures.getfunctionhash<T..., U...>(fn: (T...) -> U...): string
+function closures.getfunctionhash<T..., U...>(fn: (T...) -> U..., hash: "SHA384" | "BLAKE2B" | "BLAKE3"): string
 	return nil :: any
 end
 
