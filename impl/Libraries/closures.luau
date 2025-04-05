@@ -172,7 +172,26 @@ end
     :::warning
     This function, depending on the implementation, may rely on function environments to work or in a closure map-backed proxy function (like in newcclosure). Beware of this when using the function.
     :::
-    ]=]
+
+    #### Example Implementation (In Luau)
+    ```lua
+    local function newlclosure<T..., U...>(f: (T...) -> U...): (T...) -> U...
+        local env = getfenv(f) -- Get environment (env of f gets deoptimized)
+        local x = setmetatable({
+            __F = f, -- Store function on environment (prevents upreference)
+        }, {
+            __index = env, -- proxy original fenv for obfuscator support
+            __newindex = env, -- proxy original fenv for obfuscator support
+        })
+
+        local nf = function(...)
+            return __F(...)  -- proxy call
+        end
+        setfenv(nf, x) -- set func env (env of nf gets deoptimized)
+        return nf
+    end
+    ```
+]=]
 function closures.newlclosure<T..., U...>(fn: (T...) -> U...): (T...) -> U...
     return nil :: any
 end
