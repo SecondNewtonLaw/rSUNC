@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="plugin-moonwave plugin-id-moonwave" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">closures | RbxStu Unified Naming Convention</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://SecondNewtonLaw.github.io/rSUNC-public/api/closures"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="closures | RbxStu Unified Naming Convention"><meta data-rh="true" name="description" content="Contains functions which interact and modify closures and their behaviour."><meta data-rh="true" property="og:description" content="Contains functions which interact and modify closures and their behaviour."><link data-rh="true" rel="canonical" href="https://SecondNewtonLaw.github.io/rSUNC-public/api/closures"><link data-rh="true" rel="alternate" href="https://SecondNewtonLaw.github.io/rSUNC-public/api/closures" hreflang="en"><link data-rh="true" rel="alternate" href="https://SecondNewtonLaw.github.io/rSUNC-public/api/closures" hreflang="x-default"><link rel="stylesheet" href="/rSUNC-public/assets/css/styles.5cbed574.css">
+<script src="/rSUNC-public/assets/js/runtime~main.ab983e27.js" defer="defer"></script>
+<script src="/rSUNC-public/assets/js/main.98fa6e15.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();null!==e?t(e):window.matchMedia("(prefers-color-scheme: dark)").matches?t("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,t("light"))}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/rSUNC-public/"><b class="navbar__title text--truncate">RbxStu Unified Naming Convention</b></a><a class="navbar__item navbar__link" href="/rSUNC-public/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/rSUNC-public/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://discord.gg/xruheb5psN" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://github.com/SecondNewtonLaw/rSUNC" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0 docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC-public/api/global">Uncategorized/Miscellaneous</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/rSUNC-public/api/closures">Libraries</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/rSUNC-public/api/closures">closures</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC-public/api/http">http</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC-public/api/instances">instances</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC-public/api/memory">memory</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC-public/api/rsunc">rsunc</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC-public/api/runtime">runtime</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC-public/api/scheduler">scheduler</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC-public/api/GcState">Custom Types</a></div></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">closures</span></h1><div class="luaClassTags_EipM"><span class="docTag__6UZ" style="border-color:#218c74;color:#218c74">Library</span></div><div>
+<p>Contains functions which interact and modify closures and their behaviour.</p>
+</div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getfunctionhash"><code style="text-decoration:none">getfunctionhash</code><a href="#getfunctionhash" class="hash-link" aria-label="Direct link to getfunctionhash" title="Direct link to getfunctionhash">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L26"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">getfunctionhash</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The function to hash.</p>
+</span></span></div><div><code>hash<!-- -->: </code><code class="blue_P4bS">&quot;SHA384&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;BLAKE2B&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;BLAKE3&quot;</code><span class="inlineDescription_G7Er">-- <span>
+<p>The hash type, defaults to SHA384.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The hex representation of the Blake2B hash of the function.</p>
+</span></span></div><div>
+<p>Provides a hash with a digest size of 48 (384 bits) in hex format for the given function</p>
+
+  
+    
+    
+      <div class="admonition admonition-info alert alert--info">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+                <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+              </svg></span><span class="admonition-title">Implementation</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>You must use the instructions and constants of the given function to obtain the hash.</p>
+        </div>
+      </div>
+    
+  
+
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>function must be a Luau closure.</td><td>The first parameter was a C function instead of a Luau function.</td></tr><tr><td>Unsupported hash type.</td><td>The given hash type is not supported by the executor.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="hookfunction"><code style="text-decoration:none">hookfunction</code><a href="#hookfunction" class="hash-link" aria-label="Direct link to hookfunction" title="Direct link to hookfunction">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L116"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">hookfunction</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>Function to hook.</p>
+</span></span></div><div><code>hook<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+<p>The hook.</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+<p>The old/original function.</p>
+</span></span></div><div>
+<p>Hooks the given function with the desired hook. This function supports hooking all kinds of closures, from Lua to C, C to Lua, etc.</p>
+
+  
+    
+    
+      <div class="admonition admonition-info alert alert--info">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+                <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+              </svg></span><span class="admonition-title">Implementations</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>Some implementations of this function may bypass upvalue limits for you. If this is not the case, wrap <code>hook</code> in <code>newcclosure</code>/<code>newlclosure</code> before calling <code>hookfunction</code>.</p>
+        </div>
+      </div>
+    
+  
+
+
+  
+    
+    
+      <div class="admonition admonition-success alert alert--success">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16">
+                <path d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path>
+              </svg></span><span class="admonition-title">Restoring Hooked Functions</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>You can restore functions hooked with <code>hookfunction</code> using <code>restorefunction</code>, in case <code>restorefunction</code> is not available you may unhook by calling <code>hookfunction</code> with the first function being the hooked function, and the second being the original one.</p>
+        </div>
+      </div>
+    
+  
+
+<h2>Examples:</h2>
+<h3>Testing hookfunction and restorefunction:</h3>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string">"baa"</span>
+<span class="token keyword">end</span>
+<span class="token keyword">local</span> <span class="token keyword">function</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string">"caa"</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">local</span> aReturn <span class="token operator">=</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">local</span> bReturn <span class="token operator">=</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">local</span> hooked <span class="token operator">=</span> closures<span class="token punctuation">.</span><span class="token function">hookfunction</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+<span class="token keyword">local</span> hookedReturn <span class="token operator">=</span> <span class="token function">hooked</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">assert</span><span class="token punctuation">(</span>hookedReturn <span class="token operator">==</span> aReturn<span class="token punctuation">)</span>
+<span class="token function">assert</span><span class="token punctuation">(</span><span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> bReturn<span class="token punctuation">)</span>
+<span class="token function">assert</span><span class="token punctuation">(</span>hooked <span class="token operator">~=</span> a <span class="token keyword">and</span> b <span class="token operator">~=</span> a<span class="token punctuation">)</span>
+closures<span class="token punctuation">.</span><span class="token function">restorefunction</span><span class="token punctuation">(</span>hooked<span class="token punctuation">,</span> a<span class="token punctuation">)</span> <span class="token comment">-- Restore a again.</span>
+<span class="token function">assert</span><span class="token punctuation">(</span><span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> aReturn <span class="token keyword">and</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">~=</span> hookedReturn<span class="token punctuation">)</span>
+
+<span class="token comment">-- If this script errors, your hookfunction may not be working properly.</span>
+</code></pre>
+<h3>Example testing upvalue limits:</h3>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> a <span class="token operator">=</span> <span class="token string">"A"</span>
+<span class="token keyword">local</span> b <span class="token operator">=</span> <span class="token string">"B"</span>
+<span class="token keyword">local</span> c <span class="token operator">=</span> <span class="token string">"C"</span>
+<span class="token keyword">local</span> <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Upvalue count: 3</span>
+    a <span class="token operator">=</span> <span class="token string">"B"</span>
+    b <span class="token operator">=</span> <span class="token string">"C"</span>
+    c <span class="token operator">=</span> <span class="token string">"D"</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">local</span> <span class="token keyword">function</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Upvalue Count: 2</span>
+    a <span class="token operator">=</span> <span class="token string">"E"</span>
+    b <span class="token operator">=</span> <span class="token string">"F"</span>
+<span class="token keyword">end</span>
+
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Set variables</span>
+<span class="token keyword">local</span> original <span class="token operator">=</span> closures<span class="token punctuation">.</span><span class="token function">hookfunction</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token comment">-- If this call fails, consider implicitly wrapping `b` in a newlclosure!</span>
+
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">assert</span><span class="token punctuation">(</span>a <span class="token operator">==</span> <span class="token string">"E"</span> <span class="token keyword">and</span> b <span class="token operator">==</span> <span class="token string">"F"</span> <span class="token keyword">and</span> c <span class="token operator">==</span> <span class="token string">"D"</span><span class="token punctuation">)</span> <span class="token comment">-- If this errors, the upvalues are improperly set, and this could lead to a crash!</span>
+<span class="token function">assert</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3>Example testing hooking pairs:</h3>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> upref <span class="token operator">=</span> <span class="token keyword">false</span>
+<span class="token keyword">local</span> dummyFunc <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+    upref <span class="token operator">=</span> f <span class="token operator">==</span> <span class="token string">"Hello"</span>
+<span class="token keyword">end</span>
+
+<span class="token keyword">local</span> old<span class="token punctuation">;</span> old <span class="token operator">=</span> closures<span class="token punctuation">.</span><span class="token function">hookfunction</span><span class="token punctuation">(</span>coroutine<span class="token punctuation">.</span>resume<span class="token punctuation">,</span> dummyFunc<span class="token punctuation">)</span> <span class="token comment">-- Hook C -> L. This test also checks that hookfunction can bypass upvalue limits.</span>
+coroutine<span class="token punctuation">.</span><span class="token function">resume</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> <span class="token keyword">not</span> upref <span class="token keyword">then</span>
+    <span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"hookfunction"</span><span class="token punctuation">,</span> <span class="token string">"Failed to hook C -> L Closures"</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+upref <span class="token operator">=</span> <span class="token keyword">false</span>
+closures<span class="token punctuation">.</span><span class="token function">hookfunction</span><span class="token punctuation">(</span>coroutine<span class="token punctuation">.</span>resume<span class="token punctuation">,</span> old<span class="token punctuation">)</span>
+<span class="token function">pcall</span><span class="token punctuation">(</span>coroutine<span class="token punctuation">.</span>resume<span class="token punctuation">,</span> <span class="token string">"Hello"</span><span class="token punctuation">)</span>
+</code></pre>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Too many upvalues!</td><td>The function to hook has more upvalues than the function you want to hook it with. (This error may not show on some implementations.)</td></tr><tr><td>This function cannot be hooked from Luau</td><td>The function has been marked as unhookable by `protectfunction` or by native executor code.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="restorefunction"><code style="text-decoration:none">restorefunction</code><a href="#restorefunction" class="hash-link" aria-label="Direct link to restorefunction" title="Direct link to restorefunction">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L126"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">restorefunction</code><code>(</code><div class="inset_uKQm"><div><code>restoreWhat<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+<p>The function that should be restored.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Restores any hooks done to <code>restoreWhat</code>, regardless of the hook type (i.e., C closure hook, Luau closure hook, ...) and of how many hooks were done to <code>restoreWhat</code>.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Function is not hooked</td><td>The function is not hooked, and thus cannot be restored. Use `ishooked` before calling this function!</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="loadstring"><code style="text-decoration:none">loadstring</code><a href="#loadstring" class="hash-link" aria-label="Direct link to loadstring" title="Direct link to loadstring">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L145"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">loadstring</code><code>(</code><div class="inset_uKQm"><div><code>luauCode<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The code to compile and load.</p>
+</span></span></div><div><code>chunkName<!-- -->: </code><code class="blue_P4bS">string?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The name of the chunk to load.</p>
+</span></span></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><code class="blue_P4bS">T...</code><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">U...</code><code class="purple_ieR2">)</code><code class="op_lSLc"> | </code><code class="blue_P4bS">nil</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The loaded function, if loading succeeded.</p>
+</span></span></div><div><code class="blue_P4bS">string?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The error message, if loading failed.</p>
+</span></span></div></div><code>)</code></div><div>
+<p>Compiles and loads the given <code>luauCode</code>. If <code>chunkName</code> is not provided, it must default to either: a pseudo-randomly generated string, or <code>=loadstring</code>.</p>
+<p>
+  Loadstring must compile the code with the following compile configuration:
+  - Optimization Level 1
+  - Debug Level 1
+</p>
+<p>The function must also mark the environment as 'unsafe' to disable environment optimizations as per Luau specifications.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>N/A</td><td>This function does not explicitly error, however it returns an error message if the code fails to load in the second return.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="newcclosure"><code style="text-decoration:none">newcclosure</code><a href="#newcclosure" class="hash-link" aria-label="Direct link to newcclosure" title="Direct link to newcclosure">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L157"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">newcclosure</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>Function to wrap</p>
+</span></span></div><div><code>debugName<!-- -->: </code><code class="blue_P4bS">string?</code><span class="inlineDescription_G7Er">-- <span>
+<p>The name of the function, optional.</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code></div><div>
+<p>Wraps the given closure into a upvalue-less C closure.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="newlclosure"><code style="text-decoration:none">newlclosure</code><a href="#newlclosure" class="hash-link" aria-label="Direct link to newlclosure" title="Direct link to newlclosure">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L195"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">newlclosure</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+<p>Function to wrap</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code></div><div>
+<p>Wraps the given closure into a upvalue-less L closure.</p>
+
+  
+    
+    
+      <div class="admonition admonition-info alert alert--info">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+                <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+              </svg></span><span class="admonition-title">Obfuscators</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>Obfuscators like Luraph™ use the function environment to wrap closures and bypass upvalue limits. Make sure that the environment of the pushed wrapper proxies the environment of the original function using <code>__index</code>. This should fix issues relating to Luraph™ not working with this function.</p>
+        </div>
+      </div>
+    
+  
+
+
+  
+    
+    
+      <div class="admonition admonition-warning alert alert--warning">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path>
+              </svg></span><span class="admonition-title">WARNING</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>This function, depending on the implementation, may rely on function environments to work or in a closure map-backed proxy function (like in newcclosure). Beware of this when using the function.</p>
+        </div>
+      </div>
+    
+  
+
+<h4>Example Implementation (In Luau)</h4>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> <span class="token keyword">function</span> newlclosure<span class="token operator">&#x3C;</span>T<span class="token punctuation">...</span><span class="token punctuation">,</span> U<span class="token punctuation">...</span><span class="token operator">></span><span class="token punctuation">(</span>f<span class="token punctuation">:</span> <span class="token punctuation">(</span>T<span class="token punctuation">...</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> U<span class="token punctuation">...</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>T<span class="token punctuation">...</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> U<span class="token punctuation">...</span>
+    <span class="token keyword">local</span> env <span class="token operator">=</span> <span class="token function">getfenv</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span> <span class="token comment">-- Get environment (env of f gets deoptimized)</span>
+    <span class="token keyword">local</span> x <span class="token operator">=</span> <span class="token function">setmetatable</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        __F <span class="token operator">=</span> f<span class="token punctuation">,</span> <span class="token comment">-- Store function on environment (prevents upreference)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        __index <span class="token operator">=</span> env<span class="token punctuation">,</span> <span class="token comment">-- proxy original fenv for obfuscator support</span>
+        __newindex <span class="token operator">=</span> env<span class="token punctuation">,</span> <span class="token comment">-- proxy original fenv for obfuscator support</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">local</span> nf <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">...</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token function">__F</span><span class="token punctuation">(</span><span class="token punctuation">...</span><span class="token punctuation">)</span>  <span class="token comment">-- proxy call</span>
+    <span class="token keyword">end</span>
+    <span class="token function">setfenv</span><span class="token punctuation">(</span>nf<span class="token punctuation">,</span> x<span class="token punctuation">)</span> <span class="token comment">-- set func env (env of nf gets deoptimized)</span>
+    <span class="token keyword">return</span> nf
+<span class="token keyword">end</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="wrapclosure"><code style="text-decoration:none">wrapclosure</code><a href="#wrapclosure" class="hash-link" aria-label="Direct link to wrapclosure" title="Direct link to wrapclosure">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L225"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">wrapclosure</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+<p>Function to wrap</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+<p>A copy of the function, without upvalues.</p>
+</span></span></div><div>
+<p>Wraps the given closure into an upvalue-less version of itself.</p>
+
+  
+    
+    
+      <div class="admonition admonition-info alert alert--info">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+                <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+              </svg></span><span class="admonition-title">INFO</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>This function is a proxy to the correct implementation of <code>newcclosure</code>/ <code>newlclosure</code>.</p>
+        </div>
+      </div>
+    
+  
+
+<h3>Examples:</h3>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> b <span class="token operator">=</span> <span class="token string">"b"</span>
+<span class="token keyword">local</span> <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">-- Upvalue Count: 1 ('b')</span>
+    b <span class="token operator">=</span> <span class="token string">"a"</span>
+<span class="token keyword">end</span>
+
+<span class="token function">assert</span><span class="token punctuation">(</span><span class="token operator">#</span>debug<span class="token punctuation">.</span><span class="token function">getupvalues</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"debug.getupvalues failure"</span><span class="token punctuation">)</span> <span class="token comment">-- Validate the behaviour of debug.getupvalues.</span>
+<span class="token function">assert</span><span class="token punctuation">(</span><span class="token operator">#</span>debug<span class="token punctuation">.</span><span class="token function">getupvalues</span><span class="token punctuation">(</span>closures<span class="token punctuation">.</span><span class="token function">wrapclosure</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"wrapped closure has upreferences/upvalues"</span><span class="token punctuation">)</span>
+<span class="token function">assert</span><span class="token punctuation">(</span><span class="token function">islclosure</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token function">iscclosure</span><span class="token punctuation">(</span>closures<span class="token punctuation">.</span><span class="token function">wrapclosure</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"closure type mismatch"</span><span class="token punctuation">)</span>
+
+<span class="token comment">-- If this script errors, your wrapclosure may not be working properly.</span>
+</code></pre>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="isexecutorclosure"><code style="text-decoration:none">isexecutorclosure</code><a href="#isexecutorclosure" class="hash-link" aria-label="Direct link to isexecutorclosure" title="Direct link to isexecutorclosure">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L240"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">isexecutorclosure</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+<p>The function to check.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>Whether the function is an executor closure.</p>
+</span></span></div><div>
+<p>Checks if the given function is an executor closure.</p>
+
+  
+    
+    
+      <div class="admonition admonition-info alert alert--info">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+                <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+              </svg></span><span class="admonition-title">Implementation</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>The function may use any method, as long as it returns true for executor Luau and C functions, as well as hooked functions, and false for any non-executor functions. This means that functions retrieved from loadstring or getscriptclosure will also return true.</p>
+        </div>
+      </div>
+    
+  
+
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="clonefunction"><code style="text-decoration:none">clonefunction</code><a href="#clonefunction" class="hash-link" aria-label="Direct link to clonefunction" title="Direct link to clonefunction">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L257"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">clonefunction</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+<p>The function to clone.</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+<p>A clone of the function.</p>
+</span></span></div><div>
+<p>Clones the given function, providing a unique copy of it that is completely unrelated to <code>fn</code>.</p>
+
+  
+    
+    
+      <div class="admonition admonition-danger alert alert--danger">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16">
+                <path d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path>
+              </svg></span><span class="admonition-title">Obfuscator Support</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>You must note that a cloned Luau function must have the SAME environment as the original function. If you do not provide an environment and an obfuscator depends on it for upvalues, you may face script errors.</p>
+          <p>This has been documented behaviour on scripts obfuscated by obfuscators such as Luraph, where <code>newlclosure</code> and/or <code>clonefunction</code> do not properly set the environment of the cloned function, which causes script errors.</p>
+        </div>
+      </div>
+    
+  
+
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="isclosureprotected"><code style="text-decoration:none">isclosureprotected</code><a href="#isclosureprotected" class="hash-link" aria-label="Direct link to isclosureprotected" title="Direct link to isclosureprotected">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L272"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">isclosureprotected</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+<p>The function to check.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>If true, the function is protected against hooking.</p>
+</span></span></div><div>
+<p>Returns if the given function is protected against hooks.</p>
+
+  
+    
+    
+      <div class="admonition admonition-success alert alert--success">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16">
+                <path d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path>
+              </svg></span><span class="admonition-title">Whitelists</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>You can use this function if your executor abides by rSUNC to determine if the environment is proper for your whitelist.</p>
+        </div>
+      </div>
+    
+  
+
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="ishooked"><code style="text-decoration:none">ishooked</code><a href="#ishooked" class="hash-link" aria-label="Direct link to ishooked" title="Direct link to ishooked">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L287"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">ishooked</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+<p>The function to check.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>Whether the function has been hooked.</p>
+</span></span></div><div>
+<p>Returns if the given function has been hooked.</p>
+
+  
+    
+    
+      <div class="admonition admonition-success alert alert--success">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16">
+                <path d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path>
+              </svg></span><span class="admonition-title">Whitelists</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>You can use this function if your executor abides by rSUNC to determine if the environment is proper for your whitelist.</p>
+        </div>
+      </div>
+    
+  
+
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="protectfunction"><code style="text-decoration:none">protectfunction</code><a href="#protectfunction" class="hash-link" aria-label="Direct link to protectfunction" title="Direct link to protectfunction">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L298"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">protectfunction</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+<p>The function to make unhookable and remove all hooks of.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Makes a function unable to be hooked. This function automatically reverts ANY hooks placed on the function if there are any set.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="comparefunction"><code style="text-decoration:none">comparefunction</code><a href="#comparefunction" class="hash-link" aria-label="Direct link to comparefunction" title="Direct link to comparefunction">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L353"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">comparefunction</code><code>(</code><div class="inset_uKQm"><div><code>fn1<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The first function to compare.</p>
+</span></span></div><div><code>fn2<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+<p>The second function to compare.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>Whether the two functions point to the same code.</p>
+</span></span></div><div>
+<p>Returns true if the function points to the same code. The function should return false if the function type results in a mis-match (i.e., <code>fn1</code> is a Luau closure and <code>fn2</code> is a C closure).</p>
+
+  
+    
+    
+      <div class="admonition admonition-danger alert alert--danger">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16">
+                <path d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path>
+              </svg></span><span class="admonition-title">newcclosures/ newlclosure comparison</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>For newcclosures and newlclosures, the result must be derived from the 'deepest' closure it wraps.</p>
+          <p>
+            For example, if <code>fn1</code> is a newcclosure that wraps a newlclosure that wraps a luau function, and <code>fn2</code> is a Luau function, you must search to the deepst call fn1 can do and check if it is <code>fn2</code>.
+            The same should happen if <code>fn2</code> is the nested one and <code>fn1</code> is a luau function.
+          </p>
+        </div>
+      </div>
+    
+  
+
+<p>This function does not check if the function code is the same, only if the two functions point to the same 'Prototype' or 'C function'.</p>
+<h3>Examples</h3>
+<pre class="language-lua"><code class="language-lua">print<span class="token string">"comparefunction test"</span>
+<span class="token keyword">local</span> x <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">end</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">comparefunction</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">end</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">end</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- false</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">comparefunction</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- true</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">comparefunction</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token function">clonefunction</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- true</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">comparefunction</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token function">newcclosure</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- true</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">comparefunction</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token function">newlclosure</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- true</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">comparefunction</span><span class="token punctuation">(</span><span class="token function">newcclosure</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- true</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">comparefunction</span><span class="token punctuation">(</span><span class="token function">newlclosure</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- true</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">comparefunction</span><span class="token punctuation">(</span>print<span class="token punctuation">,</span> <span class="token function">newcclosure</span><span class="token punctuation">(</span>print<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- true</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">comparefunction</span><span class="token punctuation">(</span>print<span class="token punctuation">,</span> <span class="token function">newlclosure</span><span class="token punctuation">(</span>print<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- true</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">comparefunction</span><span class="token punctuation">(</span>print<span class="token punctuation">,</span> <span class="token function">newcclosure</span><span class="token punctuation">(</span>warn<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- false</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">comparefunction</span><span class="token punctuation">(</span>print<span class="token punctuation">,</span> <span class="token function">newlclosure</span><span class="token punctuation">(</span>warn<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- false</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">comparefunction</span><span class="token punctuation">(</span><span class="token function">newcclosure</span><span class="token punctuation">(</span>print<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">newcclosure</span><span class="token punctuation">(</span>print<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">-- true</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token function">comparefunction</span><span class="token punctuation">(</span>
+    <span class="token function">newcclosure</span><span class="token punctuation">(</span>
+        <span class="token function">newlclosure</span><span class="token punctuation">(</span>
+            <span class="token function">newcclosure</span><span class="token punctuation">(</span>
+                print
+            <span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">newlclosure</span><span class="token punctuation">(</span>
+        <span class="token function">newcclosure</span><span class="token punctuation">(</span>
+            <span class="token function">newlclosure</span><span class="token punctuation">(</span>
+                print
+            <span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> <span class="token comment">-- true</span>
+print<span class="token string">"comparefunction test end"</span>
+</code></pre>
+</div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;getfunctionhash&quot;,
+            &quot;desc&quot;: &quot;Provides a hash with a digest size of 48 (384 bits) in hex format for the given function\n\n\n\n:::info Implementation\nYou must use the instructions and constants of the given function to obtain the hash.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;fn&quot;,
+                    &quot;desc&quot;: &quot;The function to hash.&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;hash&quot;,
+                    &quot;desc&quot;: &quot;The hash type, defaults to SHA384.&quot;,
+                    &quot;lua_type&quot;: &quot;\&quot;SHA384\&quot; | \&quot;BLAKE2B\&quot; | \&quot;BLAKE3\&quot;&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The hex representation of the Blake2B hash of the function.&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;function must be a Luau closure.&quot;,
+                    &quot;desc&quot;: &quot;The first parameter was a C function instead of a Luau function.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;Unsupported hash type.&quot;,
+                    &quot;desc&quot;: &quot;The given hash type is not supported by the executor.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 26,
+                &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;hookfunction&quot;,
+            &quot;desc&quot;: &quot;Hooks the given function with the desired hook. This function supports hooking all kinds of closures, from Lua to C, C to Lua, etc.\n\n\n:::info Implementations\nSome implementations of this function may bypass upvalue limits for you. If this is not the case, wrap `hook` in `newcclosure`/`newlclosure` before calling `hookfunction`.\n:::\n\n:::tip Restoring Hooked Functions\nYou can restore functions hooked with `hookfunction` using `restorefunction`, in case `restorefunction` is not available you may unhook by calling `hookfunction` with the first function being the hooked function, and the second being the original one.\n:::\n\n\n## Examples:\n\n### Testing hookfunction and restorefunction:\n```lua\nlocal function a()\n    return \&quot;baa\&quot;\nend\nlocal function b()\n    return \&quot;caa\&quot;\nend\n\nlocal aReturn = a()\nlocal bReturn = b()\nlocal hooked = closures.hookfunction(a, b)\nlocal hookedReturn = hooked()\nassert(hookedReturn == aReturn)\nassert(a() == b() and a() == bReturn)\nassert(hooked ~= a and b ~= a)\nclosures.restorefunction(hooked, a) -- Restore a again.\nassert(a() == aReturn and a() ~= hookedReturn)\n\n-- If this script errors, your hookfunction may not be working properly.\n```\n\n### Example testing upvalue limits:\n```lua\nlocal a = \&quot;A\&quot;\nlocal b = \&quot;B\&quot;\nlocal c = \&quot;C\&quot;\nlocal function a() -- Upvalue count: 3\n    a = \&quot;B\&quot;\n    b = \&quot;C\&quot;\n    c = \&quot;D\&quot;\nend\n\nlocal function b() -- Upvalue Count: 2\n    a = \&quot;E\&quot;\n    b = \&quot;F\&quot;\nend\n\na() -- Set variables\nlocal original = closures.hookfunction(a, b) -- If this call fails, consider implicitly wrapping `b` in a newlclosure!\n\na()\nassert(a == \&quot;E\&quot; and b == \&quot;F\&quot; and c == \&quot;D\&quot;) -- If this errors, the upvalues are improperly set, and this could lead to a crash!\nassert()\n```\n\n### Example testing hooking pairs:\n```lua\nlocal upref = false\nlocal dummyFunc = function(f)\n    upref = f == \&quot;Hello\&quot;\nend\n\nlocal old; old = closures.hookfunction(coroutine.resume, dummyFunc) -- Hook C -&gt; L. This test also checks that hookfunction can bypass upvalue limits.\ncoroutine.resume(\&quot;Hello\&quot;)\n\nif not upref then\n    error(\&quot;hookfunction\&quot;, \&quot;Failed to hook C -&gt; L Closures\&quot;)\nend\n\nupref = false\nclosures.hookfunction(coroutine.resume, old)\npcall(coroutine.resume, \&quot;Hello\&quot;)\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;fn&quot;,
+                    &quot;desc&quot;: &quot;Function to hook.&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;hook&quot;,
+                    &quot;desc&quot;: &quot;The hook.&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The old/original function.&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;Too many upvalues!&quot;,
+                    &quot;desc&quot;: &quot;The function to hook has more upvalues than the function you want to hook it with. (This error may not show on some implementations.)&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;This function cannot be hooked from Luau&quot;,
+                    &quot;desc&quot;: &quot;The function has been marked as unhookable by `protectfunction` or by native executor code.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 116,
+                &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;restorefunction&quot;,
+            &quot;desc&quot;: &quot;Restores any hooks done to `restoreWhat`, regardless of the hook type (i.e., C closure hook, Luau closure hook, ...) and of how many hooks were done to `restoreWhat`.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;restoreWhat&quot;,
+                    &quot;desc&quot;: &quot;The function that should be restored.&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;Function is not hooked&quot;,
+                    &quot;desc&quot;: &quot;The function is not hooked, and thus cannot be restored. Use `ishooked` before calling this function!&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 126,
+                &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;loadstring&quot;,
+            &quot;desc&quot;: &quot;Compiles and loads the given `luauCode`. If `chunkName` is not provided, it must default to either: a pseudo-randomly generated string, or `=loadstring`.\n\nLoadstring must compile the code with the following compile configuration:\n    - Optimization Level 1\n    - Debug Level 1\n\nThe function must also mark the environment as &#x27;unsafe&#x27; to disable environment optimizations as per Luau specifications. &quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;luauCode&quot;,
+                    &quot;desc&quot;: &quot;The code to compile and load.&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;chunkName&quot;,
+                    &quot;desc&quot;: &quot;The name of the chunk to load.&quot;,
+                    &quot;lua_type&quot;: &quot;string?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The loaded function, if loading succeeded.&quot;,
+                    &quot;lua_type&quot;: &quot;((T...) -&gt; U...) | nil&quot;
+                },
+                {
+                    &quot;desc&quot;: &quot;The error message, if loading failed.&quot;,
+                    &quot;lua_type&quot;: &quot;string?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;N/A&quot;,
+                    &quot;desc&quot;: &quot;This function does not explicitly error, however it returns an error message if the code fails to load in the second return.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 145,
+                &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;newcclosure&quot;,
+            &quot;desc&quot;: &quot;Wraps the given closure into a upvalue-less C closure.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;fn&quot;,
+                    &quot;desc&quot;: &quot;Function to wrap&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;debugName&quot;,
+                    &quot;desc&quot;: &quot;The name of the function, optional.&quot;,
+                    &quot;lua_type&quot;: &quot;string?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 157,
+                &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;newlclosure&quot;,
+            &quot;desc&quot;: &quot;Wraps the given closure into a upvalue-less L closure.\n\n\n:::info Obfuscators\nObfuscators like Luraph™ use the function environment to wrap closures and bypass upvalue limits. Make sure that the environment of the pushed wrapper proxies the environment of the original function using `__index`. This should fix issues relating to Luraph™ not working with this function.\n:::\n\n:::warning\nThis function, depending on the implementation, may rely on function environments to work or in a closure map-backed proxy function (like in newcclosure). Beware of this when using the function.\n:::\n\n#### Example Implementation (In Luau)\n```lua\nlocal function newlclosure&lt;T..., U...&gt;(f: (T...) -&gt; U...): (T...) -&gt; U...\n    local env = getfenv(f) -- Get environment (env of f gets deoptimized)\n    local x = setmetatable({\n        __F = f, -- Store function on environment (prevents upreference)\n    }, {\n        __index = env, -- proxy original fenv for obfuscator support\n        __newindex = env, -- proxy original fenv for obfuscator support\n    })\n\n    local nf = function(...)\n        return __F(...)  -- proxy call\n    end\n    setfenv(nf, x) -- set func env (env of nf gets deoptimized)\n    return nf\nend\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;fn&quot;,
+                    &quot;desc&quot;: &quot;Function to wrap&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 195,
+                &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;wrapclosure&quot;,
+            &quot;desc&quot;: &quot;Wraps the given closure into an upvalue-less version of itself.\n\n\n:::info \nThis function is a proxy to the correct implementation of `newcclosure`/ `newlclosure`.\n:::\n\n### Examples:\n\n```lua\nlocal b = \&quot;b\&quot;\nlocal function a() -- Upvalue Count: 1 (&#x27;b&#x27;)\n    b = \&quot;a\&quot;\nend\n\nassert(#debug.getupvalues(a) == 1, \&quot;debug.getupvalues failure\&quot;) -- Validate the behaviour of debug.getupvalues.\nassert(#debug.getupvalues(closures.wrapclosure(a)) == 0, \&quot;wrapped closure has upreferences/upvalues\&quot;)\nassert(islclosure(a) == iscclosure(closures.wrapclosure(a)), \&quot;closure type mismatch\&quot;)\n\n-- If this script errors, your wrapclosure may not be working properly.\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;fn&quot;,
+                    &quot;desc&quot;: &quot;Function to wrap&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;A copy of the function, without upvalues.&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 225,
+                &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;isexecutorclosure&quot;,
+            &quot;desc&quot;: &quot;Checks if the given function is an executor closure.\n\n\n:::info Implementation\nThe function may use any method, as long as it returns true for executor Luau and C functions, as well as hooked functions, and false for any non-executor functions. This means that functions retrieved from loadstring or getscriptclosure will also return true.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;fn&quot;,
+                    &quot;desc&quot;: &quot;The function to check.&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;Whether the function is an executor closure.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 240,
+                &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;clonefunction&quot;,
+            &quot;desc&quot;: &quot;Clones the given function, providing a unique copy of it that is completely unrelated to `fn`.\n\n\n:::danger Obfuscator Support\nYou must note that a cloned Luau function must have the SAME environment as the original function. If you do not provide an environment and an obfuscator depends on it for upvalues, you may face script errors.\n    \nThis has been documented behaviour on scripts obfuscated by obfuscators such as Luraph, where `newlclosure` and/or `clonefunction` do not properly set the environment of the cloned function, which causes script errors.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;fn&quot;,
+                    &quot;desc&quot;: &quot;The function to clone.&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;A clone of the function.&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 257,
+                &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;isclosureprotected&quot;,
+            &quot;desc&quot;: &quot;Returns if the given function is protected against hooks.\n\n\n:::tip Whitelists\nYou can use this function if your executor abides by rSUNC to determine if the environment is proper for your whitelist.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;fn&quot;,
+                    &quot;desc&quot;: &quot;The function to check.&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;If true, the function is protected against hooking.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 272,
+                &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;ishooked&quot;,
+            &quot;desc&quot;: &quot;Returns if the given function has been hooked.\n\n\n:::tip Whitelists\nYou can use this function if your executor abides by rSUNC to determine if the environment is proper for your whitelist.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;fn&quot;,
+                    &quot;desc&quot;: &quot;The function to check.&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;Whether the function has been hooked.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 287,
+                &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;protectfunction&quot;,
+            &quot;desc&quot;: &quot;Makes a function unable to be hooked. This function automatically reverts ANY hooks placed on the function if there are any set.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;fn&quot;,
+                    &quot;desc&quot;: &quot;The function to make unhookable and remove all hooks of.&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 298,
+                &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;comparefunction&quot;,
+            &quot;desc&quot;: &quot;Returns true if the function points to the same code. The function should return false if the function type results in a mis-match (i.e., `fn1` is a Luau closure and `fn2` is a C closure).\n\n\n:::danger newcclosures/ newlclosure comparison\nFor newcclosures and newlclosures, the result must be derived from the &#x27;deepest&#x27; closure it wraps.\n\nFor example, if `fn1` is a newcclosure that wraps a newlclosure that wraps a luau function, and `fn2` is a Luau function, you must search to the deepst call fn1 can do and check if it is `fn2`.\nThe same should happen if `fn2` is the nested one and `fn1` is a luau function.\n:::\n\nThis function does not check if the function code is the same, only if the two functions point to the same &#x27;Prototype&#x27; or &#x27;C function&#x27;.\n\n### Examples\n\n```lua\nprint\&quot;comparefunction test\&quot;\nlocal x = function() end\nprint(comparefunction(function() end, function() end)) -- false\nprint(comparefunction(x, x)) -- true\nprint(comparefunction(x, clonefunction(x))) -- true\nprint(comparefunction(x, newcclosure(x))) -- true\nprint(comparefunction(x, newlclosure(x))) -- true\nprint(comparefunction(newcclosure(x), x)) -- true\nprint(comparefunction(newlclosure(x), x)) -- true\nprint(comparefunction(print, newcclosure(print))) -- true\nprint(comparefunction(print, newlclosure(print))) -- true\nprint(comparefunction(print, newcclosure(warn))) -- false\nprint(comparefunction(print, newlclosure(warn))) -- false\nprint(comparefunction(newcclosure(print), newcclosure(print))) -- true\nprint(comparefunction(\n    newcclosure(\n        newlclosure(\n            newcclosure(\n                print\n            )\n        )\n    ),\n    newlclosure(\n        newcclosure(\n            newlclosure(\n                print\n            )\n        )\n    ))\n) -- true\nprint\&quot;comparefunction test end\&quot;\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;fn1&quot;,
+                    &quot;desc&quot;: &quot;The first function to compare.&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;fn2&quot;,
+                    &quot;desc&quot;: &quot;The second function to compare.&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;Whether the two functions point to the same code.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 353,
+                &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [],
+    &quot;types&quot;: [],
+    &quot;name&quot;: &quot;closures&quot;,
+    &quot;desc&quot;: &quot;Contains functions which interact and modify closures and their behaviour.&quot;,
+    &quot;tags&quot;: [
+        &quot;Library&quot;
+    ],
+    &quot;source&quot;: {
+        &quot;line&quot;: 8,
+        &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#clonefunction" class="table-of-contents__link toc-highlight">.clonefunction</a></li><li><a href="#comparefunction" class="table-of-contents__link toc-highlight">.comparefunction</a></li><li><a href="#getfunctionhash" class="table-of-contents__link toc-highlight">.getfunctionhash</a></li><li><a href="#hookfunction" class="table-of-contents__link toc-highlight">.hookfunction</a></li><li><a href="#isclosureprotected" class="table-of-contents__link toc-highlight">.isclosureprotected</a></li><li><a href="#isexecutorclosure" class="table-of-contents__link toc-highlight">.isexecutorclosure</a></li><li><a href="#ishooked" class="table-of-contents__link toc-highlight">.ishooked</a></li><li><a href="#loadstring" class="table-of-contents__link toc-highlight">.loadstring</a></li><li><a href="#newcclosure" class="table-of-contents__link toc-highlight">.newcclosure</a></li><li><a href="#newlclosure" class="table-of-contents__link toc-highlight">.newlclosure</a></li><li><a href="#protectfunction" class="table-of-contents__link toc-highlight">.protectfunction</a></li><li><a href="#restorefunction" class="table-of-contents__link toc-highlight">.restorefunction</a></li><li><a href="#wrapclosure" class="table-of-contents__link toc-highlight">.wrapclosure</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 SecondNewtonLaw. Built with Moonwave and Docusaurus</div></div></div></footer></div>
+</body>
+</html>

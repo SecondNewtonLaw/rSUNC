@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="plugin-moonwave plugin-id-moonwave" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">memory | RbxStu Unified Naming Convention</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://SecondNewtonLaw.github.io/rSUNC-public/api/memory"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="memory | RbxStu Unified Naming Convention"><meta data-rh="true" name="description" content="Provides functions to manipulate the Garbage Collector and memory in general."><meta data-rh="true" property="og:description" content="Provides functions to manipulate the Garbage Collector and memory in general."><link data-rh="true" rel="canonical" href="https://SecondNewtonLaw.github.io/rSUNC-public/api/memory"><link data-rh="true" rel="alternate" href="https://SecondNewtonLaw.github.io/rSUNC-public/api/memory" hreflang="en"><link data-rh="true" rel="alternate" href="https://SecondNewtonLaw.github.io/rSUNC-public/api/memory" hreflang="x-default"><link rel="stylesheet" href="/rSUNC-public/assets/css/styles.5cbed574.css">
+<script src="/rSUNC-public/assets/js/runtime~main.ab983e27.js" defer="defer"></script>
+<script src="/rSUNC-public/assets/js/main.98fa6e15.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();null!==e?t(e):window.matchMedia("(prefers-color-scheme: dark)").matches?t("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,t("light"))}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/rSUNC-public/"><b class="navbar__title text--truncate">RbxStu Unified Naming Convention</b></a><a class="navbar__item navbar__link" href="/rSUNC-public/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/rSUNC-public/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://discord.gg/xruheb5psN" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://github.com/SecondNewtonLaw/rSUNC" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0 docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC-public/api/global">Uncategorized/Miscellaneous</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/rSUNC-public/api/closures">Libraries</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC-public/api/closures">closures</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC-public/api/http">http</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC-public/api/instances">instances</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/rSUNC-public/api/memory">memory</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC-public/api/rsunc">rsunc</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC-public/api/runtime">runtime</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC-public/api/scheduler">scheduler</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC-public/api/GcState">Custom Types</a></div></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">memory</span></h1><div class="luaClassTags_EipM"><span class="docTag__6UZ" style="border-color:#218c74;color:#218c74">Library</span></div><div>
+<p>Provides functions to manipulate the Garbage Collector and memory in general.</p>
+</div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getgc"><code style="text-decoration:none">getgc</code><a href="#getgc" class="hash-link" aria-label="Direct link to getgc" title="Direct link to getgc">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/memory.luau#L19"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>memory<!-- -->.</code><code class="green_DgR4">getgc</code><code>(</code><div class="inset_uKQm"><div><code>includeTables<!-- -->: </code><code class="blue_P4bS">boolean?</code><span class="inlineDescription_G7Er">-- <span>
+<p>Whether to include tables in the list. Defaults to <code>false</code> if not provided.</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">vector</code><code class="op_lSLc"> | </code><code class="blue_P4bS">buffer</code><code class="op_lSLc"> | </code><code class="green_DgR4">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="green_DgR4">}</code><code class="op_lSLc"> | </code><code class="blue_P4bS">string</code><code class="op_lSLc"> | </code><code class="green_DgR4">(</code><code class="blue_P4bS">...any</code><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">...any</code><code class="purple_ieR2">}</code><code class="op_lSLc"> | </code><code class="purple_ieR2">{</code><code class="blue_P4bS">vector</code><code class="op_lSLc"> | </code><code class="blue_P4bS">buffer</code><code class="op_lSLc"> | </code><code class="blue_P4bS">string</code><code class="op_lSLc"> | </code><code class="green_DgR4">(</code><code class="blue_P4bS">...any</code><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">...any</code><code class="purple_ieR2">}</code><span class="inlineDescription_G7Er">-- <span>
+<p>A list of objects currently 'alive' in the garbage collector.</p>
+</span></span></div><div>
+<p>Returns a list of objects currently 'alive' in the garbage collector.</p>
+
+  
+    
+    
+      <div class="admonition admonition-warning alert alert--warning">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path>
+              </svg></span><span class="admonition-title">Implementation</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>This function must automatically suspend the GC to retrieve the list of objects that are correct for when the call originates.</p>
+        </div>
+      </div>
+    
+  
+
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="suspendgc"><code style="text-decoration:none">suspendgc</code><a href="#suspendgc" class="hash-link" aria-label="Direct link to suspendgc" title="Direct link to suspendgc">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/memory.luau#L40"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>memory<!-- -->.</code><code class="green_DgR4">suspendgc</code><code>(</code><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rSUNC-public/api/GcState">GcState</a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The current state of the Garbage Collector, before suspension.</p>
+</span></span></div><div>
+<p>Suspends all GC operations temporarily, returning the current state of the Garbage Collector to resume it.</p>
+
+  
+    
+    
+      <div class="admonition admonition-warning alert alert--warning">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path>
+              </svg></span><span class="admonition-title">Memory Usage</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>
+            After this function is called, memory usage may increase, as after this call the garbage collector is simply no longer collecting memory.
+            You may forcefully request the GC to run using <code>memory.gc</code> or <code>memory.stepgc</code>. Granting you full control over the GC.
+          </p>
+        </div>
+      </div>
+    
+  
+
+
+  
+    
+    
+      <div class="admonition admonition-warning alert alert--warning">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path>
+              </svg></span><span class="admonition-title">Resumption after Suspension</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>
+            After the Garbage Collector is suspended, a call to <code>memory.resumegc</code> must follow eventually.
+            If the thread does not resume the GC and it stops execution (i.e.: thread yields or dies), it will automatically resume itself on the next scheduler cycle in order to prevent a memory leak.
+          </p>
+        </div>
+      </div>
+    
+  
+
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Already suspended</td><td>The Garbage collector is already suspended. You must first resume it using memory.resumegc before calling memory.suspendgc again.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="resumegc"><code style="text-decoration:none">resumegc</code><a href="#resumegc" class="hash-link" aria-label="Direct link to resumegc" title="Direct link to resumegc">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/memory.luau#L50"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>memory<!-- -->.</code><code class="green_DgR4">resumegc</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Resumes the Garbage Collector from the previous state</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Garbage Collector Not Suspended</td><td>The garbage collector is not suspended, you cannot resume it!</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getgcstate"><code style="text-decoration:none">getgcstate</code><a href="#getgcstate" class="hash-link" aria-label="Direct link to getgcstate" title="Direct link to getgcstate">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/memory.luau#L60"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>memory<!-- -->.</code><code class="green_DgR4">getgcstate</code><code>(</code><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rSUNC-public/api/GcState">GcState</a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The current state of the Garbage Collector</p>
+</span></span></div><div>
+<p>Retrieves a copy of the current state of the garbage collector.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="gc"><code style="text-decoration:none">gc</code><a href="#gc" class="hash-link" aria-label="Direct link to gc" title="Direct link to gc">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/memory.luau#L73"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>memory<!-- -->.</code><code class="green_DgR4">gc</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>
+  Executes a full garbage collection cycle, regardless if it should be ran or not.
+  This will temporarily <a href="https://stackoverflow.com/questions/40182392/does-java-garbage-collect-always-has-to-stop-the-world">stop the world</a> to execute a full GC step.
+</p>
+
+  
+    
+    
+      <div class="admonition admonition-warning alert alert--warning">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path>
+              </svg></span><span class="admonition-title">WARNING</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>This may have a performance cost depending on how big the heap is, and could temporarily pause Roblox!</p>
+        </div>
+      </div>
+    
+  
+
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="stepgc"><code style="text-decoration:none">stepgc</code><a href="#stepgc" class="hash-link" aria-label="Direct link to stepgc" title="Direct link to stepgc">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/memory.luau#L80"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>memory<!-- -->.</code><code class="green_DgR4">stepgc</code><code>(</code><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Executes a step on the garbage collection cycle, regardless if it should be ran or not.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="isreferenced"><code style="text-decoration:none">isreferenced</code><a href="#isreferenced" class="hash-link" aria-label="Direct link to isreferenced" title="Direct link to isreferenced">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/memory.luau#L104"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>memory<!-- -->.</code><code class="green_DgR4">isreferenced</code><code>(</code><div class="inset_uKQm"><div><code>object<!-- -->: </code><code class="blue_P4bS">any</code><span class="inlineDescription_G7Er">-- <span>
+<p>The object to check.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code></div><div>
+<p>Checks if the given object is currently referenced in the Lua(u) registry.</p>
+
+  
+    
+    
+      <div class="admonition admonition-info alert alert--info">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+                <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+              </svg></span><span class="admonition-title">Remarks</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>This function checks both registry keys and values in search of the given object. This means that if <code>getreg()[object]</code> holds a value, this function must return true.</p>
+        </div>
+      </div>
+    
+  
+
+<h3>Examples</h3>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> part <span class="token operator">=</span> Instance<span class="token punctuation">.</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token string">"Part"</span><span class="token punctuation">)</span>
+
+<span class="token function">getreg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span>part<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">true</span>
+<span class="token function">assert</span><span class="token punctuation">(</span>memory<span class="token punctuation">.</span><span class="token function">isreferenced</span><span class="token punctuation">(</span>part<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">true</span><span class="token punctuation">,</span> <span class="token string">"memory.isreferenced must return true once the object is present in the registry, be it in a key, or in a value!"</span><span class="token punctuation">)</span>
+<span class="token function">getreg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span>part<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">nil</span>
+<span class="token function">assert</span><span class="token punctuation">(</span>memory<span class="token punctuation">.</span><span class="token function">isreferenced</span><span class="token punctuation">(</span>part<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">false</span><span class="token punctuation">,</span> <span class="token string">"memory.isreferenced must return false once the object is no longer present in the registry!"</span><span class="token punctuation">)</span>
+</code></pre>
+</div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;getgc&quot;,
+            &quot;desc&quot;: &quot;Returns a list of objects currently &#x27;alive&#x27; in the garbage collector.\n\n\n:::warning Implementation\nThis function must automatically suspend the GC to retrieve the list of objects that are correct for when the call originates.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;includeTables&quot;,
+                    &quot;desc&quot;: &quot;Whether to include tables in the list. Defaults to `false` if not provided.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;A list of objects currently &#x27;alive&#x27; in the garbage collector.&quot;,
+                    &quot;lua_type&quot;: &quot;{ vector | buffer | { [any]: any } | string | (...any) -&gt; ...any } | { vector | buffer | string | (...any) -&gt; ...any }&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 19,
+                &quot;path&quot;: &quot;impl/Libraries/memory.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;suspendgc&quot;,
+            &quot;desc&quot;: &quot;Suspends all GC operations temporarily, returning the current state of the Garbage Collector to resume it.\n\n:::warning Memory Usage\nAfter this function is called, memory usage may increase, as after this call the garbage collector is simply no longer collecting memory.\nYou may forcefully request the GC to run using `memory.gc` or `memory.stepgc`. Granting you full control over the GC.\n:::\n\n:::warning Resumption after Suspension\nAfter the Garbage Collector is suspended, a call to `memory.resumegc` must follow eventually.\nIf the thread does not resume the GC and it stops execution (i.e.: thread yields or dies), it will automatically resume itself on the next scheduler cycle in order to prevent a memory leak.\n:::&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The current state of the Garbage Collector, before suspension.&quot;,
+                    &quot;lua_type&quot;: &quot;GcState&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;Already suspended&quot;,
+                    &quot;desc&quot;: &quot;The Garbage collector is already suspended. You must first resume it using memory.resumegc before calling memory.suspendgc again.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 40,
+                &quot;path&quot;: &quot;impl/Libraries/memory.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;resumegc&quot;,
+            &quot;desc&quot;: &quot;Resumes the Garbage Collector from the previous state&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;Garbage Collector Not Suspended&quot;,
+                    &quot;desc&quot;: &quot;The garbage collector is not suspended, you cannot resume it!&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 50,
+                &quot;path&quot;: &quot;impl/Libraries/memory.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getgcstate&quot;,
+            &quot;desc&quot;: &quot;Retrieves a copy of the current state of the garbage collector.&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The current state of the Garbage Collector&quot;,
+                    &quot;lua_type&quot;: &quot;GcState&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 60,
+                &quot;path&quot;: &quot;impl/Libraries/memory.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;gc&quot;,
+            &quot;desc&quot;: &quot;Executes a full garbage collection cycle, regardless if it should be ran or not.\nThis will temporarily [stop the world](https://stackoverflow.com/questions/40182392/does-java-garbage-collect-always-has-to-stop-the-world) to execute a full GC step.\n:::warning\nThis may have a performance cost depending on how big the heap is, and could temporarily pause Roblox!\n:::&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 73,
+                &quot;path&quot;: &quot;impl/Libraries/memory.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;stepgc&quot;,
+            &quot;desc&quot;: &quot;Executes a step on the garbage collection cycle, regardless if it should be ran or not.&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 80,
+                &quot;path&quot;: &quot;impl/Libraries/memory.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;isreferenced&quot;,
+            &quot;desc&quot;: &quot;Checks if the given object is currently referenced in the Lua(u) registry.\n\n\n:::info Remarks\nThis function checks both registry keys and values in search of the given object. This means that if `getreg()[object]` holds a value, this function must return true.\n:::\n\n\n### Examples\n```lua\nlocal part = Instance.new(\&quot;Part\&quot;)\n\ngetreg()[part] = true\nassert(memory.isreferenced(part) == true, \&quot;memory.isreferenced must return true once the object is present in the registry, be it in a key, or in a value!\&quot;)\ngetreg()[part] = nil\nassert(memory.isreferenced(part) == false, \&quot;memory.isreferenced must return false once the object is no longer present in the registry!\&quot;)\n```&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;object&quot;,
+                    &quot;desc&quot;: &quot;The object to check.&quot;,
+                    &quot;lua_type&quot;: &quot;any&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 104,
+                &quot;path&quot;: &quot;impl/Libraries/memory.luau&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [],
+    &quot;types&quot;: [],
+    &quot;name&quot;: &quot;memory&quot;,
+    &quot;desc&quot;: &quot;Provides functions to manipulate the Garbage Collector and memory in general.&quot;,
+    &quot;tags&quot;: [
+        &quot;Library&quot;
+    ],
+    &quot;source&quot;: {
+        &quot;line&quot;: 6,
+        &quot;path&quot;: &quot;impl/Libraries/memory.luau&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#gc" class="table-of-contents__link toc-highlight">.gc</a></li><li><a href="#getgc" class="table-of-contents__link toc-highlight">.getgc</a></li><li><a href="#getgcstate" class="table-of-contents__link toc-highlight">.getgcstate</a></li><li><a href="#isreferenced" class="table-of-contents__link toc-highlight">.isreferenced</a></li><li><a href="#resumegc" class="table-of-contents__link toc-highlight">.resumegc</a></li><li><a href="#stepgc" class="table-of-contents__link toc-highlight">.stepgc</a></li><li><a href="#suspendgc" class="table-of-contents__link toc-highlight">.suspendgc</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 SecondNewtonLaw. Built with Moonwave and Docusaurus</div></div></div></footer></div>
+</body>
+</html>
