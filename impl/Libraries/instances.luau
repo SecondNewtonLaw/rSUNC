@@ -98,4 +98,16 @@ function instances.getplaceversion(): number
     return nil :: any
 end
 
+--[=[
+    Gets the callback value of the given instance and property.
+    
+    @within instances
+    @param instance Instance -- The instance to get the callback value from.
+    @param prop string -- The that is the callback.
+    @return (T...) -> U... -- The callback that the instance contains at the given property.
+]=]
+function instances.getcallbackvalue<T..., U...>(instance: Instance, prop: string): ((T...) -> U...) | nil
+    return nil :: any
+end
+
 return instances
