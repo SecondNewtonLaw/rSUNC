@@ -28,7 +28,7 @@ function runtime.disablenative<T..., U...>(fn: (T...) -> U...): () end
     @error VM is not supported -- The VM does not support native code.
 
 ]=]
-function runtime.enablenative() end
+function runtime.enablenative<T..., U...>(fn: (T...) -> U...) end
 
 --[=[
     Checks if the current function is implemented in the form of native code (implemented in C or runs with generated native code).
