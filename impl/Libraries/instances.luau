@@ -105,9 +105,32 @@ end
     @param instance Instance -- The instance to get the callback value from.
     @param prop string -- The that is the callback.
     @return (T...) -> U... -- The callback that the instance contains at the given property.
+    @error property with name '%s' does not exist. -- The given property (named %s) does not exist on the given instance.
 ]=]
 function instances.getcallbackvalue<T..., U...>(instance: Instance, prop: string): ((T...) -> U...) | nil
     return nil :: any
+end
+
+--[=[
+    Gets the property of the given instance.
+    
+    @within instances
+    @param instance Instance -- The instance to get the property from.
+    @param prop string -- The property to get.
+    @return T -- The value of the property.
+    @return boolean -- True if the property was hidden, false if it was not.
+    @error property with name '%s' does not exist. -- The given property (named %s) does not exist on the given instance.
+
+    :::warning Remarks
+    You must support pushing unserializable properties such as '`SharedString`' and '`SystemAddress`'.
+    :::
+
+    :::tip Implementation
+    You are supposed to obtain the property using the `RBX::Instance::getProperty`/ `RBX::Instance::setProperty` methods. You must not set the property public or scriptable. 
+    :::
+]=]
+function instances.gethiddenproperty<T>(instance: Instance, prop: string): (T, boolean)
+    return nil :: any, nil :: any
 end
 
 return instances
