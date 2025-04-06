@@ -4,7 +4,7 @@
     Contains functions which interact and modify closures and their behaviour.
     @class closures
     @tag Library
-    ]=]
+]=]
 local closures = {}
 
 --[=[
@@ -22,7 +22,7 @@ local closures = {}
 
     @error function must be a Luau closure. -- The first parameter was a C function instead of a Luau function.
     @error Unsupported hash type. -- The given hash type is not supported by the executor.
-    ]=]
+]=]
 function closures.getfunctionhash<T..., U...>(fn: (T...) -> U..., hash: "SHA384" | "BLAKE2B" | "BLAKE3"): string
     return nil :: any
 end
@@ -35,7 +35,7 @@ end
     @param hook (T...) -> U... -- The hook.
     @return (T...) -> U... -- The old/original function.
     @error Too many upvalues! -- The function to hook has more upvalues than the function you want to hook it with. (This error may not show on some implementations.)
-    @error This function cannot be hooked from Luau -- The function has been marked as unhookable by `makeunhookable` or by native executor code.
+    @error This function cannot be hooked from Luau -- The function has been marked as unhookable by `protectfunction` or by native executor code.
 
     :::info Implementations
     Some implementations of this function may bypass upvalue limits for you. If this is not the case, wrap `hook` in `newcclosure`/`newlclosure` before calling `hookfunction`.
@@ -81,13 +81,13 @@ end
         c = "D"
     end
 
-	local function b() -- Upvalue Count: 2
-		a = "E"
-		b = "F"
-	end
-	
-	a() -- Set variables
-	local original = closures.hookfunction(a, b) -- If this call fails, consider implicitly wrapping `b` in a newlclosure!
+    local function b() -- Upvalue Count: 2
+        a = "E"
+        b = "F"
+    end
+
+    a() -- Set variables
+    local original = closures.hookfunction(a, b) -- If this call fails, consider implicitly wrapping `b` in a newlclosure!
 
     a()
     assert(a == "E" and b == "F" and c == "D") -- If this errors, the upvalues are improperly set, and this could lead to a crash!
@@ -105,14 +105,14 @@ end
     coroutine.resume("Hello")
 
     if not upref then
-        AsCon(4<3, "hookfunction", "Failed to hook C -> L Closures")
+        error("hookfunction", "Failed to hook C -> L Closures")
     end
 
     upref = false
     closures.hookfunction(coroutine.resume, old)
     pcall(coroutine.resume, "Hello")
     ```
-    ]=]
+]=]
 function closures.hookfunction<T..., U...>(fn: (T...) -> U..., hook: (T...) -> U...): (T...) -> U...
     return nil :: any
 end
@@ -122,7 +122,7 @@ end
 
     @param restoreWhat (T...) -> U... -- The function that should be restored.
     @error Function is not hooked -- The function is not hooked, and thus cannot be restored. Use `ishooked` before calling this function!
-    ]=]
+]=]
 function closures.restorefunction<T..., U...>(restoreWhat: (T...) -> U...): () end
 
 --[=[
@@ -141,7 +141,7 @@ function closures.restorefunction<T..., U...>(restoreWhat: (T...) -> U...): () e
     @return string? -- The error message, if loading failed.
 
     @error N/A -- This function does not explicitly error, however it returns an error message if the code fails to load in the second return.
-    ]=]
+]=]
 function closures.loadstring<T..., U...>(luauCode: string, chunkName: string?): ((T...) -> U... | nil, string?)
     return nil :: any
 end
@@ -153,7 +153,7 @@ end
     @param fn (T...) -> U... -- Function to wrap
     @param debugName string? -- The name of the function, optional.
     @return (T...) -> U...
-    ]=]
+]=]
 function closures.newcclosure<T..., U...>(fn: (T...) -> U..., debugName: string?): (T...) -> U...
     return nil :: any
 end
@@ -221,7 +221,7 @@ end
 
     -- If this script errors, your wrapclosure may not be working properly.
     ```
-    ]=]
+]=]
 function closures.wrapclosure<T..., U...>(fn: (T...) -> U...): (T...) -> U...
     return nil :: any
 end
@@ -236,7 +236,7 @@ end
     :::info Implementation
     The function may use any method, as long as it returns true for executor Luau and C functions, as well as hooked functions, and false for any non-executor functions. This means that functions retrieved from loadstring or getscriptclosure will also return true.
     :::
-    ]=]
+]=]
 function closures.isexecutorclosure<T..., U...>(fn: (T...) -> U...): boolean
     return nil :: any
 end
@@ -253,23 +253,23 @@ end
         
     This has been documented behaviour on scripts obfuscated by obfuscators such as Luraph, where `newlclosure` and/or `clonefunction` do not properly set the environment of the cloned function, which causes script errors.
     :::
-    ]=]
+]=]
 function closures.clonefunction<T..., U...>(fn: (T...) -> U...): (T...) -> U...
     return nil :: any
 end
 
 --[=[
-    Returns if the given function can be hooked.
+    Returns if the given function is protected against hooks.
 
     @within closures
     @param fn (T...) -> U... -- The function to check.
-    @return boolean -- Whether the function can be hooked.
+    @return boolean -- If true, the function is protected against hooking.
 
     :::tip Whitelists
     You can use this function if your executor abides by rSUNC to determine if the environment is proper for your whitelist.
     :::
-    ]=]
-function closures.isunhookable<T..., U...>(fn: (T...) -> U...): boolean
+]=]
+function closures.isclosureprotected<T..., U...>(fn: (T...) -> U...): boolean
     return nil :: any
 end
 
@@ -283,7 +283,7 @@ end
     :::tip Whitelists
     You can use this function if your executor abides by rSUNC to determine if the environment is proper for your whitelist.
     :::
-    ]=]
+]=]
 function closures.ishooked<T..., U...>(fn: (T...) -> U...): boolean
     return nil :: any
 end
@@ -294,8 +294,8 @@ end
     @within closures
     @param fn (T...) -> U... -- The function to make unhookable and remove all hooks of.
 
-    ]=]
-function closures.makeunhookable<T..., U...>(fn: (T...) -> U...): () end
+]=]
+function closures.protectfunction<T..., U...>(fn: (T...) -> U...): () end
 
 --[=[
     Returns true if the function points to the same code. The function should return false if the function type results in a mis-match (i.e., `fn1` is a Luau closure and `fn2` is a C closure).
@@ -349,7 +349,7 @@ function closures.makeunhookable<T..., U...>(fn: (T...) -> U...): () end
     ) -- true
     print"comparefunction test end"
     ```
-    ]=]
+]=]
 function closures.comparefunction<T1..., U1..., T2..., U2...>(fn1: (T1...) -> U1..., fn2: (T2...) -> U2...): boolean
     return nil :: any
 end
