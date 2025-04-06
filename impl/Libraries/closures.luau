@@ -8,22 +8,26 @@
 local closures = {}
 
 --[=[
-    Provides a hash with a digest size of 48 (384 bits) in hex format for the given function
+    Provides a hash with a digest size of 48 bytes (384 bits) in hex format for the given function
 
     @within closures
     @param fn (T...) -> U... -- The function to hash.
-    @param hash "SHA384" | "BLAKE2B" | "BLAKE3" -- The hash type, defaults to SHA384.
-    @return string -- The hex representation of the Blake2B hash of the function.
+    @param hashType "SHA384" | "BLAKE2B" | "BLAKE3" -- The hash type, defaults to SHA384.
+    @return string -- The hex representation of the selected hashType hash of the function.
 
 
     :::info Implementation
     You must use the instructions and constants of the given function to obtain the hash.
     :::
 
+    :::danger Compiler
+    If your function is outputting different hashes every time its called, then you may have forgotten to account for Compiler settings. We recommend you read [this post](/docs/CompilerCompliance) to know to resolve this issue and make your Luau compiler rSUNC compliannt.
+    :::
+
     @error function must be a Luau closure. -- The first parameter was a C function instead of a Luau function.
     @error Unsupported hash type. -- The given hash type is not supported by the executor.
 ]=]
-function closures.getfunctionhash<T..., U...>(fn: (T...) -> U..., hash: "SHA384" | "BLAKE2B" | "BLAKE3"): string
+function closures.getfunctionhash<T..., U...>(fn: (T...) -> U..., hashType: "SHA384" | "BLAKE2B" | "BLAKE3"): string
     return nil :: any
 end
 

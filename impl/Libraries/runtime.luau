@@ -7,22 +7,49 @@
 local runtime = {}
 
 --[=[
-    Disables the execution of native generated code.
+    Disables the execution of native generated code for the provided function.
 
     :::tip Hooking functions
     You may need to call this function in the future before hooking functions!
     :::
-
+        
     @within runtime
+    @param fn (T...) -> U... -- The function to disable native code execution for.
+    @error VM is not supported -- The VM does not support native code.
+    @error the function is present on the callstack -- The function is present on the current threads callstack. You cannot disable native code for a function that is currently being executed.
 ]=]
-function runtime.disablenative() end
+function runtime.disablenative<T..., U...>(fn: (T...) -> U...): () end
 
 --[=[
     Enables the execution of native generated code, if the Lua(u) VM is prepared for it.
 
     @within runtime
+    @param fn (T...) -> U... -- The function to enable native code execution for.
+    @error VM is not supported -- The VM does not support native code.
+
 ]=]
 function runtime.enablenative() end
+
+--[=[
+    Checks if the current function is implemented in the form of native code (implemented in C or runs with generated native code).
+
+    @within runtime
+    @param fn (T...) -> U... -- The function to check.
+    @return boolean -- Whether the function is implemented in native code or running with a native code implementation.    
+]=]
+function runtime.isnativecode<T..., U...>(fn: (T...) -> U...): boolean
+    return nil :: any
+end
+
+--[=[
+    Checks if the current Lua(u) VM can run native code.
+    
+    @within runtime
+    @return boolean -- Whether the VM can run native code.
+]=]
+function runtime.can_vm_run_native_code(): boolean
+    return nil :: any
+end
 
 --[=[
     Obtains the 'atom' of the given string `str`.

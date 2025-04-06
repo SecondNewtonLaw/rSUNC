@@ -10,6 +10,7 @@ local scheduler = {}
     @type SchedulerJobName "RenderJob" | "WaitingHybridScriptsJob" | "ModelMeshJob" | "GcJob" | "HeartbeatTask" | "PhysicsJob" | "PathUpdateJob" | "NavigationJob" | "GenericDataModelJob" | "HttpRbxApiJob"
     @within scheduler
 ]=]
+
 --[=[
     Connects a function to run before a Step of the specified job is ran.
 
@@ -21,7 +22,7 @@ local scheduler = {}
     The callback you provide **CANNOT** yield or block the thread, or you will block the roblox main thread.
     :::
 ]=]
-function scheduler:ConnectToPreStep<T..., U...>(jobName: SchedulerJobName, callback: (T...) -> U...): SchedulerJobStepConnection
+function scheduler.connectprestep<T..., U...>(jobName: SchedulerJobName, callback: (T...) -> U...): SchedulerJobStepConnection
     return nil :: any
 end
 
@@ -36,7 +37,7 @@ end
     The callback you provide **CANNOT** yield or block the thread, or you will block the roblox main thread.
     :::
 ]=]
-function scheduler:ConnectToPostStep<T..., U...>(jobName: SchedulerJobName, callback: (T...) -> U...): SchedulerJobStepConnection
+function scheduler.connectpoststep<T..., U...>(jobName: SchedulerJobName, callback: (T...) -> U...): SchedulerJobStepConnection
     return nil :: any
 end
 
