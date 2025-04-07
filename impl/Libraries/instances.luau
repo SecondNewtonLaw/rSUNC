@@ -115,9 +115,9 @@ end
     Gets the property of the given instance.
     
     @within instances
-    @param instance Instance -- The instance to get the property from.
+    @param instance T & Instance -- The instance to get the property from.
     @param prop string -- The property to get.
-    @return T -- The value of the property.
+    @return U -- The value of the property.
     @return boolean -- True if the property was hidden, false if it was not.
     @error property with name '%s' does not exist. -- The given property (named %s) does not exist on the given instance.
 
@@ -129,8 +129,38 @@ end
     You are supposed to obtain the property using the `RBX::Instance::getProperty`/ `RBX::Instance::setProperty` methods. You must not set the property public or scriptable. 
     :::
 ]=]
-function instances.gethiddenproperty<T>(instance: Instance, prop: string): (T, boolean)
+function instances.gethiddenproperty<T, U>(instance: T & Instance, prop: string): (U, boolean)
     return nil :: any, nil :: any
+end
+
+--[=[
+    Gets the environment of a running script.
+
+    @param instance LuaSourceContainer -- The script to obtain the environment of.
+    @return T | nil -- The environment of the script, nil if the script is not running.
+    @error Cannot get the environment of a scipt that runs on the server -- The provided script is with a `RunContext` that is not `RunContext.Client` 
+
+    :::danger Implementation 
+    This function may not perform a GC scan in an effort to find the Script object.
+    :::
+]=]
+function instances.getsenv<T>(instance: LuaSourceContainer): T?
+    return nil :: any
+end
+
+--[=[
+    Gets a non-runnable closure which holds debug info (constants, upreferences, debugname, etc) of the script's main thread.
+    @param instance LuaSourceContainer -- The script to get the closure of.
+    @return (T...) -> U... -- The 'main' closure of the script.
+    @error No bytecode found -- The script holds no bytecode.
+    @error Cannot get closure of a server script -- The script provided is a server script, and its source isn't available.
+
+    :::danger Implementation 
+    This function may not perform a GC scan in an effort to find the Script object.
+    :::
+]=]
+function instances.getscriptclosure<T..., U...>(instance: LuaSourceContainer): (T...) -> U...
+    return nil :: any
 end
 
 return instances
