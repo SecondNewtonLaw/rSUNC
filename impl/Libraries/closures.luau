@@ -21,7 +21,7 @@ local closures = {}
     :::
 
     :::danger Compiler
-    If your function is outputting different hashes every time its called, then you may have forgotten to account for Compiler settings. We recommend you read [this post](/docs/CompilerCompliance) to know to resolve this issue and make your Luau compiler rSUNC compliannt.
+    If your function is outputting different hashes every time its called, then you may have forgotten to account for Compiler settings. We recommend you read [this post](/docs/CompilerCompliance) to know to resolve this issue and make your Luau compiler rSUNC compliant.
     :::
 
     @error function must be a Luau closure. -- The first parameter was a C function instead of a Luau function.
@@ -312,7 +312,7 @@ function closures.protectfunction<T..., U...>(fn: (T...) -> U...): () end
     :::danger newcclosures/ newlclosure comparison
     For newcclosures and newlclosures, the result must be derived from the 'deepest' closure it wraps.
 
-    For example, if `fn1` is a newcclosure that wraps a newlclosure that wraps a luau function, and `fn2` is a Luau function, you must search to the deepst call fn1 can do and check if it is `fn2`.
+    For example, if `fn1` is a newcclosure that wraps a newlclosure that wraps a luau function, and `fn2` is a Luau function, you must search to the deepest call fn1 can do and check if it is `fn2`.
     The same should happen if `fn2` is the nested one and `fn1` is a luau function.
     :::
 
