@@ -101,7 +101,7 @@ end
     @return (U...) -> O... -- The original metamethod
     
     :::danger Implementation
-    This function must contain an argument guard which controls that the function is given the correct number of arguments. This function should use a form of `hookfunction` to hook, and most NOT replace the metamtable's metamethods function object.
+    This function must contain an argument guard which controls that the function is given the correct number of arguments. This function should use a form of `hookfunction` to hook, and most NOT replace the metatable's metamethods directly.
     :::
 ]=]
 function metatables.hookmetamethod<T, U..., O...>(object: T, metamethod: metafield, callback: (U...) -> O...): (U...) -> O...
