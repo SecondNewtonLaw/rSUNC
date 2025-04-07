@@ -99,6 +99,20 @@ function runtime.enablepointerencoding(): () end
 function runtime.disablepointerencoding(): () end
 
 --[=[
+    Gets the raw address of the provided value using `topointer`.
+
+    @within runtime
+    @param obj any -- The object to retrieve the address of.
+    @return string -- The raw address.
+
+    
+]=]
+
+function runtime.getrawaddress<T>(obj: T): string
+    return nil :: any
+end
+
+--[=[
     Returns whether the given object is a userdata of type Instance.
 
     @param obj userdata -- The object to check.
@@ -110,6 +124,19 @@ function runtime.disablepointerencoding(): () end
     :::
 ]=]
 function runtime.isinstance(obj: Instance): boolean
+    return nil :: any
+end
+
+--[=[
+    Returns the userdata tag for the provided object.
+
+    @within runtime
+    @param obj userdata -- The object which inherits from userdata.
+    @return number -- The userdata tag of the object.
+
+]=]
+
+function runtime.getuserdatatag(obj: userdata): number
     return nil :: any
 end
 
