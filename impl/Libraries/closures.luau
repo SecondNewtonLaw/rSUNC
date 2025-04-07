@@ -273,7 +273,7 @@ end
     You can use this function if your executor abides by rSUNC to determine if the environment is proper for your whitelist.
     :::
 ]=]
-function closures.isclosureprotected<T..., U...>(fn: (T...) -> U...): boolean
+function closures.isfunctionprotected<T..., U...>(fn: (T...) -> U...): boolean
     return nil :: any
 end
 
