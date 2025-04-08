@@ -163,4 +163,55 @@ function instances.getscriptclosure<T..., U...>(instance: LuaSourceContainer): (
     return nil :: any
 end
 
+--[=[
+    Saves the game instance to a file.
+    
+    @within instances
+    @param options {noscripts: boolean?, mode: "optimized" | "original" | "clone" | "decompile"?, folder: string?, includecode: boolean?, decomptype: string?, filename: string?}? -- Options for saving the instance.
+    @return boolean -- Whether the save was successful.
+    
+    :::info Options
+    - `noscripts` - Whether to exclude scripts (default: false)
+    - `mode` - Save mode (default: "optimized")
+      - "optimized" - Saves with optimized property data
+      - "original" - Saves with original property data
+      - "clone" - Saves a clone of the game with references preserved
+      - "decompile" - Saves with scripts decompiled
+    - `folder` - Directory to save the file to (default: workspace folder)
+    - `includecode` - Whether to include script source code (default: true)
+    - `decomptype` - Decompiler to use if including code (default: executor's default)
+    - `filename` - Custom filename (default: "game.rbxl")
+    :::
+    
+    :::warning Implementation
+    This function must save the DataModel to a file in a format that can be loaded by Roblox Studio.
+    The file extension should be .rbxl for place files and .rbxm for model files.
+    :::
+    
+    :::tip Usage
+    This function is useful for game analysis, asset extraction, and creating backups of games.
+    ```lua
+    -- Save the current game without scripts
+    instances.saveinstance({noscripts = true})
+    
+    -- Save with custom filename in specific folder
+    instances.saveinstance({
+        filename = "gamecopy.rbxl",
+        folder = "C:/RobloxGames",
+        mode = "original"
+    })
+    ```
+    :::
+]=]
+function instances.saveinstance(options: {
+    noscripts: boolean?,
+    mode: "optimized" | "original" | "clone" | "decompile"?,
+    folder: string?,
+    includecode: boolean?,
+    decomptype: string?,
+    filename: string?
+}?): boolean
+    return nil :: any
+end
+
 return instances
