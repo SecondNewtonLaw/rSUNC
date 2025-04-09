@@ -163,4 +163,23 @@ function instances.getscriptclosure<T..., U...>(instance: LuaSourceContainer): (
     return nil :: any
 end
 
+--[=[
+    Exchanges the underlying pointer between two instances.
+
+    @within instances
+    @param object1 Instance -- The first instance.
+    @param object2 Instance -- The second instance.
+
+    :::tip Usage
+    This can be used in place of `instances.replacereference` if the user already holds a reference to the object you want replaced. 
+
+    This function, unlike `instances.replacereference` will overwrite the underlying pointer to the instance in the provided reference. This makes it so all instances of this reference are affected, regardless of whether they're just newly obtained from the Instance cache.
+    :::
+
+    :::danger Implementation
+    The instances MUST be strictly checked to be such.
+    :::
+]=]
+function instances.exchangeinstancepointer<T, U>(object1: T & Instance, object2: U & Instance): ()end
+
 return instances
