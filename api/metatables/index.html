@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="plugin-moonwave plugin-id-moonwave" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">metatables | RbxStu Unified Naming Convention</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://SecondNewtonLaw.github.io/rSUNC/api/metatables"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="metatables | RbxStu Unified Naming Convention"><meta data-rh="true" name="description" content="Provides a wide range of APIs to interact with metatables in a myriad of ways."><meta data-rh="true" property="og:description" content="Provides a wide range of APIs to interact with metatables in a myriad of ways."><link data-rh="true" rel="canonical" href="https://SecondNewtonLaw.github.io/rSUNC/api/metatables"><link data-rh="true" rel="alternate" href="https://SecondNewtonLaw.github.io/rSUNC/api/metatables" hreflang="en"><link data-rh="true" rel="alternate" href="https://SecondNewtonLaw.github.io/rSUNC/api/metatables" hreflang="x-default"><link rel="stylesheet" href="/rSUNC/assets/css/styles.5cbed574.css">
+<script src="/rSUNC/assets/js/runtime~main.bdcf6110.js" defer="defer"></script>
+<script src="/rSUNC/assets/js/main.3ed8f28f.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();null!==e?t(e):window.matchMedia("(prefers-color-scheme: dark)").matches?t("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,t("light"))}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/rSUNC/"><b class="navbar__title text--truncate">RbxStu Unified Naming Convention</b></a><a class="navbar__item navbar__link" href="/rSUNC/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/rSUNC/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://discord.gg/xruheb5psN" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://github.com/SecondNewtonLaw/rSUNC" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0 docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC/api/global">Uncategorized/Miscellaneous</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/rSUNC/api/closures">Libraries</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/closures">closures</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/http">http</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/instances">instances</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/memory">memory</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/rSUNC/api/metatables">metatables</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/rsunc">rsunc</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/runtime">runtime</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/scheduler">scheduler</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC/api/GcState">Custom Types</a></div></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">metatables</span></h1><div class="luaClassTags_EipM"><span class="docTag__6UZ" style="border-color:#218c74;color:#218c74">Library</span></div><div>
+<p>Provides a wide range of APIs to interact with metatables in a myriad of ways.</p>
+</div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="types">Types<a href="#types" class="hash-link" aria-label="Direct link to Types" title="Direct link to Types">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="metafield"><code style="text-decoration:none">metafield</code><a href="#metafield" class="hash-link" aria-label="Direct link to metafield" title="Direct link to metafield">​</a></h3><span class="docTag__6UZ" style="border-color:#00a1e4;color:#00a1e4">Type</span><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/metatables.luau#L16"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code class="purple_ieR2">type</code> <code>metafield<!-- --> = </code> <code class="blue_P4bS">&quot;__index&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__newindex&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__mode&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__namecall&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__call&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__iter&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__len&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__eq&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__add&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__sub&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__mul&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__div&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__idiv&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__mod&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__pow&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__unm&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__lt&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__le&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__concat&quot;</code><code class="op_lSLc"> | </code><code class="blue_P4bS">&quot;__type&quot;</code></div><div>
+<p>All possible metafields in Luau.</p>
+</div><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getrawmetatable"><code style="text-decoration:none">getrawmetatable</code><a href="#getrawmetatable" class="hash-link" aria-label="Direct link to getrawmetatable" title="Direct link to getrawmetatable">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/metatables.luau#L49"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>metatables<!-- -->.</code><code class="green_DgR4">getrawmetatable</code><code>(</code><div class="inset_uKQm"><div><code>object<!-- -->: </code><code class="blue_P4bS">T</code><span class="inlineDescription_G7Er">-- <span>
+<p>The object to get the metatable of.</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rSUNC/api/metatables#metafield">metafield</a></code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><code class="op_lSLc"> | </code><code class="blue_P4bS">nil</code><span class="inlineDescription_G7Er">-- <span>
+<p>The metatable of the object.</p>
+</span></span></div><div>
+<p>Returns the metatable of the given object, even if the <code>__metatable</code> metafield is set.</p>
+
+  
+    
+    
+      <div class="admonition admonition-danger alert alert--danger">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16">
+                <path d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path>
+              </svg></span><span class="admonition-title">Hooking</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>This function should never be used to perform metatable hooks. Use <code>metatables.hookmetamethod</code> instead.</p>
+        </div>
+      </div>
+    
+  
+
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getmetafield"><code style="text-decoration:none">getmetafield</code><a href="#getmetafield" class="hash-link" aria-label="Direct link to getmetafield" title="Direct link to getmetafield">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/metatables.luau#L64"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>metatables<!-- -->.</code><code class="green_DgR4">getmetafield</code><code>(</code><div class="inset_uKQm"><div><code>object<!-- -->: </code><code class="blue_P4bS">T</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The object with a metatable to get the metafield of.</p>
+</span></span></div><div><code>metamethod<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rSUNC/api/metatables#metafield">metafield</a></code><span class="inlineDescription_G7Er">-- <span>
+<p>The metafield to get.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">U</code><span class="inlineDescription_G7Er">-- <span>
+<p>The metafield of the object.</p>
+</span></span></div><div>
+<p>Returns the metafield (if existing) of the metatable the object has.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>No metatable found</td><td>No metatable was found on the given object.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="hasmetatable"><code style="text-decoration:none">hasmetatable</code><a href="#hasmetatable" class="hash-link" aria-label="Direct link to hasmetatable" title="Direct link to hasmetatable">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/metatables.luau#L75"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>metatables<!-- -->.</code><code class="green_DgR4">hasmetatable</code><code>(</code><div class="inset_uKQm"><div><code>object<!-- -->: </code><code class="blue_P4bS">T</code><span class="inlineDescription_G7Er">-- <span>
+<p>The object to check.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>If true, the object has a metatable.</p>
+</span></span></div><div>
+<p>Checks if the given object has a metatable.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="isreadonly"><code style="text-decoration:none">isreadonly</code><a href="#isreadonly" class="hash-link" aria-label="Direct link to isreadonly" title="Direct link to isreadonly">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/metatables.luau#L90"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>metatables<!-- -->.</code><code class="green_DgR4">isreadonly</code><code>(</code><div class="inset_uKQm"><div><code>object<!-- -->: </code><code class="purple_ieR2">{</code><span><code>[</code><code class="blue_P4bS">any</code><code>]</code></span><code>: </code><code class="blue_P4bS">any</code><code class="purple_ieR2">}</code><span class="inlineDescription_G7Er">-- <span>
+<p>The table to check.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>If true, the table is read-only.</p>
+</span></span></div><div>
+<p>Checks if the the given table is marked as read-only.</p>
+
+  
+    
+    
+      <div class="admonition admonition-success alert alert--success">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16">
+                <path d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path>
+              </svg></span><span class="admonition-title">Usage</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>Normally used on metatables to allow modifying the table, but works on any table, regardless if they're a metatable or not,</p>
+        </div>
+      </div>
+    
+  
+
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="hookmetamethod"><code style="text-decoration:none">hookmetamethod</code><a href="#hookmetamethod" class="hash-link" aria-label="Direct link to hookmetamethod" title="Direct link to hookmetamethod">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/metatables.luau#L107"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>metatables<!-- -->.</code><code class="green_DgR4">hookmetamethod</code><code>(</code><div class="inset_uKQm"><div><code>object<!-- -->: </code><code class="blue_P4bS">T</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The object to hook.</p>
+</span></span></div><div><code>metamethod<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rSUNC/api/metatables#metafield">metafield</a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The metamethod to hook.</p>
+</span></span></div><div><code>callback<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">U...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">O...</code><span class="inlineDescription_G7Er">-- <span>
+<p>The callback to hook the metamethod with.</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">(</code><code class="blue_P4bS">U...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">O...</code><span class="inlineDescription_G7Er">-- <span>
+<p>The original metamethod</p>
+</span></span></div><div>
+<p>Hooks the given object's metatable metamethod with the provided callback.</p>
+
+  
+    
+    
+      <div class="admonition admonition-danger alert alert--danger">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16">
+                <path d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path>
+              </svg></span><span class="admonition-title">Implementation</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>This function must contain an argument guard which controls that the function is given the correct number of arguments. This function should use a form of <code>hookfunction</code> to hook, and most NOT replace the metatable's metamethods directly.</p>
+        </div>
+      </div>
+    
+  
+
+</div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;getrawmetatable&quot;,
+            &quot;desc&quot;: &quot;Returns the metatable of the given object, even if the `__metatable` metafield is set.\n\n\n:::danger Hooking\nThis function should never be used to perform metatable hooks. Use `metatables.hookmetamethod` instead.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;object&quot;,
+                    &quot;desc&quot;: &quot;The object to get the metatable of.&quot;,
+                    &quot;lua_type&quot;: &quot;T&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The metatable of the object.&quot;,
+                    &quot;lua_type&quot;: &quot;{ [metafield]: any } | nil&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 49,
+                &quot;path&quot;: &quot;impl/Libraries/metatables.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getmetafield&quot;,
+            &quot;desc&quot;: &quot;Returns the metafield (if existing) of the metatable the object has.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;object&quot;,
+                    &quot;desc&quot;: &quot;The object with a metatable to get the metafield of.&quot;,
+                    &quot;lua_type&quot;: &quot;T&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;metamethod&quot;,
+                    &quot;desc&quot;: &quot;The metafield to get.&quot;,
+                    &quot;lua_type&quot;: &quot;metafield&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The metafield of the object.&quot;,
+                    &quot;lua_type&quot;: &quot;U&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;No metatable found&quot;,
+                    &quot;desc&quot;: &quot;No metatable was found on the given object.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 64,
+                &quot;path&quot;: &quot;impl/Libraries/metatables.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;hasmetatable&quot;,
+            &quot;desc&quot;: &quot;Checks if the given object has a metatable.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;object&quot;,
+                    &quot;desc&quot;: &quot;The object to check.&quot;,
+                    &quot;lua_type&quot;: &quot;T&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;If true, the object has a metatable.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 75,
+                &quot;path&quot;: &quot;impl/Libraries/metatables.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;isreadonly&quot;,
+            &quot;desc&quot;: &quot;Checks if the the given table is marked as read-only.\n\n\n:::tip Usage\nNormally used on metatables to allow modifying the table, but works on any table, regardless if they&#x27;re a metatable or not,\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;object&quot;,
+                    &quot;desc&quot;: &quot;The table to check.&quot;,
+                    &quot;lua_type&quot;: &quot;{ [any]: any }&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;If true, the table is read-only.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 90,
+                &quot;path&quot;: &quot;impl/Libraries/metatables.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;hookmetamethod&quot;,
+            &quot;desc&quot;: &quot;Hooks the given object&#x27;s metatable metamethod with the provided callback.\n\n\n:::danger Implementation\nThis function must contain an argument guard which controls that the function is given the correct number of arguments. This function should use a form of `hookfunction` to hook, and most NOT replace the metatable&#x27;s metamethods directly.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;object&quot;,
+                    &quot;desc&quot;: &quot;The object to hook.&quot;,
+                    &quot;lua_type&quot;: &quot;T&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;metamethod&quot;,
+                    &quot;desc&quot;: &quot;The metamethod to hook.&quot;,
+                    &quot;lua_type&quot;: &quot;metafield&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;callback&quot;,
+                    &quot;desc&quot;: &quot;The callback to hook the metamethod with.&quot;,
+                    &quot;lua_type&quot;: &quot;(U...) -&gt; O...&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The original metamethod&quot;,
+                    &quot;lua_type&quot;: &quot;(U...) -&gt; O...&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 107,
+                &quot;path&quot;: &quot;impl/Libraries/metatables.luau&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [],
+    &quot;types&quot;: [
+        {
+            &quot;name&quot;: &quot;metafield&quot;,
+            &quot;desc&quot;: &quot;All possible metafields in Luau.&quot;,
+            &quot;lua_type&quot;: &quot;\&quot;__index\&quot; | \&quot;__newindex\&quot; | \&quot;__mode\&quot; | \&quot;__namecall\&quot; | \&quot;__call\&quot; | \&quot;__iter\&quot; | \&quot;__len\&quot; | \&quot;__eq\&quot; | \&quot;__add\&quot; | \&quot;__sub\&quot; | \&quot;__mul\&quot; | \&quot;__div\&quot; | \&quot;__idiv\&quot; | \&quot;__mod\&quot; | \&quot;__pow\&quot; | \&quot;__unm\&quot; | \&quot;__lt\&quot; | \&quot;__le\&quot; | \&quot;__concat\&quot; | \&quot;__type\&quot;&quot;,
+            &quot;tags&quot;: [
+                &quot;Type&quot;
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 16,
+                &quot;path&quot;: &quot;impl/Libraries/metatables.luau&quot;
+            }
+        }
+    ],
+    &quot;name&quot;: &quot;metatables&quot;,
+    &quot;desc&quot;: &quot;Provides a wide range of APIs to interact with metatables in a myriad of ways.&quot;,
+    &quot;tags&quot;: [
+        &quot;Library&quot;
+    ],
+    &quot;source&quot;: {
+        &quot;line&quot;: 7,
+        &quot;path&quot;: &quot;impl/Libraries/metatables.luau&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#metafield" class="table-of-contents__link toc-highlight">metafield</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#getmetafield" class="table-of-contents__link toc-highlight">.getmetafield</a></li><li><a href="#getrawmetatable" class="table-of-contents__link toc-highlight">.getrawmetatable</a></li><li><a href="#hasmetatable" class="table-of-contents__link toc-highlight">.hasmetatable</a></li><li><a href="#hookmetamethod" class="table-of-contents__link toc-highlight">.hookmetamethod</a></li><li><a href="#isreadonly" class="table-of-contents__link toc-highlight">.isreadonly</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 SecondNewtonLaw. Built with Moonwave and Docusaurus</div></div></div></footer></div>
+</body>
+</html>
