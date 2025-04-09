@@ -163,4 +163,89 @@ function instances.getscriptclosure<T..., U...>(instance: LuaSourceContainer): (
     return nil :: any
 end
 
+--[=[
+    @type SaveInstanceOptions { 
+        noscripts: boolean?, 
+        mode: "optimized" | "original" | "clone" | "decompile"?, 
+        folder: string?, 
+        includecode: boolean?, 
+        decomptype: string?, 
+        filename: string?,
+        format: "binary" | "xml"?
+    }
+    @within instances
+]=]
+
+--[=[
+    Saves the specified instance(s) to a file.
+    
+    @within instances
+    @param instance Instance | {Instance} -- The instance(s) to save. If DataModel, saves as place (.rbxl/.rbxlx), otherwise as model (.rbxm/.rbxmx)
+    @param options SaveInstanceOptions? -- Options for saving the instance.
+    @return boolean -- Whether the save was successful.
+    
+    :::info Options
+    - `noscripts` - Whether to exclude scripts (default: false)
+    - `mode` - Save mode (default: "optimized")
+      - "optimized" - Saves with optimized property data
+      - "original" - Saves with original property data
+      - "clone" - Saves a clone of the game with references preserved
+      - "decompile" - Saves with scripts decompiled
+    - `folder` - Directory to save the file to (default: workspace folder)
+    - `includecode` - Whether to include script source code (default: true)
+    - `decomptype` - Decompiler to use if including code (default: executor's default)
+    - `filename` - Custom filename (default: based on instance name)
+    - `format` - File format (default: "binary")
+      - "binary" - Saves as binary (.rbxl/.rbxm)
+      - "xml" - Saves as XML (.rbxlx/.rbxmx)
+    :::
+    
+    :::warning Implementation
+    This function must save the instance(s) to a file in a format that can be loaded by Roblox Studio.
+    For DataModel instances, the file extension should be .rbxl (binary) or .rbxlx (XML).
+    For other instances, the file extension should be .rbxm (binary) or .rbxmx (XML).
+    :::
+    
+    :::caution Filesystem Access
+    The folder path should be validated to prevent unauthorized filesystem access.
+    Consider restricting to specific allowed directories or using relative paths.
+    :::
+    
+    :::tip Usage
+    This function is useful for game analysis, asset extraction, and creating backups of games or models.
+    ```lua
+    -- Save the current game without scripts
+    instances.saveinstance(game, {noscripts = true})
+    
+    -- Save a specific model with custom filename in specific folder
+    instances.saveinstance(workspace.Models.Car, {
+        filename = "car_model.rbxm",
+        folder = "Models",
+        mode = "original",
+        format = "xml"
+    })
+    
+    -- Save multiple models
+    instances.saveinstance({workspace.Models.Car, workspace.Models.House}, {
+        folder = "Models",
+        format = "binary"
+    })
+    ```
+    :::
+]=]
+function instances.saveinstance(
+    instance: Instance | {Instance}, 
+    options: {
+        noscripts: boolean?,
+        mode: "optimized" | "original" | "clone" | "decompile"?,
+        folder: string?,
+        includecode: boolean?,
+        decomptype: string?,
+        filename: string?,
+        format: "binary" | "xml"?
+    }?
+): boolean
+    return nil :: any
+end
+
 return instances
