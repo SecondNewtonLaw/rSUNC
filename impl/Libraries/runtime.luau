@@ -16,7 +16,35 @@ local runtime = {}
     @within runtime
     @param fn (T...) -> U... -- The function to disable native code execution for.
     @error VM is not supported -- The VM does not support native code.
-    @error the function is present on the callstack -- The function is present on the current threads callstack. You cannot disable native code for a function that is currently being executed.
+
+    ### Example
+    ```lua
+    -- This signals the compiler to enable native code generation on the protos the main proto contains!
+    -- This means herein if the LVM supports native code, it will be enabled for the functions the code has (and if the compiler believes it to be 'benefitial'!)
+    --!native 
+
+    local function a()
+        local function b()
+            print("hi b")
+            print(runtime.isnativecode(a)) -- true
+            print(runtime.isnativecode(b)) -- true
+            runtime.disablenative(debug.info(1, "f")) -- entry point is now bytecode, should be able to be restored without limitations.
+            runtime.disablenative(debug.info(2, "f")) -- entry point is now bytecode, should be able to be restored without limitations.
+            print(runtime.isnativecode(a)) -- false
+            print(runtime.isnativecode(b)) -- false
+        end
+        print("hi a")
+        b()
+    end
+
+    -- Uncomment if you remove --!native
+    -- runtime.enablenative(a)
+    a()
+    ```
+
+    :::danger Implementation
+    Depending on your implementation, you may be unable to remove native code from a function that is on the callstack currently. Investigate into the CodeGen implementation to learn how to do things properly.
+    :::
 ]=]
 function runtime.disablenative<T..., U...>(fn: (T...) -> U...): () end
 
@@ -26,7 +54,6 @@ function runtime.disablenative<T..., U...>(fn: (T...) -> U...): () end
     @within runtime
     @param fn (T...) -> U... -- The function to enable native code execution for.
     @error VM is not supported -- The VM does not support native code.
-
 ]=]
 function runtime.enablenative<T..., U...>(fn: (T...) -> U...) end
 
@@ -35,7 +62,7 @@ function runtime.enablenative<T..., U...>(fn: (T...) -> U...) end
 
     @within runtime
     @param fn (T...) -> U... -- The function to check.
-    @return boolean -- Whether the function is implemented in native code or running with a native code implementation.    
+    @return boolean -- Whether the function is implemented in native code or running with a native code implementation.
 ]=]
 function runtime.isnativecode<T..., U...>(fn: (T...) -> U...): boolean
     return nil :: any
