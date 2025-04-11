@@ -211,6 +211,7 @@ end
 --[=[
     Returns the HWID for the running computer.
 
+    @within runtime
     @return string -- The hash of your tool's calculated HWID, as a hex string.
     
     :::danger HWID Hashing
@@ -218,6 +219,16 @@ end
     :::
 ]=]
 function runtime.gethwid(): string
+    return nil :: any
+end
+
+--[=[
+    Returns whether the current thread was created by the executor.
+
+    @within runtime
+    @return boolean -- Whether the current thread was created by the executor.
+]=]
+function runtime.checkcaller(): boolean
     return nil :: any
 end
 
