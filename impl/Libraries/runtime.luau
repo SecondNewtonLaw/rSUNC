@@ -243,7 +243,7 @@ function runtime.getnamecallmethod(): string?
 end
 
 --[=[
-    Returns the current namecall method.
+    Sets the current namecall method.
 
     @within runtime
     @param newNamecall string -- The namecall method to set.
