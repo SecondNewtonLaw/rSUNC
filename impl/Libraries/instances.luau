@@ -180,6 +180,25 @@ end
     The instances MUST be strictly checked to be such.
     :::
 ]=]
-function instances.exchangeinstancepointer<T, U>(object1: T & Instance, object2: U & Instance): ()end
+function instances.exchangeinstancepointer<T, U>(object1: T & Instance, object2: U & Instance): () end
+
+--[=[
+    Gets the environment of a running script.
+
+    @param script LuaSourceContainer -- The script to obtain the environment of.
+    @return T | nil -- The environment of the script, nil if the script is not running.
+    @error script is running in a different Luau VM -- The script you tried to get the environment does not share the same mainthread state (Running under an actor/ in a different Luau VM).
+    
+    :::tip Implementation
+    This function may perform GC scans to find script threads and obtain their environment.
+    :::
+
+    :::danger Actors
+    If the script is running in a different `mainthread` you must throw the 'script is running in a different Luau VM' error in order to prevent possible vulnerabilities and other issues associated with actors.
+    :::
+]=]
+function instances.getsenv<T>(script: LuaSourceContainer): T?
+    return nil :: any
+end
 
 return instances

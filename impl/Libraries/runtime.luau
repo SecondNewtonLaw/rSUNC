@@ -232,4 +232,45 @@ function runtime.checkcaller(): boolean
     return nil :: any
 end
 
+--[=[
+    Returns the current namecall method.
+
+    @within runtime
+    @return string? -- The namecall method, if nil, there is no namecall set.
+]=]
+function runtime.getnamecallmethod(): string?
+    return nil
+end
+
+--[=[
+    Returns the current namecall method.
+
+    @within runtime
+    @param newNamecall string -- The namecall method to set.
+    @return string? -- The namecall method, if nil, there is no namecall set.
+    @error no namecall currently -- There is no namecall currently occurring.
+]=]
+function runtime.setnamecallmethod(newNamecall: string): string?
+    return nil
+end
+
+--[=[
+    Sets the current thread identity and capabilities.
+
+    @within runtime
+    @param th thread? -- The thread to get the identity of (if nil, defaults to current thread)
+    @return number -- The thread identity of the current thread (or given thread)
+]=]
+function runtime.getthreadidentity(th: thread?): number
+    return nil :: any
+end
+
+--[=[
+    Sets the current thread identity and capabilities.
+
+    @within runtime
+    @param threadIdentity number -- The thread identity to set. Must be between 0 and 8
+]=]
+function runtime.setthreadidentity(threadIdentity: number) end
+
 return runtime
