@@ -32,6 +32,18 @@ do
 end
 
 --[=[
+    Fetches the environment of a thread.
+
+    @param thread thread -- The thread to fetch the environment of.
+    @return { [any]: any } -- The environment of the thread.
+    @within global
+    @tag Global
+]=]
+function global.gettenv(thread: thread?): { [any]: any }
+    return nil :: any
+end
+
+--[=[
     Fetches the Body of an HTTP server using a GET HTTP request.
 
     @param url string -- The URL to send the request to.
@@ -60,4 +72,85 @@ end
 function global.messagebox(text: string, caption: string, flags: number): number
     return nil :: any
 end
+
+--[=[
+    Obtains the global environment of the executor. Contains all of rSUNC globals.
+
+    @within global
+    @tag Global
+    @return { [any]: any } -- The global environment of the executor.
+
+    :::info Sandboxing
+    All threads must be sandboxed. This means that modifications to the current thread's global environment should __NOT__ pollute the result of `getgenv`.
+    
+    Modifications done to the table returned by `getgenv` must be observable to all threads an executor makes, but not observable to other threads within the VM, such as game threads.
+    :::
+
+    ### Example:
+    ```lua
+
+    do
+        -- Thread 1
+        HelloVariable = "Hello"
+        print(HelloVariable) -- prints 'Hello'
+        print(HelloVariableViaGetGenv)  -- prints 'nil'
+        print(getgenv().HelloVariableViaGetGenv)  -- prints 'nil'    
+
+        getgenv().HelloVariableViaGetGenv = HelloVariable -- Set HelloVariableViaGetGenv to the value of HelloVariable (can be observed by Thread 2!)
+        print(HelloVariable) -- prints 'Hello'
+        print(HelloVariableViaGetGenv)  -- prints 'Hello'
+        print(getgenv().HelloVariableViaGetGenv)  -- prints 'Hello'
+    end
+    -- ...
+    do
+        -- Thread 2 (runs after thread 1)
+        print(HelloVariable) -- prints 'nil'
+        print(HelloVariableViaGetGenv)  -- prints 'Hello'
+        print(getgenv().HelloVariableViaGetGenv)  -- prints 'Hello'
+    end
+
+    ```
+]=]
+function global.getgenv(): { [any]: any }
+    return nil :: any
+end
+
+--[=[
+    Returns the global environment of main thread of Luau. This environment is __different__ from the executor environment.
+
+    @within global
+    @tag Global
+    @return {[any]: any} -- The global environment of main thread of Luau.
+
+    :::info Sandboxing
+    You must __NOT__ modify this environment under __ANY__ circumstance. __ANY__ modification will be observable by all threads in the VM.
+    :::
+]=]
+function global.getrenv(): { [any]: any }
+    return nil :: any
+end
+
+--[=[
+    Returns the Luau registry.
+
+    @within global
+    @tag Global
+    @return {[any]: any} -- The Luau registry
+]=]
+function global.getreg(): { [any]: any }
+    return nil :: any
+end
+
+--[=[
+    Returns the `_G` and `shared` script globals.
+
+    @within global
+    @tag Global
+    @return { _G: {[any]: any}, shared: {[any]: any} } 
+
+]=]
+function global.getscriptglobals(): { _G: { [any]: any }, shared: { [any]: any } }
+    return nil :: any
+end
+
 return global
