@@ -162,7 +162,7 @@ end
     This function may not perform a GC scan in an effort to find the Script object.
     :::
 ]=]
-function instances.getscriptclosure<T..., U...>(instance: LuaSourceContainer): ((T...) -> (U...) | nil)
+function instances.getscriptclosure<T..., U...>(instance: LuaSourceContainer): ((T...) -> U...) | nil
     return nil :: any
 end
 
@@ -185,5 +185,65 @@ end
 ]=]
 function instances.exchangeinstancepointer<T, U>(object1: T & Instance, object2: U & Instance): () end
 
+--[=[
+    Fires a click detector event, which replicates to the server.
+
+    @within instances
+    @param detector ClickDetector -- The click detector to fire the event on.
+    @param distance number? -- The distance to fire the event at, if nil, defaults to 0.
+    @param eventName "MouseClick" | "RightMouseClick" | "MouseHoverEnter" | "MouseHoverLeave" | nil -- The event to fire, if nil, defaults to "MouseClick"
+    
+    :::danger Implementations
+    You should not implement this function in luau.
+    :::
+]=]
+function instances.fireclickdetector(
+    detector: ClickDetector,
+    distance: number?,
+    eventName: "MouseClick" | "RightMouseClick" | "MouseHoverEnter" | "MouseHoverLeave" | nil
+): ()
+    return nil :: any
+end
+
+--[=[
+    Describes a TouchType for the firetouchinterest function. 
+
+    **`1`** stands for **`Touch`**, while **`0`** stands for **`TouchEnded`**.
+
+    @type TouchType 1 | 0
+    @within instances
+    @tag Type
+]=]
+type TouchType = typeof(1) | typeof(0)
+
+--[=[
+    Fires a physics interaction between BasePart objects, which replicates to the server.
+
+    @within instances
+    @param part1 BasePart -- The first part.
+    @param part2 BasePart -- The second part.
+    @param touchType TouchType -- The event to fire.
+    @error no world found -- No RBX::World was found for either Part1 or Part2.
+    @error overlap in a different world -- Part1 and Part2 live in different RBX::World's and they cannot interact with each other.
+
+    :::danger Implementations
+    You should not implement this function in luau.
+    :::
+]=]
+function instances.firetouchinterest(part1: BasePart, part2: BasePart, touchType: TouchType): ()
+    return nil :: any
+end
+
+--[=[
+    Fires a proximity prompt's Triggered event, which replicates to the server.
+
+    @within instances
+    @param prompt ProximityPrompt -- The prompt to fire the event on.
+    
+    :::danger Implementations
+    You should not implement this function in luau.
+    :::
+]=]
+function instances.fireproximityprompt(prompt: ProximityPrompt) end
 
 return instances
