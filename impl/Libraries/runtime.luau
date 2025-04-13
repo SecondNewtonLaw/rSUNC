@@ -273,4 +273,41 @@ end
 ]=]
 function runtime.setthreadidentity(threadIdentity: number) end
 
+--[=[
+    Sets the maximum amount of frames per second (fps) to run the game engine can run at.
+
+    @within runtime
+    @param fps number? -- The maximum amount of frames per second (fps). If no value is provided, it automatically defaults to 1000.
+    @error invalid fps value -- The fps value is invalid, i.e., it is less than 0
+
+    :::info Implementation
+    This function should set the FPS to 1000 if the valueo of `fps` is 0.
+    :::
+]=]
+function runtime.setfpscap(fps: number?): () end
+
+--[=[
+    Sets the maximum amount of frames per second (fps) to run the game engine can run at.
+
+    @within runtime
+    @return number -- The current target FPS of the game engine.
+]=]
+function runtime.getfpscap(): number
+    return nil :: any
+end
+
+--[=[
+    Loads a scrap from the Rubis API.
+
+    @within runtime
+    @return ((() -> ()) | nil), string? -- The closure that was loaded, if successful, or nil if it failed with a second string return.
+    @tag Optional
+
+    :::tip 
+    This is simply `loadstring`, but specific towards the Rubis API.
+    :::
+]=]
+function runtime.rubisload(): ((() -> ()) | nil, string?)
+    return nil :: any
+end
 return runtime
