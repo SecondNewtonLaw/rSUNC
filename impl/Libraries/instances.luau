@@ -151,15 +151,14 @@ end
 --[=[
     Gets a non-runnable closure which holds debug info (constants, upreferences, debugname, etc) of the script's main thread.
     @param instance LuaSourceContainer -- The script to get the closure of.
-    @return (T...) -> U... -- The 'main' closure of the script.
-    @error No bytecode found -- The script holds no bytecode.
+    @return ((T...) -> (U...)) | nil -- The 'main' closure of the script, `nil` if the script has no bytecode.
     @error Cannot get closure of a server script -- The script provided is a server script, and its source isn't available.
 
     :::danger Implementation 
     This function may not perform a GC scan in an effort to find the Script object.
     :::
 ]=]
-function instances.getscriptclosure<T..., U...>(instance: LuaSourceContainer): (T...) -> U...
+function instances.getscriptclosure<T..., U...>(instance: LuaSourceContainer): ((T...) -> (U...) | nil)
     return nil :: any
 end
 
