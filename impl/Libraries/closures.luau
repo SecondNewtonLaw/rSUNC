@@ -357,4 +357,18 @@ function closures.protectfunction<T..., U...>(fn: (T...) -> U...): () end
 function closures.comparefunction<T1..., U1..., T2..., U2...>(fn1: (T1...) -> U1..., fn2: (T2...) -> U2...): boolean
     return nil :: any
 end
+
+--[=[
+    Returns if the given function is a wrapper function.
+
+    @within closures
+    @param fn (T...) -> U... -- The function to check.
+    @return boolean -- Whether the function has been wrapped using a wrapper function, such as newlclosure, newcclosure or wrapclosure.
+]=]
+function closures.iswrappedclosure<T...,U...>(fn: (T...) -> U...): boolean
+    return nil :: any
+end
+
+
+
 return closures
