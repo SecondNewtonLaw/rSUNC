@@ -68,7 +68,7 @@ end
 
     @within metatables
     @param object T  -- The object with a metatable to get the metafield of.
-    @param metamethod metafield -- The metafield to get.
+    @param metafield metafield -- The metafield to get.
     @return U -- The metafield of the object.
     @error invalid metafield -- The metatable is invalid (bad metafield name)
     @error no metatable found -- No metatable was found on the given object.
@@ -83,7 +83,7 @@ end
 
     @within metatables
     @param object T -- The object to check.
-    @param metamethod metafield -- The metafield to check.
+    @param metafield metafield -- The metafield to check.
     @return boolean -- If true, the object has the metafield.
     @error invalid metafield -- The metatable is invalid (bad metafield name)
     @error no metatable found -- No metatable was found on the given object.
