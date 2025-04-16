@@ -365,10 +365,33 @@ end
     @param fn (T...) -> U... -- The function to check.
     @return boolean -- Whether the function has been wrapped using a wrapper function, such as newlclosure, newcclosure or wrapclosure.
 ]=]
-function closures.iswrappedclosure<T...,U...>(fn: (T...) -> U...): boolean
+function closures.iswrappedclosure<T..., U...>(fn: (T...) -> U...): boolean
     return nil :: any
 end
 
+--[=[
+    Hides a function from functions which expose the callstack to users (i.e., `getfenv`, `setfenv`, `debug.info` and `debug.traceback`).
 
+    @within closures
+    @param fnOrLevel number | (T...) -> U... -- The function or stack level to hide.
+    @param hidden boolean -- If true, the function will be hidden from the callstack, else it will be unhidden.
+
+    :::danger Implementation
+    You must hide the Proto and the backing C function, _not_ the actual Closure object. This is because the closure can be cloned, and then it will appear on the callstack!
+    :::
+]=]
+function closures.sethiddenstack<T..., U...>(fnOrLevel: number | (T...) -> U..., hidden: boolean): () end
+
+
+--[=[
+    Returns if the given function or stack level is hidden from functions which expose the callstack to users.
+
+    @within closures
+    @param fnOrLevel number | (T...) -> U... -- The function or stack level to check.
+    @return boolean -- If true, the function is hidden from the callstack.
+]=]
+function closures.ishiddencallstack<T..., U...>(fnOrLevel: number | (T...) -> U...): boolean
+    return nil :: any
+end
 
 return closures
