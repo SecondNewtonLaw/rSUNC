@@ -141,11 +141,28 @@ end
     :::
 
     :::info Hookfunction
-    This function may inherit errors and warnings from `hookfunction`.
+    This function may inherit errors and warnings from [`hookfunction`](/api/closures#hookfunction).
     :::
 ]=]
 function metatables.hookmetamethod<T, U..., O...>(object: T, metamethod: metafield, callback: (U...) -> O...): (U...) -> O...
     return nil :: any
 end
+
+--[=[
+    Restores a metamethod hooked with `hookmetamethod`.
+
+    @within metatables
+    @param object T -- The object with the metatable and metamethod to restore.
+    @param metamethod metafield -- The name of the metamethod to restore.
+    @error invalid metafield -- The metatable is invalid (bad metafield name)
+    @error no metatable found -- No metatable was found on the given object.
+    @error no metafield found -- No metafield was found on the given object's metatable.
+    @error metafield is not a function -- The metafield is not implemented as a function, but as a property.
+
+    :::info restorefunction
+    This function may inherit errors and warnings from [`restorefunction`](/api/closures#restorefunction)!
+    :::
+]=]
+function metatables.restoremetamethod<T>(object: T, metamethod: metafield): () end
 
 return metatables
