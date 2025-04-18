@@ -243,7 +243,7 @@ function runtime.getnamecallmethod(): string?
 end
 
 --[=[
-    Returns the current namecall method.
+    Sets the current namecall method.
 
     @within runtime
     @param newNamecall string -- The namecall method to set.
@@ -255,7 +255,7 @@ function runtime.setnamecallmethod(newNamecall: string): string?
 end
 
 --[=[
-    Sets the current thread identity and capabilities.
+    Gets the current thread identity and capabilities.
 
     @within runtime
     @param th thread? -- The thread to get the identity of (if nil, defaults to current thread)

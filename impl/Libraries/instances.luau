@@ -103,7 +103,7 @@ end
     
     @within instances
     @param instance Instance -- The instance to get the callback value from.
-    @param prop string -- The that is the callback.
+    @param prop string -- The name of the callback property.
     @return (T...) -> U... -- The callback that the instance contains at the given property.
     @error property with name '%s' does not exist. -- The given property (named %s) does not exist on the given instance.
 ]=]
