@@ -347,4 +347,15 @@ function runtime.disassemble(luauBytecodeOrScript: LuaSourceContainer | string):
     return nil :: any
 end
 
+--[=[
+    Allows you to trace execution calls to diagnose a crash.
+
+    @within runtime
+    @param isEnabled boolean -- Whether to enable call tracing.
+    @tag Optional
+]=]
+function runtime.setcalltrace(isEnabled: boolean): boolean
+    return nil :: any
+end
+
 return runtime
