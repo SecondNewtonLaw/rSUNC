@@ -15,7 +15,7 @@ local filesystem = {}
     @error Cannot write to file '%s' -- The file could not be written to due to permissions or other OS-level issues.
 
     :::info Paths
-    Paths should ideally be relative to a designated workspace or root directory defined by the executor environment. Absolute paths might be restricted.
+    Paths should ideally be relative to a designated workspace or root directory defined by the executor environment. Absolute paths are restricted.
     :::
 ]=]
 function filesystem.writefile(path: string, content: string | buffer): () end
@@ -43,7 +43,7 @@ end
     @error Cannot read file '%s' -- The file does not exist or cannot be read due to permissions.
 
     :::info Environment
-    The loaded chunk inherits the environment of the caller, similar to standard `loadfile`.
+    The loaded chunk inherits the environment of the caller.
     :::
 
     :::tip `loadstring`
@@ -64,7 +64,7 @@ end
     @error ... -- Any runtime error originating from the executed chunk.
 
     :::info Environment
-    The executed chunk inherits the environment of the caller, similar to standard `dofile`.
+    The executed chunk inherits the environment of the caller.
     :::
 ]=]
 function filesystem.dofile(path: string): ...any
