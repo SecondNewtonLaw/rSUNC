@@ -327,8 +327,8 @@ end
     Decompiles the given Luau code or script.
 
     @within runtime
-    @param luauCodeOrScript LuaSourceContainer | string -- The Luau code or script to decompile.
-    @return string -- The decompiled Luau code.
+    @param luauCodeOrScript LuaSourceContainer | string -- The Luau bytecode or script to decompile.
+    @return string -- The decompiled Luau bytecode.
     @tag Optional
 ]=]
 function runtime.decompile(luauCodeOrScript: LuaSourceContainer | string): string
@@ -339,8 +339,8 @@ end
     Disassembles the given Luau code or script.
 
     @within runtime
-    @param luauCodeOrScript LuaSourceContainer | string -- The Luau code or script to decompile.
-    @return string -- The disassembled Luau code.
+    @param luauCodeOrScript LuaSourceContainer | string -- The Luau bytecode or script to decompile.
+    @return string -- The disassembled Luau bytecode.
     @tag Optional
 ]=]
 function runtime.disassemble(luauCodeOrScript: LuaSourceContainer | string): string
