@@ -8,7 +8,7 @@
 local closures = {}
 
 --[=[
-    Provides a hash with a digest size of 48 bytes (384 bits) in hex format for the given function
+    Provides a hash with a digest size of 48 bytes (384 bits) in hex format for the given luau function
 
     @within closures
     @param fn (T...) -> U... -- The function to hash.
@@ -24,6 +24,13 @@ local closures = {}
     If your function is outputting different hashes every time its called, then you may have forgotten to account for Compiler settings. We recommend you read [this post](/docs/CompilerCompliance) to know to resolve this issue and make your Luau compiler rSUNC compliant.
     :::
 
+    :::danger newcclosures/ newlclosure hashing
+    For newcclosures and newlclosures, the result of the hash must be come from the 'deepest' closure it wraps.
+
+    If such a closure is a C closure, then the function must error.
+    :::
+
+    @error the closure must resolve to a Luau closure -- A wrapper function was provided, but when resolving its root closure, it didn't point to a luau closure.
     @error function must be a Luau closure. -- The first parameter was a C function instead of a Luau function.
     @error Unsupported hash type. -- The given hash type is not supported by the executor.
 ]=]
@@ -382,7 +389,6 @@ end
 ]=]
 function closures.sethiddenstack<T..., U...>(fnOrLevel: number | (T...) -> U..., hidden: boolean): () end
 
-
 --[=[
     Returns if the given function or stack level is hidden from functions which expose the callstack to users.
 
@@ -390,7 +396,7 @@ function closures.sethiddenstack<T..., U...>(fnOrLevel: number | (T...) -> U...,
     @param fnOrLevel number | (T...) -> U... -- The function or stack level to check.
     @return boolean -- If true, the function is hidden from the callstack.
 ]=]
-function closures.ishiddencallstack<T..., U...>(fnOrLevel: number | (T...) -> U...): boolean
+function closures.ishiddenstack<T..., U...>(fnOrLevel: number | (T...) -> U...): boolean
     return nil :: any
 end
 

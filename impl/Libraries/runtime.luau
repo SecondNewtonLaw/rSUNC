@@ -310,4 +310,41 @@ end
 function runtime.rubisload(): ((() -> ()) | nil, string?)
     return nil :: any
 end
+
+--[=[
+    Returns the bytecode of the given Luau code.
+
+    @within runtime
+    @param luauCode string -- The Luau code to get the bytecode of.
+    @return string -- The bytecode of the given Luau code.
+    @tag Optional
+]=]
+function runtime.getbytecode(luauCode: string): string
+    return nil :: any
+end
+
+--[=[
+    Decompiles the given Luau code or script.
+
+    @within runtime
+    @param luauCodeOrScript LuaSourceContainer | string -- The Luau code or script to decompile.
+    @return string -- The decompiled Luau code.
+    @tag Optional
+]=]
+function runtime.decompile(luauCodeOrScript: LuaSourceContainer | string): string
+    return nil :: any
+end
+
+--[=[
+    Disassembles the given Luau code or script.
+
+    @within runtime
+    @param luauCodeOrScript LuaSourceContainer | string -- The Luau code or script to decompile.
+    @return string -- The disassembled Luau code.
+    @tag Optional
+]=]
+function runtime.disassemble(luauCodeOrScript: LuaSourceContainer | string): string
+    return nil :: any
+end
+
 return runtime
