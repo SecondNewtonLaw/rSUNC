@@ -324,26 +324,26 @@ function runtime.getbytecode(luauCode: string): string
 end
 
 --[=[
-    Decompiles the given Luau code or script.
+    Decompiles the given Luau bytecode or script.
 
     @within runtime
-    @param luauCodeOrScript LuaSourceContainer | string -- The Luau bytecode or script to decompile.
+    @param luauBytecodeOrScript LuaSourceContainer | string -- The Luau bytecode or script to decompile.
     @return string -- The decompiled Luau bytecode.
     @tag Optional
 ]=]
-function runtime.decompile(luauCodeOrScript: LuaSourceContainer | string): string
+function runtime.decompile(luauBytecodeOrScript: LuaSourceContainer | string): string
     return nil :: any
 end
 
 --[=[
-    Disassembles the given Luau code or script.
+    Disassembles the given Luau bytecode or script.
 
     @within runtime
-    @param luauCodeOrScript LuaSourceContainer | string -- The Luau bytecode or script to decompile.
+    @param luauBytecodeOrScript LuaSourceContainer | string -- The Luau bytecode or script to decompile.
     @return string -- The disassembled Luau bytecode.
     @tag Optional
 ]=]
-function runtime.disassemble(luauCodeOrScript: LuaSourceContainer | string): string
+function runtime.disassemble(luauBytecodeOrScript: LuaSourceContainer | string): string
     return nil :: any
 end
 
