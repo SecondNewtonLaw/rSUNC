@@ -20,3 +20,5 @@ This project uses [Moonwave](https://eryn.io/moonwave/) a documentation generato
 - senS
 - GRH
 - Master Oogway
+- PhoenixWhitefire
+- TechHog8984
