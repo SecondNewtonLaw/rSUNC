@@ -148,7 +148,7 @@ function filesystem.makefolder(path: string): () end
 function filesystem.delfolder(path: string): () end
 
 --[=[
-    Takes a path to a local file (e.g., an image) and returns a Roblox content URL (e.g., `rbxasset://<hash>`) that can be used to load the asset within Roblox interfaces.
+    Takes a path to a local file (e.g., an image) and returns a Roblox content URL (e.g., `rbxasset://<filehash>`) that can be used to load the asset within Roblox interfaces.
 
     @within filesystem
     @param path string -- The path to the local asset file.
