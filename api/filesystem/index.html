@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="plugin-moonwave plugin-id-moonwave" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">filesystem | RbxStu Unified Naming Convention</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://SecondNewtonLaw.github.io/rSUNC/api/filesystem"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="filesystem | RbxStu Unified Naming Convention"><meta data-rh="true" name="description" content="Provides functions to interact with the local filesystem."><meta data-rh="true" property="og:description" content="Provides functions to interact with the local filesystem."><link data-rh="true" rel="canonical" href="https://SecondNewtonLaw.github.io/rSUNC/api/filesystem"><link data-rh="true" rel="alternate" href="https://SecondNewtonLaw.github.io/rSUNC/api/filesystem" hreflang="en"><link data-rh="true" rel="alternate" href="https://SecondNewtonLaw.github.io/rSUNC/api/filesystem" hreflang="x-default"><link rel="stylesheet" href="/rSUNC/assets/css/styles.5cbed574.css">
+<script src="/rSUNC/assets/js/runtime~main.bafaf8ec.js" defer="defer"></script>
+<script src="/rSUNC/assets/js/main.400ddddf.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();null!==e?t(e):window.matchMedia("(prefers-color-scheme: dark)").matches?t("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,t("light"))}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/rSUNC/"><b class="navbar__title text--truncate">RbxStu Unified Naming Convention</b></a><a class="navbar__item navbar__link" href="/rSUNC/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/rSUNC/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://discord.gg/xruheb5psN" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://github.com/SecondNewtonLaw/rSUNC" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0 docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC/api/global">Uncategorized/Miscellaneous</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/rSUNC/api/closures">Libraries</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/closures">closures</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/debug">debug</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/rSUNC/api/filesystem">filesystem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/http">http</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/instances">instances</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/memory">memory</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/metatables">metatables</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/runtime">runtime</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/scheduler">scheduler</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC/api/DebugInfo">Custom Types</a></div></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">filesystem</span></h1><div class="luaClassTags_EipM"><span class="docTag__6UZ" style="border-color:#218c74;color:#218c74">Library</span></div><div>
+<p>Provides functions to interact with the local filesystem.</p>
+</div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="writefile"><code style="text-decoration:none">writefile</code><a href="#writefile" class="hash-link" aria-label="Direct link to writefile" title="Direct link to writefile">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L21"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">writefile</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The path to the file.</p>
+</span></span></div><div><code>content<!-- -->: </code><code class="blue_P4bS">string</code><code class="op_lSLc"> | </code><code class="blue_P4bS">buffer</code><span class="inlineDescription_G7Er">-- <span>
+<p>The content to write to the file.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Writes content (string or buffer) to a specified file. Creates the file if it does not exist, and overwrites it if it does.</p>
+
+  
+    
+    
+      <div class="admonition admonition-info alert alert--info">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+                <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+              </svg></span><span class="admonition-title">Paths</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>Paths should ideally be relative to a designated workspace or root directory defined by the executor environment. Absolute paths are restricted.</p>
+        </div>
+      </div>
+    
+  
+
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot write to file &#x27;%s&#x27;</td><td>The file could not be written to due to permissions or other OS-level issues.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="readfile"><code style="text-decoration:none">readfile</code><a href="#readfile" class="hash-link" aria-label="Direct link to readfile" title="Direct link to readfile">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L32"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">readfile</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The path to the file.</p>
+</span></span></div><div><code>asBuffer<!-- -->: </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>If true, return content as a buffer; if false (default), return as a string.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">string</code><code class="op_lSLc"> | </code><code class="blue_P4bS">buffer</code><span class="inlineDescription_G7Er">-- <span>
+<p>The content of the file, either as a string or a buffer based on the asBuffer flag.</p>
+</span></span></div><div>
+<p>Reads the content of a specified file, returning it as a string or a buffer.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot read file &#x27;%s&#x27;</td><td>The file does not exist or cannot be read due to permissions.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="loadfile"><code style="text-decoration:none">loadfile</code><a href="#loadfile" class="hash-link" aria-label="Direct link to loadfile" title="Direct link to loadfile">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L53"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">loadfile</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The path to the Lua file.</p>
+</span></span></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><code class="blue_P4bS">...any</code><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">...any</code><code class="purple_ieR2">)</code><code class="op_lSLc"> | </code><code class="blue_P4bS">nil</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The loaded chunk as a function, or nil if loading failed.</p>
+</span></span></div><div><code class="blue_P4bS">string?</code><span class="inlineDescription_G7Er">-- <span>
+<p>An error message if loading failed.</p>
+</span></span></div></div><code>)</code></div><div>
+<p>Loads a Lua chunk from the specified file but does not run it.</p>
+
+  
+    
+    
+      <div class="admonition admonition-info alert alert--info">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+                <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+              </svg></span><span class="admonition-title">Environment</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>The loaded chunk inherits the environment of the caller.</p>
+        </div>
+      </div>
+    
+  
+
+
+  
+    
+    
+      <div class="admonition admonition-success alert alert--success">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16">
+                <path d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path>
+              </svg></span><span class="admonition-title"><code>loadstring</code></span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>This function behaves similarly to <code>loadstring</code> but operates on file paths instead of raw strings. Refer to <code>closures.loadstring</code> for potential compilation settings.</p>
+        </div>
+      </div>
+    
+  
+
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot read file &#x27;%s&#x27;</td><td>The file does not exist or cannot be read due to permissions.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="dofile"><code style="text-decoration:none">dofile</code><a href="#dofile" class="hash-link" aria-label="Direct link to dofile" title="Direct link to dofile">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L70"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">dofile</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The path to the Lua file.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">...any</code><span class="inlineDescription_G7Er">-- <span>
+<p>The values returned by the executed chunk.</p>
+</span></span></div><div>
+<p>Loads and runs a Lua chunk from the specified file.</p>
+
+  
+    
+    
+      <div class="admonition admonition-info alert alert--info">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+                <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+              </svg></span><span class="admonition-title">Environment</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>The executed chunk inherits the environment of the caller.</p>
+        </div>
+      </div>
+    
+  
+
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot read file &#x27;%s&#x27;</td><td>The file does not exist or cannot be read due to permissions.</td></tr><tr><td>...</td><td>Any runtime error originating from the executed chunk.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="delfile"><code style="text-decoration:none">delfile</code><a href="#delfile" class="hash-link" aria-label="Direct link to delfile" title="Direct link to delfile">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L81"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">delfile</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The path to the file to delete.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Deletes a specified file.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot delete file &#x27;%s&#x27;</td><td>The file does not exist, cannot be deleted due to permissions, or the path isn&#x27;t a file or other issues.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="appendfile"><code style="text-decoration:none">appendfile</code><a href="#appendfile" class="hash-link" aria-label="Direct link to appendfile" title="Direct link to appendfile">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L91"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">appendfile</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The path to the file.</p>
+</span></span></div><div><code>content<!-- -->: </code><code class="blue_P4bS">string</code><code class="op_lSLc"> | </code><code class="blue_P4bS">buffer</code><span class="inlineDescription_G7Er">-- <span>
+<p>The content to append to the file.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Appends content (string or buffer) to the end of a specified file. Creates the file if it does not exist.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot append to file &#x27;%s&#x27;</td><td>The file could not be appended to due to permissions or other OS-level issues.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="listfiles"><code style="text-decoration:none">listfiles</code><a href="#listfiles" class="hash-link" aria-label="Direct link to listfiles" title="Direct link to listfiles">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L102"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">listfiles</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The path to the directory.</p>
+</span></span></div><div><code>recursive<!-- -->: </code><code class="blue_P4bS">boolean?</code><span class="inlineDescription_G7Er">-- <span>
+<p>If true, recursively list contents of all subdirectories. Defaults to false.</p>
+</span></span></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code><span class="inlineDescription_G7Er">-- <span>
+<p>A list of names (or relative paths if recursive) of files and folders within the directory.</p>
+</span></span></div><div>
+<p>Lists all files and folders within a specified directory path. Can optionally list recursively.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot list directory &#x27;%s&#x27;</td><td>The directory does not exist or cannot be accessed.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="isfile"><code style="text-decoration:none">isfile</code><a href="#isfile" class="hash-link" aria-label="Direct link to isfile" title="Direct link to isfile">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L113"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">isfile</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The path to check.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>True if the path points to an existing file, false otherwise.</p>
+</span></span></div><div>
+<p>Checks if a given path points to an existing file.</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="isfolder"><code style="text-decoration:none">isfolder</code><a href="#isfolder" class="hash-link" aria-label="Direct link to isfolder" title="Direct link to isfolder">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L124"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">isfolder</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The path to check.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
+<p>True if the path points to an existing folder, false otherwise.</p>
+</span></span></div><div>
+<p>Checks if a given path points to an existing folder (directory).</p>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="makefolder"><code style="text-decoration:none">makefolder</code><a href="#makefolder" class="hash-link" aria-label="Direct link to makefolder" title="Direct link to makefolder">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L135"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">makefolder</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The path where the folder should be created.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Creates a new folder (directory) at the specified path.</p>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot create folder &#x27;%s&#x27;</td><td>The folder could not be created (e.g., path already exists as a file, permissions issue, invalid path).</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="delfolder"><code style="text-decoration:none">delfolder</code><a href="#delfolder" class="hash-link" aria-label="Direct link to delfolder" title="Direct link to delfolder">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L148"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">delfolder</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The path to the folder to delete.</p>
+</span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
+<p>Deletes a specified folder (directory) and all of its contents recursively.</p>
+
+  
+    
+    
+      <div class="admonition admonition-warning alert alert--warning">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path>
+              </svg></span><span class="admonition-title">Behavior</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>This function permanently deletes the specified folder and <strong>all</strong> files and subfolders within it. Use with caution.</p>
+        </div>
+      </div>
+    
+  
+
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot delete folder &#x27;%s&#x27;</td><td>The folder does not exist, cannot be deleted due to permissions, or the path isn&#x27;t a folder or other issues (e.g., a file within is locked).</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getcustomasset"><code style="text-decoration:none">getcustomasset</code><a href="#getcustomasset" class="hash-link" aria-label="Direct link to getcustomasset" title="Direct link to getcustomasset">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L162"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">getcustomasset</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>The path to the local asset file.</p>
+</span></span></div></div><code>) → </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
+<p>A Roblox asset URL (e.g., <code>rbxasset://some_generated_identifier</code>).</p>
+</span></span></div><div>
+<p>Takes a path to a local file (e.g., an image) and returns a Roblox content URL (e.g., <code>rbxasset://&#x3C;filehash></code>) that can be used to load the asset within Roblox interfaces.</p>
+
+  
+    
+    
+      <div class="admonition admonition-info alert alert--info">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+                <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+              </svg></span><span class="admonition-title">Usage</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>This function allows importing local files (like images, sounds, etc.) for use in Roblox UIs or parts by converting them into a temporary or cached asset URL recognized by the engine. The underlying mechanism might involve hashing the file content or uploading it to a temporary storage accessible by the client.</p>
+        </div>
+      </div>
+    
+  
+
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot process asset &#x27;%s&#x27;</td><td>The file does not exist, is not a supported asset type, or could not be processed/uploaded.</td></tr></tbody></table></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
+    &quot;functions&quot;: [
+        {
+            &quot;name&quot;: &quot;writefile&quot;,
+            &quot;desc&quot;: &quot;Writes content (string or buffer) to a specified file. Creates the file if it does not exist, and overwrites it if it does.\n\n\n:::info Paths\nPaths should ideally be relative to a designated workspace or root directory defined by the executor environment. Absolute paths are restricted.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;path&quot;,
+                    &quot;desc&quot;: &quot;The path to the file.&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;content&quot;,
+                    &quot;desc&quot;: &quot;The content to write to the file.&quot;,
+                    &quot;lua_type&quot;: &quot;string | buffer&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;Cannot write to file &#x27;%s&#x27;&quot;,
+                    &quot;desc&quot;: &quot;The file could not be written to due to permissions or other OS-level issues.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 21,
+                &quot;path&quot;: &quot;impl/Libraries/filesystem.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;readfile&quot;,
+            &quot;desc&quot;: &quot;Reads the content of a specified file, returning it as a string or a buffer.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;path&quot;,
+                    &quot;desc&quot;: &quot;The path to the file.&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;asBuffer&quot;,
+                    &quot;desc&quot;: &quot;If true, return content as a buffer; if false (default), return as a string.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The content of the file, either as a string or a buffer based on the asBuffer flag.&quot;,
+                    &quot;lua_type&quot;: &quot;string | buffer&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;Cannot read file &#x27;%s&#x27;&quot;,
+                    &quot;desc&quot;: &quot;The file does not exist or cannot be read due to permissions.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 32,
+                &quot;path&quot;: &quot;impl/Libraries/filesystem.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;loadfile&quot;,
+            &quot;desc&quot;: &quot;Loads a Lua chunk from the specified file but does not run it.\n\n\n:::info Environment\nThe loaded chunk inherits the environment of the caller.\n:::\n\n:::tip `loadstring`\nThis function behaves similarly to `loadstring` but operates on file paths instead of raw strings. Refer to `closures.loadstring` for potential compilation settings.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;path&quot;,
+                    &quot;desc&quot;: &quot;The path to the Lua file.&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The loaded chunk as a function, or nil if loading failed.&quot;,
+                    &quot;lua_type&quot;: &quot;((...any) -&gt; ...any) | nil&quot;
+                },
+                {
+                    &quot;desc&quot;: &quot;An error message if loading failed.&quot;,
+                    &quot;lua_type&quot;: &quot;string?&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;Cannot read file &#x27;%s&#x27;&quot;,
+                    &quot;desc&quot;: &quot;The file does not exist or cannot be read due to permissions.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 53,
+                &quot;path&quot;: &quot;impl/Libraries/filesystem.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;dofile&quot;,
+            &quot;desc&quot;: &quot;Loads and runs a Lua chunk from the specified file.\n\n\n:::info Environment\nThe executed chunk inherits the environment of the caller.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;path&quot;,
+                    &quot;desc&quot;: &quot;The path to the Lua file.&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;The values returned by the executed chunk.&quot;,
+                    &quot;lua_type&quot;: &quot;...any&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;Cannot read file &#x27;%s&#x27;&quot;,
+                    &quot;desc&quot;: &quot;The file does not exist or cannot be read due to permissions.&quot;
+                },
+                {
+                    &quot;lua_type&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;Any runtime error originating from the executed chunk.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 70,
+                &quot;path&quot;: &quot;impl/Libraries/filesystem.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;delfile&quot;,
+            &quot;desc&quot;: &quot;Deletes a specified file.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;path&quot;,
+                    &quot;desc&quot;: &quot;The path to the file to delete.&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;Cannot delete file &#x27;%s&#x27;&quot;,
+                    &quot;desc&quot;: &quot;The file does not exist, cannot be deleted due to permissions, or the path isn&#x27;t a file or other issues.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 81,
+                &quot;path&quot;: &quot;impl/Libraries/filesystem.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;appendfile&quot;,
+            &quot;desc&quot;: &quot;Appends content (string or buffer) to the end of a specified file. Creates the file if it does not exist.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;path&quot;,
+                    &quot;desc&quot;: &quot;The path to the file.&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;content&quot;,
+                    &quot;desc&quot;: &quot;The content to append to the file.&quot;,
+                    &quot;lua_type&quot;: &quot;string | buffer&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;Cannot append to file &#x27;%s&#x27;&quot;,
+                    &quot;desc&quot;: &quot;The file could not be appended to due to permissions or other OS-level issues.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 91,
+                &quot;path&quot;: &quot;impl/Libraries/filesystem.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;listfiles&quot;,
+            &quot;desc&quot;: &quot;Lists all files and folders within a specified directory path. Can optionally list recursively.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;path&quot;,
+                    &quot;desc&quot;: &quot;The path to the directory.&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;recursive&quot;,
+                    &quot;desc&quot;: &quot;If true, recursively list contents of all subdirectories. Defaults to false.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean?&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;A list of names (or relative paths if recursive) of files and folders within the directory.&quot;,
+                    &quot;lua_type&quot;: &quot;{string}&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;Cannot list directory &#x27;%s&#x27;&quot;,
+                    &quot;desc&quot;: &quot;The directory does not exist or cannot be accessed.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 102,
+                &quot;path&quot;: &quot;impl/Libraries/filesystem.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;isfile&quot;,
+            &quot;desc&quot;: &quot;Checks if a given path points to an existing file.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;path&quot;,
+                    &quot;desc&quot;: &quot;The path to check.&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;True if the path points to an existing file, false otherwise.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 113,
+                &quot;path&quot;: &quot;impl/Libraries/filesystem.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;isfolder&quot;,
+            &quot;desc&quot;: &quot;Checks if a given path points to an existing folder (directory).&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;path&quot;,
+                    &quot;desc&quot;: &quot;The path to check.&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;True if the path points to an existing folder, false otherwise.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 124,
+                &quot;path&quot;: &quot;impl/Libraries/filesystem.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;makefolder&quot;,
+            &quot;desc&quot;: &quot;Creates a new folder (directory) at the specified path.&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;path&quot;,
+                    &quot;desc&quot;: &quot;The path where the folder should be created.&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;Cannot create folder &#x27;%s&#x27;&quot;,
+                    &quot;desc&quot;: &quot;The folder could not be created (e.g., path already exists as a file, permissions issue, invalid path).&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 135,
+                &quot;path&quot;: &quot;impl/Libraries/filesystem.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;delfolder&quot;,
+            &quot;desc&quot;: &quot;Deletes a specified folder (directory) and all of its contents recursively.\n\n\n:::warning Behavior\nThis function permanently deletes the specified folder and **all** files and subfolders within it. Use with caution.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;path&quot;,
+                    &quot;desc&quot;: &quot;The path to the folder to delete.&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;Cannot delete folder &#x27;%s&#x27;&quot;,
+                    &quot;desc&quot;: &quot;The folder does not exist, cannot be deleted due to permissions, or the path isn&#x27;t a folder or other issues (e.g., a file within is locked).&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 148,
+                &quot;path&quot;: &quot;impl/Libraries/filesystem.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getcustomasset&quot;,
+            &quot;desc&quot;: &quot;Takes a path to a local file (e.g., an image) and returns a Roblox content URL (e.g., `rbxasset://&lt;filehash&gt;`) that can be used to load the asset within Roblox interfaces.\n\n\n:::info Usage\nThis function allows importing local files (like images, sounds, etc.) for use in Roblox UIs or parts by converting them into a temporary or cached asset URL recognized by the engine. The underlying mechanism might involve hashing the file content or uploading it to a temporary storage accessible by the client.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;path&quot;,
+                    &quot;desc&quot;: &quot;The path to the local asset file.&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;A Roblox asset URL (e.g., `rbxasset://some_generated_identifier`).&quot;,
+                    &quot;lua_type&quot;: &quot;string&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;errors&quot;: [
+                {
+                    &quot;lua_type&quot;: &quot;Cannot process asset &#x27;%s&#x27;&quot;,
+                    &quot;desc&quot;: &quot;The file does not exist, is not a supported asset type, or could not be processed/uploaded.&quot;
+                }
+            ],
+            &quot;source&quot;: {
+                &quot;line&quot;: 162,
+                &quot;path&quot;: &quot;impl/Libraries/filesystem.luau&quot;
+            }
+        }
+    ],
+    &quot;properties&quot;: [],
+    &quot;types&quot;: [],
+    &quot;name&quot;: &quot;filesystem&quot;,
+    &quot;desc&quot;: &quot;Provides functions to interact with the local filesystem.&quot;,
+    &quot;tags&quot;: [
+        &quot;Library&quot;
+    ],
+    &quot;source&quot;: {
+        &quot;line&quot;: 7,
+        &quot;path&quot;: &quot;impl/Libraries/filesystem.luau&quot;
+    }
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#appendfile" class="table-of-contents__link toc-highlight">.appendfile</a></li><li><a href="#delfile" class="table-of-contents__link toc-highlight">.delfile</a></li><li><a href="#delfolder" class="table-of-contents__link toc-highlight">.delfolder</a></li><li><a href="#dofile" class="table-of-contents__link toc-highlight">.dofile</a></li><li><a href="#getcustomasset" class="table-of-contents__link toc-highlight">.getcustomasset</a></li><li><a href="#isfile" class="table-of-contents__link toc-highlight">.isfile</a></li><li><a href="#isfolder" class="table-of-contents__link toc-highlight">.isfolder</a></li><li><a href="#listfiles" class="table-of-contents__link toc-highlight">.listfiles</a></li><li><a href="#loadfile" class="table-of-contents__link toc-highlight">.loadfile</a></li><li><a href="#makefolder" class="table-of-contents__link toc-highlight">.makefolder</a></li><li><a href="#readfile" class="table-of-contents__link toc-highlight">.readfile</a></li><li><a href="#writefile" class="table-of-contents__link toc-highlight">.writefile</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 SecondNewtonLaw. Built with Moonwave and Docusaurus</div></div></div></footer></div>
+</body>
+</html>
