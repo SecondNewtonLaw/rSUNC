@@ -56,6 +56,55 @@ end
     You can restore functions hooked with `hookfunction` using `restorefunction`, in case `restorefunction` is not available you may unhook by calling `hookfunction` with the first function being the hooked function, and the second being the original one.
     :::
 
+    :::danger Proto and savedpc
+    When a proto is hooked and it is on a callstack of any thread you must emit a clone of it, and set the func parameter of the callstack to the clone.
+
+    This will prevent a vulnerability where, upon returning from a yield or C code, the savedpc which was set with the original proto, attempts to resume execution in the new proto.
+    
+    This causes:
+        - Crashes in the form of Segmentation Faults
+        - Line number error to be displayed improperly.
+    
+    Among other things, you must either emit a clone of the proto or replace the callstack of that thread with the hooked one and perform all proper validation for it.
+    
+    Example of line number being dislayed improperly if the function implementation is vulnerable: https://i.imgur.com/5sSfnut.png _RbxStu V4 has fixed this issue already!_
+    :::
+
+    ## Vulnerability test code:
+    ```lua
+    local bFinishedExecution = false
+    local bExecuted = false
+    local a 
+
+    local function b()
+        print"b babyyy"
+        print"b baby"
+        print"b babyyy"
+        restorefunction(a) -- may be affected as well, and you must apply similar fixes!
+        warn("im b")
+        bExecuted = true
+    end
+
+    a = function()
+        local x = hookfunction(a, b)
+        task.wait()
+        print("I'm a")
+        bFinishedExecution = true
+        return x
+    end
+
+    local s, e = pcall(a)
+    assert(s, "savedpc [1]")
+    assert((bFinishedExecution and not bExecuted) or (not bFinishedExecution and bExecuted), "savedpc [2]")
+    print("no issues most likely")
+
+    --[[
+        When hooking and suspending, the current instruction is saved into the threads' CallInfo->savedpc to resume. But as we have changed the Proto object, the address and offset of this savedpc, is NO LONGER VALID!
+        Attempting to do anything with it would likely yield us either: a Luau C error with line number of the error in a completely invalid line, undefined behaviour and inexplicable crashes.
+
+        This is a potential ACE that MUST be fixed and handled properly.
+    ]]
+    ```
 
     ## Examples:
 
@@ -133,6 +182,10 @@ end
 
     @param restoreWhat (T...) -> U... -- The function that should be restored.
     @error Function is not hooked -- The function is not hooked, and thus cannot be restored. Use `ishooked` before calling this function!
+
+    :::danger Vulnerability
+    This function is vulnerable to the `savedpc` vulnerability, refer to [`hookfunction`](/api/closures#hookfunction)'s documentation on how to fix this vulnerability! 
+    :::
 ]=]
 function closures.restorefunction<T..., U...>(restoreWhat: (T...) -> U...): () end
 
@@ -164,6 +217,14 @@ end
     @param fn (T...) -> U... -- Function to wrap
     @param debugName string? -- The name of the function, optional.
     @return (T...) -> U...
+
+    :::danger Detections
+    The proxy emited by newlclosure and the called function MUST be automatically hidden from the callstack using `sethiddenstack` to prevent callstack attacks.
+    :::
+
+    :::warning Yielding
+    The emitted closure must yield. To implement this, check for lua_pcall on the Luau source!
+    :::
 ]=]
 function closures.newcclosure<T..., U...>(fn: (T...) -> U..., debugName: string?): (T...) -> U...
     return nil :: any
@@ -182,6 +243,10 @@ end
 
     :::warning
     This function, depending on the implementation, may rely on function environments to work or in a closure map-backed proxy function (like in newcclosure). Beware of this when using the function.
+    :::
+
+    :::danger Detections
+    The proxy emited by newlclosure and the called function MUST be automatically hidden from the callstack using `sethiddenstack` to prevent callstack attacks.
     :::
 
     #### Example Implementation (In Luau)
