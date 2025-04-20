@@ -220,6 +220,8 @@ end
 
     :::danger Detections
     The proxy emited by newlclosure and the called function MUST be automatically hidden from the callstack using `sethiddenstack` to prevent callstack attacks.
+
+    While executor functions are automatically hidden, if the closure given is not a hidden function (i.e., a roblox or game function) you must hide it accordingly.
     :::
 
     :::warning Yielding
@@ -247,6 +249,8 @@ end
 
     :::danger Detections
     The proxy emited by newlclosure and the called function MUST be automatically hidden from the callstack using `sethiddenstack` to prevent callstack attacks.
+        
+    While executor functions are automatically hidden, if the closure given is not a hidden function (i.e., a roblox or game function) you must hide it accordingly.
     :::
 
     #### Example Implementation (In Luau)
@@ -451,6 +455,10 @@ end
     :::danger Implementation
     You must hide the Proto and the backing C function, _not_ the actual Closure object. This is because the closure can be cloned, and then it will appear on the callstack!
     :::
+
+    :::info 
+    All executor functions must be hidden from the callstack by default, and this cannot change regardless of the users' desire.
+    :::
 ]=]
 function closures.sethiddenstack<T..., U...>(fnOrLevel: number | (T...) -> U..., hidden: boolean): () end
 
@@ -460,6 +468,10 @@ function closures.sethiddenstack<T..., U...>(fnOrLevel: number | (T...) -> U...,
     @within closures
     @param fnOrLevel number | (T...) -> U... -- The function or stack level to check.
     @return boolean -- If true, the function is hidden from the callstack.
+
+    :::info 
+    All executor functions must be hidden from the callstack by default, and this cannot change regardless of the users' desire.
+    :::
 ]=]
 function closures.ishiddenstack<T..., U...>(fnOrLevel: number | (T...) -> U...): boolean
     return nil :: any
