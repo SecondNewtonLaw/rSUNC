@@ -477,4 +477,30 @@ function closures.ishiddenstack<T..., U...>(fnOrLevel: number | (T...) -> U...):
     return nil :: any
 end
 
+
+
+--[=[
+    Creates a new thread and sets up a fake call stack for it, then calls the given function.
+
+    @within closures
+    @param fn (T...) -> U... -- The function to call with the fake stack and new thread.
+    @param stackLevels { CallStack } -- An array of callstacks, the first item will be the beginning of the callstack.
+    @param threadInitializationInformation ThreadInitializationInformation -- The thread initialization information to use.
+    @param ... K... -- Additional arguments to pass to the function.
+    @return boolean -- Whether the function was successfully called.
+    @return J... -- The return of the function
+
+    :::info
+    If on the `stackLevels`, a `CallStack`'s `currentline` is not given (i.e., `nil`), the beginning of the function must be used by default.
+    :::
+
+]=]
+function closures.trampoline_call<T..., U..., K..., J...>(
+    fn: (T...) -> U...,
+    stackLevels: { CallStack },
+    threadInitializationInformation: ThreadInitializationInformation, ... : K...
+): (boolean, J...)
+    return nil :: any
+end
+
 return closures
