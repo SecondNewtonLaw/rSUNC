@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.7.0">
 <title data-rh="true">closures | RbxStu Unified Naming Convention</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://SecondNewtonLaw.github.io/rSUNC/api/closures"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="closures | RbxStu Unified Naming Convention"><meta data-rh="true" name="description" content="Contains functions which interact and modify closures and their behaviour."><meta data-rh="true" property="og:description" content="Contains functions which interact and modify closures and their behaviour."><link data-rh="true" rel="canonical" href="https://SecondNewtonLaw.github.io/rSUNC/api/closures"><link data-rh="true" rel="alternate" href="https://SecondNewtonLaw.github.io/rSUNC/api/closures" hreflang="en"><link data-rh="true" rel="alternate" href="https://SecondNewtonLaw.github.io/rSUNC/api/closures" hreflang="x-default"><link rel="stylesheet" href="/rSUNC/assets/css/styles.5cbed574.css">
-<script src="/rSUNC/assets/js/runtime~main.75e849df.js" defer="defer"></script>
-<script src="/rSUNC/assets/js/main.6e90cc63.js" defer="defer"></script>
+<script src="/rSUNC/assets/js/runtime~main.923f365c.js" defer="defer"></script>
+<script src="/rSUNC/assets/js/main.264b3abd.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
-<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();null!==e?t(e):window.matchMedia("(prefers-color-scheme: dark)").matches?t("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,t("light"))}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/rSUNC/"><b class="navbar__title text--truncate">RbxStu Unified Naming Convention</b></a><a class="navbar__item navbar__link" href="/rSUNC/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/rSUNC/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://discord.gg/xruheb5psN" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://github.com/SecondNewtonLaw/rSUNC" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0 docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC/api/global">Uncategorized/Miscellaneous</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/rSUNC/api/closures">Libraries</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/rSUNC/api/closures">closures</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/debug">debug</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/filesystem">filesystem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/http">http</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/instances">instances</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/memory">memory</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/metatables">metatables</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/runtime">runtime</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/scheduler">scheduler</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC/api/DebugInfo">Custom Types</a></div></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">closures</span></h1><div class="luaClassTags_EipM"><span class="docTag__6UZ" style="border-color:#218c74;color:#218c74">Library</span></div><div>
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();null!==e?t(e):window.matchMedia("(prefers-color-scheme: dark)").matches?t("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,t("light"))}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/rSUNC/"><b class="navbar__title text--truncate">RbxStu Unified Naming Convention</b></a><a class="navbar__item navbar__link" href="/rSUNC/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/rSUNC/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://discord.gg/xruheb5psN" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://github.com/SecondNewtonLaw/rSUNC" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0 docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC/api/global">Uncategorized/Miscellaneous</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/rSUNC/api/closures">Libraries</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/rSUNC/api/closures">closures</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/debug">debug</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/filesystem">filesystem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/http">http</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/instances">instances</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/memory">memory</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/metatables">metatables</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/runtime">runtime</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/scheduler">scheduler</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC/api/CallStack">Custom Types</a></div></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">closures</span></h1><div class="luaClassTags_EipM"><span class="docTag__6UZ" style="border-color:#218c74;color:#218c74">Library</span></div><div>
 <p>Contains functions which interact and modify closures and their behaviour.</p>
 </div></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions<a href="#functions" class="hash-link" aria-label="Direct link to Functions" title="Direct link to Functions">​</a></h2><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getfunctionhash"><code style="text-decoration:none">getfunctionhash</code><a href="#getfunctionhash" class="hash-link" aria-label="Direct link to getfunctionhash" title="Direct link to getfunctionhash">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L37"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">getfunctionhash</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>The function to hash.</p>
@@ -268,7 +268,7 @@ closures<span class="token punctuation">.</span><span class="token function">hoo
   - Debug Level 1
 </p>
 <p>The function must also mark the environment as 'unsafe' to disable environment optimizations as per Luau specifications.</p>
-</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>N/A</td><td>This function does not explicitly error, however it returns an error message if the code fails to load in the second return.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="newcclosure"><code style="text-decoration:none">newcclosure</code><a href="#newcclosure" class="hash-link" aria-label="Direct link to newcclosure" title="Direct link to newcclosure">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L229"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">newcclosure</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+</div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>N/A</td><td>This function does not explicitly error, however it returns an error message if the code fails to load in the second return.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="newcclosure"><code style="text-decoration:none">newcclosure</code><a href="#newcclosure" class="hash-link" aria-label="Direct link to newcclosure" title="Direct link to newcclosure">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L231"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">newcclosure</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>Function to wrap</p>
 </span></span></div><div><code>debugName<!-- -->: </code><code class="blue_P4bS">string?</code><span class="inlineDescription_G7Er">-- <span>
 <p>The name of the function, optional.</p>
@@ -286,6 +286,7 @@ closures<span class="token punctuation">.</span><span class="token function">hoo
         </div>
         <div class="admonition-content">
           <p>The proxy emited by newlclosure and the called function MUST be automatically hidden from the callstack using <code>sethiddenstack</code> to prevent callstack attacks.</p>
+          <p>While executor functions are automatically hidden, if the closure given is not a hidden function (i.e., a roblox or game function) you must hide it accordingly.</p>
         </div>
       </div>
     
@@ -308,7 +309,7 @@ closures<span class="token punctuation">.</span><span class="token function">hoo
     
   
 
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="newlclosure"><code style="text-decoration:none">newlclosure</code><a href="#newlclosure" class="hash-link" aria-label="Direct link to newlclosure" title="Direct link to newlclosure">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L271"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">newlclosure</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="newlclosure"><code style="text-decoration:none">newlclosure</code><a href="#newlclosure" class="hash-link" aria-label="Direct link to newlclosure" title="Direct link to newlclosure">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L275"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">newlclosure</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
 <p>Function to wrap</p>
 </span></span></div></div><code>) → </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code></div><div>
 <p>Wraps the given closure into a upvalue-less L closure.</p>
@@ -358,6 +359,7 @@ closures<span class="token punctuation">.</span><span class="token function">hoo
         </div>
         <div class="admonition-content">
           <p>The proxy emited by newlclosure and the called function MUST be automatically hidden from the callstack using <code>sethiddenstack</code> to prevent callstack attacks.</p>
+          <p>While executor functions are automatically hidden, if the closure given is not a hidden function (i.e., a roblox or game function) you must hide it accordingly.</p>
         </div>
       </div>
     
@@ -380,7 +382,7 @@ closures<span class="token punctuation">.</span><span class="token function">hoo
     <span class="token keyword">return</span> nf
 <span class="token keyword">end</span>
 </code></pre>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="wrapclosure"><code style="text-decoration:none">wrapclosure</code><a href="#wrapclosure" class="hash-link" aria-label="Direct link to wrapclosure" title="Direct link to wrapclosure">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L301"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">wrapclosure</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="wrapclosure"><code style="text-decoration:none">wrapclosure</code><a href="#wrapclosure" class="hash-link" aria-label="Direct link to wrapclosure" title="Direct link to wrapclosure">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L305"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">wrapclosure</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
 <p>Function to wrap</p>
 </span></span></div></div><code>) → </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
 <p>A copy of the function, without upvalues.</p>
@@ -415,7 +417,7 @@ closures<span class="token punctuation">.</span><span class="token function">hoo
 
 <span class="token comment">-- If this script errors, your wrapclosure may not be working properly.</span>
 </code></pre>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="isexecutorclosure"><code style="text-decoration:none">isexecutorclosure</code><a href="#isexecutorclosure" class="hash-link" aria-label="Direct link to isexecutorclosure" title="Direct link to isexecutorclosure">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L316"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">isexecutorclosure</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="isexecutorclosure"><code style="text-decoration:none">isexecutorclosure</code><a href="#isexecutorclosure" class="hash-link" aria-label="Direct link to isexecutorclosure" title="Direct link to isexecutorclosure">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L320"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">isexecutorclosure</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
 <p>The function to check.</p>
 </span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
 <p>Whether the function is an executor closure.</p>
@@ -438,7 +440,7 @@ closures<span class="token punctuation">.</span><span class="token function">hoo
     
   
 
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="clonefunction"><code style="text-decoration:none">clonefunction</code><a href="#clonefunction" class="hash-link" aria-label="Direct link to clonefunction" title="Direct link to clonefunction">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L333"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">clonefunction</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="clonefunction"><code style="text-decoration:none">clonefunction</code><a href="#clonefunction" class="hash-link" aria-label="Direct link to clonefunction" title="Direct link to clonefunction">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L337"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">clonefunction</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
 <p>The function to clone.</p>
 </span></span></div></div><code>) → </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
 <p>A clone of the function.</p>
@@ -462,7 +464,7 @@ closures<span class="token punctuation">.</span><span class="token function">hoo
     
   
 
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="isfunctionprotected"><code style="text-decoration:none">isfunctionprotected</code><a href="#isfunctionprotected" class="hash-link" aria-label="Direct link to isfunctionprotected" title="Direct link to isfunctionprotected">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L348"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">isfunctionprotected</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="isfunctionprotected"><code style="text-decoration:none">isfunctionprotected</code><a href="#isfunctionprotected" class="hash-link" aria-label="Direct link to isfunctionprotected" title="Direct link to isfunctionprotected">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L352"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">isfunctionprotected</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
 <p>The function to check.</p>
 </span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
 <p>If true, the function is protected against hooking.</p>
@@ -485,7 +487,7 @@ closures<span class="token punctuation">.</span><span class="token function">hoo
     
   
 
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="ishooked"><code style="text-decoration:none">ishooked</code><a href="#ishooked" class="hash-link" aria-label="Direct link to ishooked" title="Direct link to ishooked">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L363"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">ishooked</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="ishooked"><code style="text-decoration:none">ishooked</code><a href="#ishooked" class="hash-link" aria-label="Direct link to ishooked" title="Direct link to ishooked">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L367"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">ishooked</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
 <p>The function to check.</p>
 </span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
 <p>Whether the function has been hooked.</p>
@@ -508,11 +510,11 @@ closures<span class="token punctuation">.</span><span class="token function">hoo
     
   
 
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="protectfunction"><code style="text-decoration:none">protectfunction</code><a href="#protectfunction" class="hash-link" aria-label="Direct link to protectfunction" title="Direct link to protectfunction">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L374"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">protectfunction</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="protectfunction"><code style="text-decoration:none">protectfunction</code><a href="#protectfunction" class="hash-link" aria-label="Direct link to protectfunction" title="Direct link to protectfunction">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L378"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">protectfunction</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
 <p>The function to make unhookable and remove all hooks of.</p>
 </span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
 <p>Makes a function unable to be hooked. This function automatically reverts ANY hooks placed on the function if there are any set.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="comparefunction"><code style="text-decoration:none">comparefunction</code><a href="#comparefunction" class="hash-link" aria-label="Direct link to comparefunction" title="Direct link to comparefunction">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L429"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">comparefunction</code><code>(</code><div class="inset_uKQm"><div><code>fn1<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="comparefunction"><code style="text-decoration:none">comparefunction</code><a href="#comparefunction" class="hash-link" aria-label="Direct link to comparefunction" title="Direct link to comparefunction">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L433"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">comparefunction</code><code>(</code><div class="inset_uKQm"><div><code>fn1<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>The first function to compare.</p>
 </span></span></div><div><code>fn2<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
 <p>The second function to compare.</p>
@@ -575,13 +577,13 @@ closures<span class="token punctuation">.</span><span class="token function">hoo
 <span class="token punctuation">)</span> <span class="token comment">-- true</span>
 print<span class="token string">"comparefunction test end"</span>
 </code></pre>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="iswrappedclosure"><code style="text-decoration:none">iswrappedclosure</code><a href="#iswrappedclosure" class="hash-link" aria-label="Direct link to iswrappedclosure" title="Direct link to iswrappedclosure">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L440"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">iswrappedclosure</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="iswrappedclosure"><code style="text-decoration:none">iswrappedclosure</code><a href="#iswrappedclosure" class="hash-link" aria-label="Direct link to iswrappedclosure" title="Direct link to iswrappedclosure">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L444"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">iswrappedclosure</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
 <p>The function to check.</p>
 </span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
 <p>Whether the function has been wrapped using a wrapper function, such as newlclosure, newcclosure or wrapclosure.</p>
 </span></span></div><div>
 <p>Returns if the given function is a wrapper function.</p>
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="sethiddenstack"><code style="text-decoration:none">sethiddenstack</code><a href="#sethiddenstack" class="hash-link" aria-label="Direct link to sethiddenstack" title="Direct link to sethiddenstack">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L455"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">sethiddenstack</code><code>(</code><div class="inset_uKQm"><div><code>fnOrLevel<!-- -->: </code><code class="blue_P4bS">number</code><code class="op_lSLc"> | </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="sethiddenstack"><code style="text-decoration:none">sethiddenstack</code><a href="#sethiddenstack" class="hash-link" aria-label="Direct link to sethiddenstack" title="Direct link to sethiddenstack">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L463"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">sethiddenstack</code><code>(</code><div class="inset_uKQm"><div><code>fnOrLevel<!-- -->: </code><code class="blue_P4bS">number</code><code class="op_lSLc"> | </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>The function or stack level to hide.</p>
 </span></span></div><div><code>hidden<!-- -->: </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
 <p>If true, the function will be hidden from the callstack, else it will be unhidden.</p>
@@ -604,12 +606,77 @@ print<span class="token string">"comparefunction test end"</span>
     
   
 
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="ishiddenstack"><code style="text-decoration:none">ishiddenstack</code><a href="#ishiddenstack" class="hash-link" aria-label="Direct link to ishiddenstack" title="Direct link to ishiddenstack">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L464"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">ishiddenstack</code><code>(</code><div class="inset_uKQm"><div><code>fnOrLevel<!-- -->: </code><code class="blue_P4bS">number</code><code class="op_lSLc"> | </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
+
+  
+    
+    
+      <div class="admonition admonition-info alert alert--info">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+                <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+              </svg></span><span class="admonition-title">INFO</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>All executor functions must be hidden from the callstack by default, and this cannot change regardless of the users' desire.</p>
+        </div>
+      </div>
+    
+  
+
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="ishiddenstack"><code style="text-decoration:none">ishiddenstack</code><a href="#ishiddenstack" class="hash-link" aria-label="Direct link to ishiddenstack" title="Direct link to ishiddenstack">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L476"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">ishiddenstack</code><code>(</code><div class="inset_uKQm"><div><code>fnOrLevel<!-- -->: </code><code class="blue_P4bS">number</code><code class="op_lSLc"> | </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><span class="inlineDescription_G7Er">-- <span>
 <p>The function or stack level to check.</p>
 </span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
 <p>If true, the function is hidden from the callstack.</p>
 </span></span></div><div>
 <p>Returns if the given function or stack level is hidden from functions which expose the callstack to users.</p>
+
+  
+    
+    
+      <div class="admonition admonition-info alert alert--info">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+                <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+              </svg></span><span class="admonition-title">INFO</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>All executor functions must be hidden from the callstack by default, and this cannot change regardless of the users' desire.</p>
+        </div>
+      </div>
+    
+  
+
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="trampoline_call"><code style="text-decoration:none">trampoline_call</code><a href="#trampoline_call" class="hash-link" aria-label="Direct link to trampoline_call" title="Direct link to trampoline_call">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/closures.luau#L498"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>closures<!-- -->.</code><code class="green_DgR4">trampoline_call</code><code>(</code><div class="inset_uKQm"><div><code>fn<!-- -->: </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The function to call with the fake stack and new thread.</p>
+</span></span></div><div><code>stackLevels<!-- -->: </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rSUNC/api/CallStack">CallStack</a></code><code class="purple_ieR2">}</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>An array of callstacks, the first item will be the beginning of the callstack.</p>
+</span></span></div><div><code>threadInitializationInformation<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rSUNC/api/ThreadInitializationInformation">ThreadInitializationInformation</a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>The thread initialization information to use.</p>
+</span></span></div><div><code>...<!-- -->: </code><code class="blue_P4bS">K...</code><span class="inlineDescription_G7Er">-- <span>
+<p>Additional arguments to pass to the function.</p>
+</span></span></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="blue_P4bS">boolean</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
+<p>Whether the function was successfully called.</p>
+</span></span></div><div><code class="blue_P4bS">J...</code><span class="inlineDescription_G7Er">-- <span>
+<p>The return of the function</p>
+</span></span></div></div><code>)</code></div><div>
+<p>Creates a new thread and sets up a fake call stack for it, then calls the given function.</p>
+
+  
+    
+    
+      <div class="admonition admonition-info alert alert--info">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+                <path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path>
+              </svg></span><span class="admonition-title">INFO</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>If on the <code>stackLevels</code>, a <code>CallStack</code>'s <code>currentline</code> is not given (i.e., <code>nil</code>), the beginning of the function must be used by default.</p>
+        </div>
+      </div>
+    
+  
+
 </div></div></article></div><details><summary>Show raw api</summary><pre style="max-width:100%;white-space:pre-wrap">{
     &quot;functions&quot;: [
         {
@@ -752,7 +819,7 @@ print<span class="token string">"comparefunction test end"</span>
         },
         {
             &quot;name&quot;: &quot;newcclosure&quot;,
-            &quot;desc&quot;: &quot;Wraps the given closure into a upvalue-less C closure.\n\n\n:::danger Detections\nThe proxy emited by newlclosure and the called function MUST be automatically hidden from the callstack using `sethiddenstack` to prevent callstack attacks.\n:::\n\n:::warning Yielding\nThe emitted closure must yield. To implement this, check for lua_pcall on the Luau source!\n:::&quot;,
+            &quot;desc&quot;: &quot;Wraps the given closure into a upvalue-less C closure.\n\n\n:::danger Detections\nThe proxy emited by newlclosure and the called function MUST be automatically hidden from the callstack using `sethiddenstack` to prevent callstack attacks.\n\nWhile executor functions are automatically hidden, if the closure given is not a hidden function (i.e., a roblox or game function) you must hide it accordingly.\n:::\n\n:::warning Yielding\nThe emitted closure must yield. To implement this, check for lua_pcall on the Luau source!\n:::&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;fn&quot;,
@@ -773,13 +840,13 @@ print<span class="token string">"comparefunction test end"</span>
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 229,
+                &quot;line&quot;: 231,
                 &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
             }
         },
         {
             &quot;name&quot;: &quot;newlclosure&quot;,
-            &quot;desc&quot;: &quot;Wraps the given closure into a upvalue-less L closure.\n\n\n:::info Obfuscators\nObfuscators like Luraph™ use the function environment to wrap closures and bypass upvalue limits. Make sure that the environment of the pushed wrapper proxies the environment of the original function using `__index`. This should fix issues relating to Luraph™ not working with this function.\n:::\n\n:::warning\nThis function, depending on the implementation, may rely on function environments to work or in a closure map-backed proxy function (like in newcclosure). Beware of this when using the function.\n:::\n\n:::danger Detections\nThe proxy emited by newlclosure and the called function MUST be automatically hidden from the callstack using `sethiddenstack` to prevent callstack attacks.\n:::\n\n#### Example Implementation (In Luau)\n```lua\nlocal function newlclosure&lt;T..., U...&gt;(f: (T...) -&gt; U...): (T...) -&gt; U...\n    local env = getfenv(f) -- Get environment (env of f gets deoptimized)\n    local x = setmetatable({\n        __F = f, -- Store function on environment (prevents upreference)\n    }, {\n        __index = env, -- proxy original fenv for obfuscator support\n        __newindex = env, -- proxy original fenv for obfuscator support\n    })\n\n    local nf = function(...)\n        return __F(...)  -- proxy call\n    end\n    setfenv(nf, x) -- set func env (env of nf gets deoptimized)\n    return nf\nend\n```&quot;,
+            &quot;desc&quot;: &quot;Wraps the given closure into a upvalue-less L closure.\n\n\n:::info Obfuscators\nObfuscators like Luraph™ use the function environment to wrap closures and bypass upvalue limits. Make sure that the environment of the pushed wrapper proxies the environment of the original function using `__index`. This should fix issues relating to Luraph™ not working with this function.\n:::\n\n:::warning\nThis function, depending on the implementation, may rely on function environments to work or in a closure map-backed proxy function (like in newcclosure). Beware of this when using the function.\n:::\n\n:::danger Detections\nThe proxy emited by newlclosure and the called function MUST be automatically hidden from the callstack using `sethiddenstack` to prevent callstack attacks.\n    \nWhile executor functions are automatically hidden, if the closure given is not a hidden function (i.e., a roblox or game function) you must hide it accordingly.\n:::\n\n#### Example Implementation (In Luau)\n```lua\nlocal function newlclosure&lt;T..., U...&gt;(f: (T...) -&gt; U...): (T...) -&gt; U...\n    local env = getfenv(f) -- Get environment (env of f gets deoptimized)\n    local x = setmetatable({\n        __F = f, -- Store function on environment (prevents upreference)\n    }, {\n        __index = env, -- proxy original fenv for obfuscator support\n        __newindex = env, -- proxy original fenv for obfuscator support\n    })\n\n    local nf = function(...)\n        return __F(...)  -- proxy call\n    end\n    setfenv(nf, x) -- set func env (env of nf gets deoptimized)\n    return nf\nend\n```&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;fn&quot;,
@@ -795,7 +862,7 @@ print<span class="token string">"comparefunction test end"</span>
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 271,
+                &quot;line&quot;: 275,
                 &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
             }
         },
@@ -817,7 +884,7 @@ print<span class="token string">"comparefunction test end"</span>
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 301,
+                &quot;line&quot;: 305,
                 &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
             }
         },
@@ -839,7 +906,7 @@ print<span class="token string">"comparefunction test end"</span>
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 316,
+                &quot;line&quot;: 320,
                 &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
             }
         },
@@ -861,7 +928,7 @@ print<span class="token string">"comparefunction test end"</span>
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 333,
+                &quot;line&quot;: 337,
                 &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
             }
         },
@@ -883,7 +950,7 @@ print<span class="token string">"comparefunction test end"</span>
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 348,
+                &quot;line&quot;: 352,
                 &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
             }
         },
@@ -905,7 +972,7 @@ print<span class="token string">"comparefunction test end"</span>
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 363,
+                &quot;line&quot;: 367,
                 &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
             }
         },
@@ -922,7 +989,7 @@ print<span class="token string">"comparefunction test end"</span>
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 374,
+                &quot;line&quot;: 378,
                 &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
             }
         },
@@ -949,7 +1016,7 @@ print<span class="token string">"comparefunction test end"</span>
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 429,
+                &quot;line&quot;: 433,
                 &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
             }
         },
@@ -971,13 +1038,13 @@ print<span class="token string">"comparefunction test end"</span>
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 440,
+                &quot;line&quot;: 444,
                 &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
             }
         },
         {
             &quot;name&quot;: &quot;sethiddenstack&quot;,
-            &quot;desc&quot;: &quot;Hides a function from functions which expose the callstack to users (i.e., `getfenv`, `setfenv`, `debug.info` and `debug.traceback`).\n\n\n:::danger Implementation\nYou must hide the Proto and the backing C function, _not_ the actual Closure object. This is because the closure can be cloned, and then it will appear on the callstack!\n:::&quot;,
+            &quot;desc&quot;: &quot;Hides a function from functions which expose the callstack to users (i.e., `getfenv`, `setfenv`, `debug.info` and `debug.traceback`).\n\n\n:::danger Implementation\nYou must hide the Proto and the backing C function, _not_ the actual Closure object. This is because the closure can be cloned, and then it will appear on the callstack!\n:::\n\n:::info \nAll executor functions must be hidden from the callstack by default, and this cannot change regardless of the users&#x27; desire.\n:::&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;fnOrLevel&quot;,
@@ -993,13 +1060,13 @@ print<span class="token string">"comparefunction test end"</span>
             &quot;returns&quot;: [],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 455,
+                &quot;line&quot;: 463,
                 &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
             }
         },
         {
             &quot;name&quot;: &quot;ishiddenstack&quot;,
-            &quot;desc&quot;: &quot;Returns if the given function or stack level is hidden from functions which expose the callstack to users.&quot;,
+            &quot;desc&quot;: &quot;Returns if the given function or stack level is hidden from functions which expose the callstack to users.\n\n\n:::info \nAll executor functions must be hidden from the callstack by default, and this cannot change regardless of the users&#x27; desire.\n:::&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;fnOrLevel&quot;,
@@ -1015,7 +1082,48 @@ print<span class="token string">"comparefunction test end"</span>
             ],
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
-                &quot;line&quot;: 464,
+                &quot;line&quot;: 476,
+                &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;trampoline_call&quot;,
+            &quot;desc&quot;: &quot;Creates a new thread and sets up a fake call stack for it, then calls the given function.\n\n\n:::info\nIf on the `stackLevels`, a `CallStack`&#x27;s `currentline` is not given (i.e., `nil`), the beginning of the function must be used by default.\n:::&quot;,
+            &quot;params&quot;: [
+                {
+                    &quot;name&quot;: &quot;fn&quot;,
+                    &quot;desc&quot;: &quot;The function to call with the fake stack and new thread.&quot;,
+                    &quot;lua_type&quot;: &quot;(T...) -&gt; U...&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;stackLevels&quot;,
+                    &quot;desc&quot;: &quot;An array of callstacks, the first item will be the beginning of the callstack.&quot;,
+                    &quot;lua_type&quot;: &quot;{ CallStack }&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;threadInitializationInformation&quot;,
+                    &quot;desc&quot;: &quot;The thread initialization information to use.&quot;,
+                    &quot;lua_type&quot;: &quot;ThreadInitializationInformation&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;...&quot;,
+                    &quot;desc&quot;: &quot;Additional arguments to pass to the function.&quot;,
+                    &quot;lua_type&quot;: &quot;K...&quot;
+                }
+            ],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;Whether the function was successfully called.&quot;,
+                    &quot;lua_type&quot;: &quot;boolean&quot;
+                },
+                {
+                    &quot;desc&quot;: &quot;The return of the function&quot;,
+                    &quot;lua_type&quot;: &quot;J...&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 498,
                 &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
             }
         }
@@ -1031,6 +1139,6 @@ print<span class="token string">"comparefunction test end"</span>
         &quot;line&quot;: 8,
         &quot;path&quot;: &quot;impl/Libraries/closures.luau&quot;
     }
-}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#clonefunction" class="table-of-contents__link toc-highlight">.clonefunction</a></li><li><a href="#comparefunction" class="table-of-contents__link toc-highlight">.comparefunction</a></li><li><a href="#getfunctionhash" class="table-of-contents__link toc-highlight">.getfunctionhash</a></li><li><a href="#hookfunction" class="table-of-contents__link toc-highlight">.hookfunction</a></li><li><a href="#isexecutorclosure" class="table-of-contents__link toc-highlight">.isexecutorclosure</a></li><li><a href="#isfunctionprotected" class="table-of-contents__link toc-highlight">.isfunctionprotected</a></li><li><a href="#ishiddenstack" class="table-of-contents__link toc-highlight">.ishiddenstack</a></li><li><a href="#ishooked" class="table-of-contents__link toc-highlight">.ishooked</a></li><li><a href="#iswrappedclosure" class="table-of-contents__link toc-highlight">.iswrappedclosure</a></li><li><a href="#loadstring" class="table-of-contents__link toc-highlight">.loadstring</a></li><li><a href="#newcclosure" class="table-of-contents__link toc-highlight">.newcclosure</a></li><li><a href="#newlclosure" class="table-of-contents__link toc-highlight">.newlclosure</a></li><li><a href="#protectfunction" class="table-of-contents__link toc-highlight">.protectfunction</a></li><li><a href="#restorefunction" class="table-of-contents__link toc-highlight">.restorefunction</a></li><li><a href="#sethiddenstack" class="table-of-contents__link toc-highlight">.sethiddenstack</a></li><li><a href="#wrapclosure" class="table-of-contents__link toc-highlight">.wrapclosure</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 SecondNewtonLaw. Built with Moonwave and Docusaurus</div></div></div></footer></div>
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#clonefunction" class="table-of-contents__link toc-highlight">.clonefunction</a></li><li><a href="#comparefunction" class="table-of-contents__link toc-highlight">.comparefunction</a></li><li><a href="#getfunctionhash" class="table-of-contents__link toc-highlight">.getfunctionhash</a></li><li><a href="#hookfunction" class="table-of-contents__link toc-highlight">.hookfunction</a></li><li><a href="#isexecutorclosure" class="table-of-contents__link toc-highlight">.isexecutorclosure</a></li><li><a href="#isfunctionprotected" class="table-of-contents__link toc-highlight">.isfunctionprotected</a></li><li><a href="#ishiddenstack" class="table-of-contents__link toc-highlight">.ishiddenstack</a></li><li><a href="#ishooked" class="table-of-contents__link toc-highlight">.ishooked</a></li><li><a href="#iswrappedclosure" class="table-of-contents__link toc-highlight">.iswrappedclosure</a></li><li><a href="#loadstring" class="table-of-contents__link toc-highlight">.loadstring</a></li><li><a href="#newcclosure" class="table-of-contents__link toc-highlight">.newcclosure</a></li><li><a href="#newlclosure" class="table-of-contents__link toc-highlight">.newlclosure</a></li><li><a href="#protectfunction" class="table-of-contents__link toc-highlight">.protectfunction</a></li><li><a href="#restorefunction" class="table-of-contents__link toc-highlight">.restorefunction</a></li><li><a href="#sethiddenstack" class="table-of-contents__link toc-highlight">.sethiddenstack</a></li><li><a href="#trampoline_call" class="table-of-contents__link toc-highlight">.trampoline_call</a></li><li><a href="#wrapclosure" class="table-of-contents__link toc-highlight">.wrapclosure</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 SecondNewtonLaw. Built with Moonwave and Docusaurus</div></div></div></footer></div>
 </body>
 </html>
