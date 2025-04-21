@@ -133,7 +133,7 @@ end
     @error metafield is not a function -- The metafield is not implemented as a function, but as a property.
 
     :::danger Implementation
-    This function must contain an argument guard which controls that the function is given the correct number of arguments. This function should use a form of `hookfunction` to hook, and most NOT replace the metatable's metamethods directly.
+    This function must contain an argument guard which controls that the function is given the correct number of arguments. This function should use a form of [`hookfunction`](/api/closures#hookfunction) to hook, and most NOT replace the metatable's metamethods directly.
     :::
 
     :::danger Argument Guard
