@@ -91,15 +91,71 @@ function filesystem.delfile(path: string): () end
 function filesystem.appendfile(path: string, content: string | buffer): () end
 
 --[=[
-    Lists all files and folders within a specified directory path. Can optionally list recursively.
+    Moves or renames a file. Does **not** work on folders.
+
+    @within filesystem
+    @param oldpath string -- The current path of the file.
+    @param newpath string -- The desired new path for the file.
+    @error Cannot move file from '%s' to '%s' -- Failed due to permissions, item not found, `oldpath` is a folder, target path invalid, or other OS issues.
+
+    :::warning Behavior
+    If `newpath` already exists, it will overwrite it. Use `movefolder` for directories.
+    :::
+]=]
+function filesystem.movefile(oldpath: string, newpath: string): () end
+
+--[=[
+    Moves or renames a folder. Does **not** work on files.
+
+    @within filesystem
+    @param oldpath string -- The current path of the folder.
+    @param newpath string -- The desired new path for the folder.
+    @error Cannot move folder from '%s' to '%s' -- Failed due to permissions, item not found, `oldpath` is a file, target path invalid, or other OS issues.
+
+    :::warning Behavior
+    If `newpath` already exists, it will overwrite it. Use `movefile` for files.
+    :::
+]=]
+function filesystem.movefolder(oldpath: string, newpath: string): () end
+
+--[=[
+    Copies a file.
+
+    @within filesystem
+    @param sourcepath string -- The path of the file to copy.
+    @param destinationpath string -- The path where the copy should be created.
+    @error Cannot copy file from '%s' to '%s' -- Failed due to permissions, source not found, destination path invalid, or other OS issues.
+
+    :::warning Behavior
+    If `destinationpath` already exists, it will likely be overwritten. This function typically only works for files. For copying folders, use `copyfolder`.
+    :::
+]=]
+function filesystem.copyfile(sourcepath: string, destinationpath: string): () end
+
+--[=[
+    Recursively copies a folder and its contents.
+
+    @within filesystem
+    @param sourcepath string -- The path of the folder to copy.
+    @param destinationpath string -- The path where the copied folder should be created.
+    @error Cannot copy folder from '%s' to '%s' -- Failed due to permissions, source not found, `sourcepath` is a file, destination path invalid, or other OS issues during recursion.
+
+    :::warning Behavior
+    If `destinationpath` already exists as a folder, the contents of `sourcepath` might be merged into it, or it might error, depending on implementation. If `destinationpath` exists as a file, it will error. This function recursively copies all subfolders and files. Use `copyfile` for single files.
+    :::
+]=]
+function filesystem.copyfolder(sourcepath: string, destinationpath: string): () end
+
+--[=[
+    Lists all files and folders within a specified directory path according to the provided options.
 
     @within filesystem
     @param path string -- The path to the directory.
-    @param recursive boolean? -- If true, recursively list contents of all subdirectories. Defaults to false.
+    @param options ListfilesOptions? -- A table containing options like `Recursive` (boolean, default false) and `Hidden` (boolean, default true).
     @return {string} -- A list of names (or relative paths if recursive) of files and folders within the directory.
     @error Cannot list directory '%s' -- The directory does not exist or cannot be accessed.
 ]=]
-function filesystem.listfiles(path: string, recursive: boolean?): {string}
+function filesystem.listfiles(path: string, options: ListfilesOptions?): {string}
     return {} :: any
 end
 
@@ -148,12 +204,38 @@ function filesystem.makefolder(path: string): () end
 function filesystem.delfolder(path: string): () end
 
 --[=[
+    Retrieves properties of a specified file or folder.
+
+    @within filesystem
+    @param path string -- The path to the file or folder.
+    @return ItemProperties? -- A table containing properties (size, creation time, last modified time, hidden, read-only), or nil if the path does not exist. Size will always be `0` for folders.
+    @error Cannot get properties for '%s' -- Permissions error or other OS issue preventing access.
+]=]
+function filesystem.getproperties(path: string): ItemProperties?
+    return nil :: any
+end
+
+--[=[
+    Sets modifiable properties of a specified file or folder.
+
+    @within filesystem
+    @param path string -- The path to the file or folder.
+    @param properties ItemProperties -- A table containing the properties to set. Only `IsHidden` and `IsReadOnly` are typically settable for both files and folders. Other properties in the table are ignored.
+    @error Cannot set properties for '%s' -- The path does not exist, permissions error, or property modification failed.
+
+    :::info Settable Properties
+    Generally, only the `IsHidden` and `IsReadOnly` flags can be reliably modified. Timestamps and size are usually managed by the OS. The function should ideally ignore attempts to set read-only properties specified in the input table. The effect of `IsReadOnly` on folders may vary by OS.
+    :::
+]=]
+function filesystem.setproperties(path: string, properties: ItemProperties): () end
+
+--[=[
     Takes a path to a local file (e.g., an image) and returns a Roblox content URL (e.g., `rbxasset://<filehash>`) that can be used to load the asset within Roblox interfaces.
 
     @within filesystem
     @param path string -- The path to the local asset file.
     @return string -- A Roblox asset URL (e.g., `rbxasset://some_generated_identifier`).
-    @error Cannot process asset '%s' -- The file does not exist, is not a supported asset type, or could not be processed/uploaded.
+    @error Cannot process asset '%s' -- The file does not exist or could not be processed.
 
     :::info Usage
     This function allows importing local files (like images, sounds, etc.) for use in Roblox UIs or parts by converting them into a temporary or cached asset URL recognized by the engine. The underlying mechanism might involve hashing the file content or uploading it to a temporary storage accessible by the client.
