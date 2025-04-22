@@ -246,4 +246,25 @@ end
 ]=]
 function instances.fireproximityprompt(prompt: ProximityPrompt) end
 
+--[=[
+    Returns the folder used by the executor to place User Interfaces.
+
+    @within instances
+    @return Folder -- The folder which is hidden from the game context.
+
+    :::danger Weak-Table attacks
+    This function may be vulnerarble to weak-table style attacks if not properly implemented.
+
+    Make a folder, parent it to CoreGui, and then use `instances.invalidatereference` on it, then return the created folder, this should protect you from this kind of attack!
+    :::
+
+    :::danger ContentProvider attacks
+    Game developers can use `ContentProvider:PreloadAsync` to detect assets loaded in CoreGui when they should not be loaded, due to this they can check if any UI has been loaded that is not the 
+    default ROBLOX Core Gui. You must protect yourself from this kind of attack by caching the return of CoreGui for the function, and returning the cached value after gethui is called. This should maintain the integrity of the system while hiding the new assets that are loaded on CoreGui. *This change may also be needed on the `game` instance*.
+    :::
+]=]
+function instances.gethui(): Folder
+    return nil :: any
+end
+
 return instances
