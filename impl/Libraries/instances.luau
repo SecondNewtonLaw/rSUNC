@@ -267,4 +267,48 @@ function instances.gethui(): Folder
     return nil :: any
 end
 
+--[=[
+    Returns a list with all instances that are currently referenced by the game.
+    
+    @within instances
+    @return { Instance } -- All instances that are currently referenced by the game.
+
+    :::warning Actors
+    If an instance is referenced inside an actor, this list of instances should not contain it!
+    :::
+]=]
+function instances.getinstances(): { Instance }
+    return nil :: any
+end
+
+--[=[
+    Returns a list with all instances that are currently referenced by the game and are not parented anything.
+    
+    @within instances
+    @return { Instance } -- All instances that are currently referenced by the game, but with no parent.
+
+    :::warning Actors
+    If an instance is referenced inside an actor, this list of instances should not contain it!
+    :::
+]=]
+function instances.getnilinstances(): { Instance }
+    return nil :: any
+end
+
+--[=[
+    Returns a dictionary with all instances that are currently referenced by the game as their value, and a lightuserdata as their key.
+
+    This dictionary is also known as the instance cache.
+    
+    @within instances
+    @return { [userdata]: Instance } -- The internal list ROBLOX uses for holding references to instances in Luau.
+
+    :::warning Actors
+    If an instance is referenced inside an actor, this list of instances should not contain it!
+    :::
+]=]
+function instances.getinstancelist(): { [userdata]: Instance }
+    return nil :: any
+end
+
 return instances
