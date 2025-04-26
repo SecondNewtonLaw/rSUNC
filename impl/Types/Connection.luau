@@ -3,6 +3,8 @@
 
     This object provides detailed information about a single connection to an `RBXScriptSignal` and allows manipulating it.
 
+    Connection objects can be compared with each other using the equality operator (`==`). Internally, this checks if they represent the same underlying connection slot.
+
     @class Connection
     @tag Type
 ]=]
