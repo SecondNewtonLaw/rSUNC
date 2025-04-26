@@ -11,7 +11,7 @@
 local Connection = {}
 
 --[=[
-    (Read-Only) A boolean indicating if the connection belongs to a different Luau Virtual Machine (e.g., an Actor thread) or is a C function connection.
+    A boolean indicating if the connection belongs to a different Luau Virtual Machine (e.g., an Actor thread) or is a C function connection.
 
     @prop ForeignState boolean
     @within Connection
@@ -20,7 +20,7 @@ local Connection = {}
 Connection.ForeignState = false
 
 --[=[
-    (Read-Only) The Luau function associated with this connection. Returns `nil` if `ForeignState` is true.
+    The Luau function associated with this connection. Returns `nil` if `ForeignState` is true.
 
     @prop Function ((...any) -> ...any)?
     @within Connection
@@ -29,7 +29,7 @@ Connection.ForeignState = false
 Connection.Function = nil
 
 --[=[
-    (Read/Write) A boolean indicating if the connection is currently enabled. Setting this to `false` is equivalent to calling `Disable`, setting it to `true` is equivalent to calling `Enable`.
+    A boolean indicating if the connection is currently enabled. Setting this to `false` is equivalent to calling `Disable`, setting it to `true` is equivalent to calling `Enable`.
 
     @prop Enabled boolean
     @within Connection
@@ -37,7 +37,7 @@ Connection.Function = nil
 Connection.Enabled = true
 
 --[=[
-    (Read-Only) A boolean indicating if this is a connection to a Luau function (as opposed to a C function).
+    A boolean indicating if this is a connection to a Luau function (as opposed to a C function).
 
     @prop LuaConnection boolean
     @within Connection
@@ -46,7 +46,7 @@ Connection.Enabled = true
 Connection.LuaConnection = true
 
 --[=[
-    (Read-Only) The Luau thread (coroutine) this connection belongs to. Returns `nil` if `ForeignState` is true.
+    The Luau thread (coroutine) this connection belongs to. Returns `nil` if `ForeignState` is true.
 
     @prop Thread thread?
     @within Connection
@@ -55,7 +55,7 @@ Connection.LuaConnection = true
 Connection.Thread = nil
 
 --[=[
-    (Read-Only) A boolean indicating if this connection was created using `ConnectOnce`. Such connections automatically disconnect after firing once.
+    A boolean indicating if this connection was created using `ConnectOnce`. Such connections automatically disconnect after firing once.
 
     @prop IsOnce boolean
     @within Connection
