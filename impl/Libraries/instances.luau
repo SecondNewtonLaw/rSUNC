@@ -311,4 +311,26 @@ function instances.getinstancelist(): { [userdata]: Instance }
     return nil :: any
 end
 
+--[=[
+    Retrieves a list of connection objects associated with a given signal.
+
+    @within instances
+    @param signal RBXScriptSignal -- The signal instance (e.g., `game.Players.PlayerAdded`) to get connections from.
+    @return { Connection } -- An array-like table containing `Connection` objects for each active connection to the signal.
+    @error Expected RBXScriptSignal -- The provided argument was not an `RBXScriptSignal`.
+
+    :::tip Usage
+    This function allows you to inspect and manage individual connections to a signal. You can check properties like the connected function, its thread, whether it's enabled, or even manually fire, defer, enable, disable, or disconnect specific connections.
+    :::
+
+    :::warning Remarks
+    - Calling `Disconnect` on an `Connection` object invalidates it. Subsequent attempts to use the object will result in an error.
+    - `Fire` and `Defer` methods will not work for connections where `ForeignState` is true (i.e., C functions or connections from different Luau VMs).
+    - The order of connections in the returned table might not be predictable.
+    :::
+]=]
+function instances.getconnections(signal: RBXScriptSignal): { Connection }
+    return {} :: any -- Placeholder return
+end
+
 return instances
