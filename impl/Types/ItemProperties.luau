@@ -16,22 +16,22 @@ local ItemProperties = {}
 ItemProperties.Size = 0
 
 --[=[
-    The time the file was created, typically as a Unix timestamp (seconds since epoch).
+    The time the file was created, typically as a DateTime Object.
 
-    @prop CreationTime number
+    @prop CreationTime DateTime
     @within ItemProperties
     @readonly
 ]=]
-ItemProperties.CreationTime = 0
+ItemProperties.CreationTime = DateTime.now()
 
 --[=[
-    The time the file was last modified, typically as a Unix timestamp (seconds since epoch).
+    The time the file was last modified, typically as a DateTime Object.
 
-    @prop LastModifiedTime number
+    @prop LastModifiedTime DateTime
     @within ItemProperties
     @readonly -- Usually updated by the OS on writes, direct setting might not be reliable/supported.
 ]=]
-ItemProperties.LastModifiedTime = 0
+ItemProperties.LastModifiedTime = DateTime.now()
 
 --[=[
     Indicates if the file is marked as hidden by the operating system.
