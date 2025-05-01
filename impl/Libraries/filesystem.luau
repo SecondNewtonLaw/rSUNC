@@ -25,7 +25,7 @@ function filesystem.writefile(path: string, content: string | buffer): () end
 
     @within filesystem
     @param path string -- The path to the file.
-    @param asBuffer boolean -- If true, return content as a buffer; if false (default), return as a string.
+    @param asBuffer boolean? -- If true, return content as a buffer; if false (default), return as a string.
     @return string | buffer -- The content of the file, either as a string or a buffer based on the asBuffer flag.
     @error Cannot read file '%s' -- The file does not exist or cannot be read due to permissions.
 ]=]
