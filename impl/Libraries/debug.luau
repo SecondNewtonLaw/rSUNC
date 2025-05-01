@@ -217,8 +217,9 @@ end
     Identical to `debug.info`
 
     @within debug
-    @param level number | (T...) -> U... -- The level/ function to get the information from.
-    @param what string -- The information to get.
+    @param levelOrThreadOrFunction number | thread | (T...) -> U... -- The level/ function to get the information from. Or, optionally, the thread to get the information from.
+    @param whatOrLevelOrFunction  number | string | (T...) -> U... -- The information to get, or the level/ function to get the information from.
+    @param what string? -- The information to get (if the thread is provided as first argument).
     @return K... | nil -- Information on the order of 'what', may be nil.
 
 ]=]
