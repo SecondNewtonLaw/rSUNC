@@ -9,14 +9,16 @@ local memory = {}
     Returns a list of objects currently 'alive' in the garbage collector.
 
     @within memory
-    @param includeTables boolean? -- Whether to include tables in the list. Defaults to `false` if not provided.
+    @param includeTablesOrExtendedParameters boolean? | GetGcParameters -- Whether to include tables in the list, defaults to false; if a table is provided, the function will use it as parameters.
     @return { vector | buffer | { [any]: any } | string | (...any) -> ...any } | { vector | buffer | string | (...any) -> ...any } -- A list of objects currently 'alive' in the garbage collector.
 
     :::warning Implementation
     This function must automatically suspend the GC to retrieve the list of objects that are correct for when the call originates.
+
+    This function must return a `kvs` mode weak-table to prevent detections by default.
     :::
 ]=]
-function memory.getgc(includeTables: boolean): { vector | buffer | { [any]: any } | string | (...any) -> ...any }
+function memory.getgc(includeTablesOrExtendedParameters: boolean | GetGcParameters): { vector | buffer | { [any]: any } | string | (...any) -> ...any }
     return nil :: any
 end
 

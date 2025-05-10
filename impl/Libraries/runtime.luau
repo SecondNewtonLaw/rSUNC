@@ -358,4 +358,25 @@ function runtime.setcalltrace(isEnabled: boolean): boolean
     return nil :: any
 end
 
+--[=[
+    Returns the DataModel type of the DataModel that this Luau state is currently running on.
+
+    @within runtime
+    @return number -- The DataModel type of the DataModel that this Luau state is currently running on.
+
+    :::info Returns
+    This function can return one of four values:
+        
+        - 0: Edit (Edit DataModel)
+        - 1: PlayClient (Client DataModel)
+        - 2: PlayServer (Server DataModel)
+        - 3: MainMenuStandalone (Standalone DataModel)
+    
+    if rSUNC is running on a roblox client executor, the return of this function will always be 1, on Roblox Studio instances it may be any of the above.
+    :::
+]=]
+function runtime.getdatamodeltype(): number
+return nil ::any
+end
+
 return runtime
