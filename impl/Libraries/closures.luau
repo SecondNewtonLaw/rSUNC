@@ -47,7 +47,9 @@ end
     @return (T...) -> U... -- The old/original function.
     @error Too many upvalues! -- The function to hook has more upvalues than the function you want to hook it with. (This error may not show on some implementations.)
     @error This function cannot be hooked from Luau -- The function has been marked as unhookable by `protectfunction` or by native executor code.
-
+    @error cannot hook a function with itself -- The same closure objects were provided as `fn` and `hook`, this is not allowed.
+    @error this function is running in native code, it cannot be hooked. -- You need to first de-nativize the function to hook it. Use `runtime.disablenative` before hooking this function.
+        
     :::info Implementations
     Some implementations of this function may bypass upvalue limits for you. If this is not the case, wrap `hook` in `newcclosure`/`newlclosure` before calling `hookfunction`.
     :::
