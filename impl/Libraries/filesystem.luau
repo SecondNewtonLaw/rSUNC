@@ -119,6 +119,29 @@ function filesystem.movefile(oldpath: string, newpath: string): () end
 function filesystem.movefolder(oldpath: string, newpath: string): () end
 
 --[=[
+    Moves or renames a folder asynchronously. Does **not** work on files.
+
+    This function yields the current thread until the folder move/rename operation is complete or an error occurs.
+
+    @within filesystem
+    @yields
+    @param oldpath string -- The current path of the folder.
+    @param newpath string -- The desired new path for the folder.
+    @error Filesystem library not initialized. -- The filesystem library was not properly initialized.
+    @error Source path '%s' is outside the allowed workspace. -- The source path is not within the permitted workspace.
+    @error Destination path '%s' is outside the allowed workspace. -- The destination path is not within the permitted workspace.
+    @error Cannot move folder '%s': Source does not exist or is not a directory. -- The source path is not a valid existing folder.
+    @error Cannot move folder from '%s' to '%s': %s -- Failed due to permissions, item not found, `oldpath` is a file, target path invalid, or other OS issues.
+
+    :::warning Behavior
+    If `newpath` already exists, it will overwrite it. Use `movefile` for files.
+    :::
+]=]
+function filesystem.movefolderasync(oldpath: string, newpath: string): ()
+    return nil :: any
+end
+
+--[=[
     Copies a file.
 
     @within filesystem
@@ -204,6 +227,26 @@ function filesystem.makefolder(path: string): () end
 function filesystem.delfolder(path: string): () end
 
 --[=[
+    Deletes a specified folder (directory) and all of its contents recursively, asynchronously.
+
+    This function yields the current thread until the folder deletion operation is complete or an error occurs.
+
+    @within filesystem
+    @yields
+    @param path string -- The path to the folder to delete.
+    @error Filesystem library not initialized. -- The filesystem library was not properly initialized.
+    @error Path '%s' is outside the allowed workspace. -- The path is not within the permitted workspace.
+    @error Cannot delete folder '%s': %s -- The folder does not exist, cannot be deleted due to permissions, or the path isn't a folder or other issues (e.g., a file within is locked).
+
+    :::warning Behavior
+    This function permanently deletes the specified folder and **all** files and subfolders within it. Use with caution.
+    :::
+]=]
+function filesystem.delfolderasync(path: string): ()
+    return nil :: any
+end
+
+--[=[
     Retrieves properties of a specified file or folder.
 
     @within filesystem
@@ -243,6 +286,27 @@ function filesystem.setproperties(path: string, properties: ItemProperties): () 
 ]=]
 function filesystem.getcustomasset(path: string): string
     return nil :: any
+end
+
+--[=[
+    Reads the content of a specified file asynchronously, returning it as a string or a buffer.
+
+    This function yields the current thread until the file reading operation is complete or an error occurs.
+
+    @within filesystem
+    @yields
+    @param path string -- The path to the file.
+    @param asBuffer boolean? -- If true, return content as a buffer; if false (default), return as a string.
+    @return string | buffer | nil -- The content of the file as a string or buffer on success, or `nil` on failure.
+    @return string? -- An error message if reading failed.
+    @error Filesystem library not initialized. -- The filesystem library was not properly initialized.
+    @error Path '%s' is outside the allowed workspace. -- The path is not within the permitted workspace.
+    @error Cannot read file 'file does not exist' -- The file at the specified path does not exist.
+    @error Cannot read file '%s' -- A general error occurred during file reading (e.g., permissions).
+    @error Cannot read file 'file content too big' -- The file content exceeds the maximum allowed size.
+]=]
+function filesystem.readfileasync(path: string, asBuffer: boolean?): (string | buffer | nil, string?)
+    return nil :: any, nil :: any
 end
 
 return filesystem

@@ -153,4 +153,31 @@ function global.getscriptglobals(): { _G: { [any]: any }, shared: { [any]: any }
     return nil :: any
 end
 
+--[=[
+    Sets the content of the system clipboard.
+
+    @within global
+    @tag Global
+    @return "RbxStu", "V6.9.0"
+]=]
+function global.identifyexecutor(): (string, string)
+    return nil :: any
+end
+
+--[=[
+    Sets the content of the system clipboard.
+
+    @within global
+    @tag Global
+    @param content string -- The string content to place on the clipboard.
+    @error Failed to open clipboard -- The system clipboard could not be accessed.
+    @error Failed to empty clipboard -- The system clipboard could not be cleared.
+    @error Failed to allocate memory in global space -- Failed to allocate memory for the clipboard data.
+    @error Failed to lock global memory -- Failed to lock the allocated memory for writing.
+    @error String conversion failed -- The input string could not be converted to the required format.
+]=]
+function global.setclipboard(content: string): ()
+    return nil :: any
+end
+
 return global
