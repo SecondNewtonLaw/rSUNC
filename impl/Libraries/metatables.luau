@@ -110,12 +110,23 @@ end
     @within metatables
     @param object { [any]: any } -- The table to check.
     @return boolean -- If true, the table is read-only.
-    
+]=]
+function metatables.isreadonly(object: { [any]: any }): boolean
+    return nil :: any
+end
+
+--[=[
+    Sets the read-only status of a table.
+
+    @within metatables
+    @param object { [any]: any } -- The table to set the read-only status of.
+    @param readonly boolean -- The boolean value to set the read-only status to (true for read-only, false for mutable).
+
     :::tip Usage
     Normally used on metatables to allow modifying the table, but works on any table, regardless if they're a metatable or not,
     :::
 ]=]
-function metatables.isreadonly(object: { [any]: any }): boolean
+function metatables.setreadonly(object: { [any]: any }, readonly: boolean)
     return nil :: any
 end
 
