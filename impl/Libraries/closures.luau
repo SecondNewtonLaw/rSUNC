@@ -505,4 +505,26 @@ function closures.trampoline_call<T..., U..., K..., J...>(
     return nil :: any
 end
 
+--[=[
+    Checks if the given object is a C closure.
+
+    @within closures
+    @param fn any -- The object to check.
+    @return boolean -- Whether the object is a C closure.
+]=]
+function closures.iscclosure(fn: any): boolean
+    return nil :: any
+end
+
+--[=[
+    Checks if the given object is a Luau closure.
+
+    @within closures
+    @param fn any -- The object to check.
+    @return boolean -- Whether the object is a Luau closure.
+]=]
+function closures.islclosure(fn: any): boolean
+    return nil :: any
+end
+
 return closures
