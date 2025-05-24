@@ -123,7 +123,7 @@ end
     @param readonly boolean -- The boolean value to set the read-only status to (true for read-only, false for mutable).
 
     :::tip Usage
-    Normally used on metatables to allow modifying the table, but works on any table, regardless if they're a metatable or not,
+    Normally used on metatables to allow modifying the table, but works on any table, regardless if they're a metatable or not.
     :::
 ]=]
 function metatables.setreadonly(object: { [any]: any }, readonly: boolean)
