@@ -104,7 +104,7 @@ end
     @within instances
     @param instance Instance -- The instance to get the callback value from.
     @param prop string -- The name of the callback property.
-    @return (T...) -> U... -- The callback that the instance contains at the given property.
+    @return (T...) -> U... | nil -- The callback that the instance contains at the given property.
     @error property with name '%s' does not exist. -- The given property (named %s) does not exist on the given instance.
 ]=]
 function instances.getcallbackvalue<T..., U...>(instance: Instance, prop: string): ((T...) -> U...) | nil
@@ -131,6 +131,58 @@ end
 ]=]
 function instances.gethiddenproperty<T, U>(instance: T & Instance, prop: string): (U, boolean)
     return nil :: any, nil :: any
+end
+
+--[=[
+    Retrieves the names of the arguments that a signal's `OnConnect` callback receives.
+
+    @within instances
+    @param signal RBXScriptSignal -- The signal instance (e.g., `game.Players.PlayerAdded`).
+    @return { string } -- An array-like table containing the names of the arguments.
+    @error Expected RBXScriptSignal -- The provided argument was not an `RBXScriptSignal`.
+]=]
+function instances.getsignalargumentnames(signal: RBXScriptSignal): { string }
+    return {} :: any
+end
+
+--[=[
+    Retrieves the types (or class names for Instances) of the arguments that a signal's `OnConnect` callback receives.
+
+    @within instances
+    @param signal RBXScriptSignal -- The signal instance (e.g., `game.Players.PlayerAdded`).
+    @return { string } -- An array-like table containing the type or class names of the arguments.
+    @error Expected RBXScriptSignal -- The provided argument was not an `RBXScriptSignal`.
+]=]
+function instances.getsignalargumenttypes(signal: RBXScriptSignal): { string }
+    return {} :: any
+end
+
+--[=[
+    Retrieves the raw Luau bytecode of a `LuaSourceContainer` (Script, LocalScript, ModuleScript).
+
+    @within instances
+    @param script LuaSourceContainer -- The script instance.
+    @return string -- The bytecode of the script.
+    @error userdata<Instance<LuaSourceContainer>> -- The provided argument was not a `LuaSourceContainer` instance.
+    @error bytecode not found -- The script does not contain bytecode (e.g., it's empty or an external script).
+    @error unknown error occurred while trying to fetch script closure. -- An internal error occurred, possibly related to incompatible environment (e.g., Team Create for Server Scripts).
+
+    :::warning Team Create
+    Fetching bytecode for Server Scripts in Team Create sessions may not be supported.
+    :::
+]=]
+function instances.getscriptbytecode(script: LuaSourceContainer): string
+    return nil :: any
+end
+
+--[=[
+    Returns the `LuaSourceContainer` instance of the script that called this function.
+
+    @within instances
+    @return (LuaSourceContainer | string)? -- The calling script instance, or `nil` if called from a context without a script (e.g., command bar), or string if an error occurred.
+]=]
+function instances.getcallingscript(): (LuaSourceContainer | string)?
+    return nil :: any
 end
 
 --[=[
