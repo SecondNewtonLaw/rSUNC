@@ -12,7 +12,7 @@ local scheduler = {}
 ]=]
 
 --[=[
-    Connects a function to run before a Step of the specified job is ran.
+    Connects a function to run before a step of the specified job is run.
 
     @within scheduler
     @return SchedulerJobStepConnection
@@ -27,7 +27,7 @@ function scheduler.connectprestep<T..., U...>(jobName: SchedulerJobName, callbac
 end
 
 --[=[
-    Connects a function to run after a Step of the specified job is ran.
+    Connects a function to run after a step of the specified job is run.
 
     @within scheduler
     @return SchedulerJobStepConnection

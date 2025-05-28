@@ -192,7 +192,7 @@ end
 function closures.restorefunction<T..., U...>(restoreWhat: (T...) -> U...): () end
 
 --[=[
-    Compiles and loads the given `luauCode`. If `chunkName` is not provided, it must default to either: a pseudo-randomly generated string, or `=loadstring`.
+    Compiles and loads the given `luauCode`. If `chunkName` is not provided, it must default to either a pseudo-randomly generated string, or `=loadstring`.
 
     Loadstring must compile the code with the following compile configuration:
         - Optimization Level 1
@@ -213,7 +213,7 @@ function closures.loadstring<T..., U...>(luauCode: string, chunkName: string?): 
 end
 
 --[=[
-    Wraps the given closure into a upvalue-less C closure.
+    Wraps the given closure in an upvalue-less C closure.
 
     @within closures
     @param fn (T...) -> U... -- Function to wrap
@@ -235,7 +235,7 @@ function closures.newcclosure<T..., U...>(fn: (T...) -> U..., debugName: string?
 end
 
 --[=[
-    Wraps the given closure into a upvalue-less L closure.
+    Wraps the given closure into an upvalue-less Luau closure.
 
     @within closures
     @param fn (T...) -> U... -- Function to wrap
@@ -309,7 +309,7 @@ function closures.wrapclosure<T..., U...>(fn: (T...) -> U...): (T...) -> U...
 end
 
 --[=[
-    Checks if the given function is an executor closure.
+    Checks if the given function is a closure created by the executor.
 
     @within closures
     @param fn (T...) -> U... -- The function to check.
@@ -341,7 +341,7 @@ function closures.clonefunction<T..., U...>(fn: (T...) -> U...): (T...) -> U...
 end
 
 --[=[
-    Returns if the given function is protected against hooks.
+    Returns a Boolean indicating whether or not the given function is protected against hooks.
 
     @within closures
     @param fn (T...) -> U... -- The function to check.
@@ -356,7 +356,7 @@ function closures.isfunctionprotected<T..., U...>(fn: (T...) -> U...): boolean
 end
 
 --[=[
-    Returns if the given function has been hooked.
+    Returns a Boolean indicating whether or not the given function has been hooked.
 
     @within closures
     @param fn (T...) -> U... -- The function to check.
@@ -371,7 +371,7 @@ function closures.ishooked<T..., U...>(fn: (T...) -> U...): boolean
 end
 
 --[=[
-    Makes a function unable to be hooked. This function automatically reverts ANY hooks placed on the function if there are any set.
+    Makes a function unable to be hooked. This function automatically reverts any hooks placed on the function if there are any set.
 
     @within closures
     @param fn (T...) -> U... -- The function to make unhookable and remove all hooks of.
@@ -380,7 +380,7 @@ end
 function closures.protectfunction<T..., U...>(fn: (T...) -> U...): () end
 
 --[=[
-    Returns true if the function points to the same code. The function should return false if the function type results in a mis-match (i.e., `fn1` is a Luau closure and `fn2` is a C closure).
+    Returns `true` if `fn1` and `fn2` point to the same code. The function should return false if the function type results in a mis-match (i.e., `fn1` is a Luau closure and `fn2` is a C closure).
 
     @within closures
     @param fn1 (T...) -> U... -- The first function to compare.
@@ -437,7 +437,7 @@ function closures.comparefunction<T1..., U1..., T2..., U2...>(fn1: (T1...) -> U1
 end
 
 --[=[
-    Returns if the given function is a wrapper function.
+    Returns a Boolean indicating whether or not the given function is a wrapper function.
 
     @within closures
     @param fn (T...) -> U... -- The function to check.
@@ -465,7 +465,7 @@ end
 function closures.sethiddenstack<T..., U...>(fnOrLevel: number | (T...) -> U..., hidden: boolean): () end
 
 --[=[
-    Returns if the given function or stack level is hidden from functions which expose the callstack to users.
+    Returns a Boolean indicating whether or not the given function or stack level is hidden from functions which expose the callstack to users.
 
     @within closures
     @param fnOrLevel number | (T...) -> U... -- The function or stack level to check.

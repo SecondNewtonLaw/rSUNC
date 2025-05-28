@@ -37,7 +37,7 @@ type metafield =
     | "__tostring"
 
 --[=[
-    Returns the metatable of the given object, even if the `__metatable` metafield is set.
+    Returns the real metatable of `object`, bypassing any metamethods.
 
     @within metatables
     @param object T -- The object to get the metatable of.
@@ -52,7 +52,7 @@ function metatables.getrawmetatable<T>(object: T): { [metafield]: any } | nil
 end
 
 --[=[
-    Sets the metatable of `object` and returns the previous metatable of it..
+    Sets the real metatable of `object`, bypassing any metamethods and returning the old metatable, if it exists.
 
     @within metatables
     @param object T -- The object to get the metatable of.
@@ -64,7 +64,7 @@ function metatables.setrawmetatable<T>(object: T, metatable: { [metafield]: any 
 end
 
 --[=[
-    Returns the metafield (if existing) of the metatable the object has.
+    Returns the given metafield of the metatable the object has, if it exists.
 
     @within metatables
     @param object T  -- The object with a metatable to get the metafield of.
@@ -79,7 +79,7 @@ function metatables.getmetafield<T, U>(object: T, metafield: metafield): T?
     return nil :: any
 end
 --[=[
-    Checks if the given object has a specific metafield.
+    Returns a Boolean indicating whether or not the given object has the metafield `metafield`.
 
     @within metatables
     @param object T -- The object to check.
@@ -94,7 +94,7 @@ function metatables.hasmetafield<T>(object: T, metafield: metafield): boolean
 end
 
 --[=[
-    Checks if the given object has a metatable.
+    Returns a Boolean indicating whether or not the given object has a metatable.
 
     @within metatables
     @param object T -- The object to check.
@@ -105,7 +105,7 @@ function metatables.hasmetatable<T>(object: T): boolean
 end
 
 --[=[
-    Checks if the the given table is marked as read-only.
+    Returns a Boolean indicating whether or not table `object` is marked as read-only.
 
     @within metatables
     @param object { [any]: any } -- The table to check.
@@ -116,7 +116,7 @@ function metatables.isreadonly(object: { [any]: any }): boolean
 end
 
 --[=[
-    Sets the read-only status of a table.
+    Sets the read-only status of table `object`.
 
     @within metatables
     @param object { [any]: any } -- The table to set the read-only status of.

@@ -6,7 +6,7 @@
 local instances = {}
 
 --[=[
-    Clones a reference of the given instance.
+    Clones a reference of the given instance and returns it.
 
     @within instances
     @param object Instance -- The instance to clone.
@@ -67,7 +67,7 @@ function instances.isreferencevalid<T>(object: T & Instance): boolean
 end
 
 --[=[
-    Makes all references that are `object1` point to what `object2` is referencing instead.
+    Makes all references that point to `object1` point to what `object2` is referencing instead.
     
     @within instances
     @param object1 Instance -- The instance to replace.
@@ -85,7 +85,7 @@ end
 function instances.replacereference<T>(object1: T & Instance, object2: T & Instance): () end
 
 --[=[
-    Gets the version of the ROBLOX place you are in.
+    Gets the version of the Roblox place you are in.
 
     @within instances
     @return number -- The version of the place.
@@ -99,7 +99,7 @@ function instances.getplaceversion(): number
 end
 
 --[=[
-    Gets the callback value of the given instance and property.
+    Returns the callback value of the given instance and property.
     
     @within instances
     @param instance Instance -- The instance to get the callback value from.
@@ -112,7 +112,7 @@ function instances.getcallbackvalue<T..., U...>(instance: Instance, prop: string
 end
 
 --[=[
-    Gets the property of the given instance.
+    Returns the property of the given instance.
     
     @within instances
     @param instance T & Instance -- The instance to get the property from.
@@ -134,7 +134,7 @@ function instances.gethiddenproperty<T, U>(instance: T & Instance, prop: string)
 end
 
 --[=[
-    Retrieves the names of the arguments that a signal's `OnConnect` callback receives.
+    Returns the names of the arguments that a signal's `OnConnect` callback receives.
 
     @within instances
     @param signal RBXScriptSignal -- The signal instance (e.g., `game.Players.PlayerAdded`).
@@ -146,7 +146,7 @@ function instances.getsignalargumentnames(signal: RBXScriptSignal): { string }
 end
 
 --[=[
-    Retrieves the types (or class names for Instances) of the arguments that a signal's `OnConnect` callback receives.
+    Retrieves the type(s) (or class name(s) for Instances) of the arguments that a signal's `OnConnect` callback receives.
 
     @within instances
     @param signal RBXScriptSignal -- The signal instance (e.g., `game.Players.PlayerAdded`).
@@ -287,7 +287,7 @@ function instances.firetouchinterest(part1: BasePart, part2: BasePart, touchType
 end
 
 --[=[
-    Fires a proximity prompt's Triggered event, which replicates to the server.
+    Fires a proximity prompt's `Triggered` `RBXScriptSignal`, which replicates to the server.
 
     @within instances
     @param prompt ProximityPrompt -- The prompt to fire the event on.

@@ -154,7 +154,7 @@ function global.getscriptglobals(): { _G: { [any]: any }, shared: { [any]: any }
 end
 
 --[=[
-    Sets the content of the system clipboard.
+    Identifies current executor name and version.
 
     @within global
     @tag Global

@@ -7,7 +7,7 @@
 local debug = {}
 
 --[=[
-    Gets the number of up-values/ up-references of the given function or call-stack index `fnOrIndex`.
+    Returns the number of up-values/up-references of the given function or call-stack index `fnOrIndex`.
 
     @within debug
     @param fnOrIndex number | (T...) -> U... -- The function or call-stack index to get the number of up-values.
@@ -19,7 +19,7 @@ function debug.getupvaluecount<T..., U...>(fnOrIndex: number | (T...) -> U...): 
 end
 
 --[=[
-    Gets the number of constants of the luau function or call-stack index `fnOrIndex`.
+    Returns the number of constants of the Luau function or call-stack index `fnOrIndex`.
 
     @within debug
     @param fnOrIndex number | (T...) -> U... -- The function or call-stack index to get the number of constants.
@@ -35,7 +35,7 @@ function debug.getconstantcount<T..., U...>(fnOrIndex: number | (T...) -> U...):
 end
 
 --[=[
-    Gets all of the constants of the luau function or call-stack index `fnOrIndex`.
+    Returns all of the constants of the luau function or call-stack index `fnOrIndex`.
 
     @within debug
     @param fnOrIndex number | (T...) -> U... -- The function or call-stack index to get all constants.
@@ -51,7 +51,7 @@ function debug.getconstants<T..., U...>(fnOrIndex: number | (T...) -> U...): { a
 end
 
 --[=[
-    Gets the constant of the luau function or call-stack index `fnOrIndex` at the given constant `index`.
+    Returns the constant of the Luau function or call-stack index `fnOrIndex` at the given constant `index`.
 
     @within debug
     @param fnOrIndex number | (T...) -> U... -- The function or call-stack index to get.
@@ -69,7 +69,7 @@ function debug.getconstant<T..., U...>(fnOrIndex: number | (T...) -> U..., index
 end
 
 --[=[
-    Sets the constant of the luau function or call-stack index `fnOrIndex` at the given constant `index` to `newValue`.
+    Sets the constant of the Luau function or call-stack index `fnOrIndex` at the given constant `index` to `newValue`.
 
     @within debug
     @param fnOrIndex number | (T...) -> U... -- The function or call-stack index to set.
@@ -90,7 +90,7 @@ end
 function debug.setconstant<T..., U...>(fnOrIndex: number | (T...) -> U..., index: number, newValue: any) end
 
 --[=[
-    Gets all of the up-value/ up-references of the given function or call-stack index `fnOrIndex`.
+    Returns a table containing all of the up-value/up-references of the given function or call-stack index `fnOrIndex`.
 
     @within debug
     @param fnOrIndex number | (T...) -> U... -- The function or call-stack index to get all up-values/ up-references.
@@ -106,7 +106,7 @@ function debug.getupvalues<T..., U...>(fnOrIndex: number | (T...) -> U...): { an
 end
 
 --[=[
-    Gets the up-value or up-reference of the given function or call-stack index `fnOrIndex` at the given up-reference/up-value `index`.
+    Returns the up-value or up-reference of the given function or call-stack index `fnOrIndex` at the given up-reference/up-value `index`.
 
     @within debug
     @param fnOrIndex number | (T...) -> U... -- The function or call-stack index to get.
@@ -141,7 +141,7 @@ end
 function debug.setupvalue<T..., U...>(fnOrIndex: number | (T...) -> U..., upIndex: number, newValue: any) end
 
 --[=[
-    Sets the stack element at index `stackIndex` at call-stack level `level` to `newStackElement`.
+    Sets the stack element at index `stackIndex` of call-stack level `level` to `newStackElement`.
 
     @within debug
     @param level number -- The level to set.
@@ -159,7 +159,7 @@ function debug.setupvalue<T..., U...>(fnOrIndex: number | (T...) -> U..., upInde
 function debug.setstack(level: number, stackIndex: number, newStackElement: any) end
 
 --[=[
-    Returns the stack element at index `stackIndex` at call-stack level `level`.
+    Returns the stack element at index `stackIndex` of call-stack level `level`.
     If no `stackIndex` is provided, the entire stack will be returned.
 
     @within debug
@@ -173,11 +173,11 @@ function debug.getstack(level: number, stackIndex: number?): any | { any }
 end
 
 --[=[
-    Returns the number of elements on the luau stack at the provided call-stack `level`.
+    Returns the number of elements on the Luau stack at the provided call-stack `level`.
 
     @within debug
     @param level number -- The level to get.
-    @return number -- The number of elements on the luau stack.
+    @return number -- The number of elements on the Luau stack.
     @error level out of range -- The provided stack level was out of range. use debug.validlevel to check if the level is valid before calling this function.
 ]=]
 function debug.getstackcount(level: number): number
@@ -185,7 +185,7 @@ function debug.getstackcount(level: number): number
 end
 
 --[=[
-    Returns if the given call-stack level is a valid level.
+    Returns a Boolean indicating whether or not the given call-stack level is a valid level.
 
     @within debug
     @param level number -- The level to check.
@@ -219,7 +219,7 @@ end
     @within debug
     @param levelOrThreadOrFunction number | thread | (T...) -> U... -- The level/ function to get the information from. Or, optionally, the thread to get the information from.
     @param whatOrLevelOrFunction  number | string | (T...) -> U... -- The information to get, or the level/ function to get the information from.
-    @param what string? -- The information to get (if the thread is provided as first argument).
+    @param options string? -- The information to get (if the thread is provided as first argument).
     @return K... | nil -- Information on the order of 'what', may be nil.
 
 ]=]
