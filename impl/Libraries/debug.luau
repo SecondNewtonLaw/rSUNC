@@ -69,7 +69,7 @@ function debug.getconstant<T..., U...>(fnOrIndex: number | (T...) -> U..., index
 end
 
 --[=[
-    Sets the constant of the Luau function or call-stack index `fnOrIndex` at the given constant `index` to `newValue`.
+    Sets the constant of the Luau function or call-stack index `fnOrIndex` at the given `index` to `newValue`.
 
     @within debug
     @param fnOrIndex number | (T...) -> U... -- The function or call-stack index to set.
