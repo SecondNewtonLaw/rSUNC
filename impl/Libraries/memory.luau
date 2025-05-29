@@ -75,7 +75,7 @@ end
 function memory.gc(): () end
 
 --[=[
-    Executes a step on the garbage collection cycle, regardless if it should be run or not.
+    Executes a step on the garbage collection cycle, regardless of whether should be run or not.
 
     @within memory
 ]=]

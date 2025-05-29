@@ -37,7 +37,7 @@ type metafield =
     | "__tostring"
 
 --[=[
-    Returns the real metatable of `object`, bypassing any metamethods.
+    Returns the metatable of `object`, bypassing any metamethods.
 
     @within metatables
     @param object T -- The object to get the metatable of.
@@ -52,7 +52,7 @@ function metatables.getrawmetatable<T>(object: T): { [metafield]: any } | nil
 end
 
 --[=[
-    Sets the real metatable of `object`, bypassing any metamethods and returning the old metatable, if it exists.
+    Sets the metatable of `object`, bypassing any metamethods and returning the old metatable, if it exists.
 
     @within metatables
     @param object T -- The object to get the metatable of.
@@ -79,7 +79,7 @@ function metatables.getmetafield<T, U>(object: T, metafield: metafield): T?
     return nil :: any
 end
 --[=[
-    Returns a Boolean indicating whether or not the given object has the metafield `metafield`.
+    Returns a boolean indicating whether or not the given object has the metafield `metafield`.
 
     @within metatables
     @param object T -- The object to check.
@@ -94,7 +94,7 @@ function metatables.hasmetafield<T>(object: T, metafield: metafield): boolean
 end
 
 --[=[
-    Returns a Boolean indicating whether or not the given object has a metatable.
+    Returns a boolean indicating whether or not the given object has a metatable.
 
     @within metatables
     @param object T -- The object to check.
@@ -105,7 +105,7 @@ function metatables.hasmetatable<T>(object: T): boolean
 end
 
 --[=[
-    Returns a Boolean indicating whether or not table `object` is marked as read-only.
+    Returns a boolean indicating whether or not table `object` is marked as read-only.
 
     @within metatables
     @param object { [any]: any } -- The table to check.

@@ -8,7 +8,7 @@ local global = {}
 
 do
     --[=[
-        The global roblox environment, as a table.
+        The global Roblox environment, as a table.
         @prop _RENV { [any]: any }
         @within global
         @tag Global
@@ -44,7 +44,7 @@ function global.gettenv(thread: thread?): { [any]: any }
 end
 
 --[=[
-    Fetches the Body of an HTTP server using a GET HTTP request.
+    Fetches the Body of a HTTP server using a GET HTTP request.
 
     @param url string -- The URL to send the request to.
     @return string -- The body of the response.
@@ -154,7 +154,7 @@ function global.getscriptglobals(): { _G: { [any]: any }, shared: { [any]: any }
 end
 
 --[=[
-    Identifies current executor name and version.
+    Returns current executor's name and version.
 
     @within global
     @tag Global

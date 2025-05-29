@@ -34,10 +34,10 @@ function filesystem.readfile(path: string, asBuffer: boolean?): string | buffer
 end
 
 --[=[
-    Loads a LuaU chunk from the specified file at `path` but does not run it.
+    Loads a Luau chunk from the specified file at `path` but does not run it.
 
     @within filesystem
-    @param path string -- The path to the Lua file.
+    @param path string -- The path to the Lua/Luau file.
     @return ((...any) -> ...any) | nil -- The loaded chunk as a function, or nil if loading failed.
     @return string? -- An error message if loading failed.
     @error Cannot read file '%s' -- The file does not exist or cannot be read due to permissions.
@@ -55,10 +55,10 @@ function filesystem.loadfile(path: string): ((...any) -> ...any | nil, string?)
 end
 
 --[=[
-    Loads and runs a LuaU chunk from the specified file.
+    Loads and runs a Luau chunk from the specified file.
 
     @within filesystem
-    @param path string -- The path to the Lua file.
+    @param path string -- The path to the Lua/Luau file.
     @return ...any -- The values returned by the executed chunk.
     @error Cannot read file '%s' -- The file does not exist or cannot be read due to permissions.
     @error ... -- Any runtime error originating from the executed chunk.
@@ -183,7 +183,7 @@ function filesystem.listfiles(path: string, options: ListfilesOptions?): {string
 end
 
 --[=[
-    Returns a Boolean indicating whether or not `path` points to an existing file.
+    Returns a boolean indicating whether or not `path` points to an existing file.
 
     @within filesystem
     @param path string -- The path to check.
@@ -194,7 +194,7 @@ function filesystem.isfile(path: string): boolean
 end
 
 --[=[
-    Returns a Boolean indicating whether or not `path` points to an existing folder (directory).
+    Returns a boolean indicating whether or not `path` points to an existing folder (directory).
 
     @within filesystem
     @param path string -- The path to check.

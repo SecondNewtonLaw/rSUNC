@@ -19,7 +19,7 @@ function debug.getupvaluecount<T..., U...>(fnOrIndex: number | (T...) -> U...): 
 end
 
 --[=[
-    Returns the number of constants of the Luau function or call-stack index `fnOrIndex`.
+    Returns the number of constants of the L closure or call-stack index `fnOrIndex`.
 
     @within debug
     @param fnOrIndex number | (T...) -> U... -- The function or call-stack index to get the number of constants.
@@ -35,7 +35,7 @@ function debug.getconstantcount<T..., U...>(fnOrIndex: number | (T...) -> U...):
 end
 
 --[=[
-    Returns all of the constants of the luau function or call-stack index `fnOrIndex`.
+    Returns all of the constants of the Luau function or call-stack index `fnOrIndex`.
 
     @within debug
     @param fnOrIndex number | (T...) -> U... -- The function or call-stack index to get all constants.
@@ -51,7 +51,7 @@ function debug.getconstants<T..., U...>(fnOrIndex: number | (T...) -> U...): { a
 end
 
 --[=[
-    Returns the constant of the Luau function or call-stack index `fnOrIndex` at the given constant `index`.
+    Returns the constant, at `index`, of the given Luau function or call-stack index `fnOrIndex`.
 
     @within debug
     @param fnOrIndex number | (T...) -> U... -- The function or call-stack index to get.
@@ -173,7 +173,7 @@ function debug.getstack(level: number, stackIndex: number?): any | { any }
 end
 
 --[=[
-    Returns the number of elements on the Luau stack at the provided call-stack `level`.
+    Returns the number of elements on the Luau stack at call-stack level `level`.
 
     @within debug
     @param level number -- The level to get.
@@ -185,7 +185,7 @@ function debug.getstackcount(level: number): number
 end
 
 --[=[
-    Returns a Boolean indicating whether or not the given call-stack level is a valid level.
+    Returns a boolean indicating whether or not the given call-stack level is a valid level.
 
     @within debug
     @param level number -- The level to check.
@@ -196,7 +196,7 @@ function debug.validlevel(level: number): boolean
 end
 
 --[=[
-    identical to `debug.traceback`
+    Identical to `debug.traceback`.
 
     @within debug
     @param threadOrMessage string | thread -- The first line of the returned string.
@@ -214,7 +214,7 @@ function debug.traceback(threadOrMessage: string | thread, levelOrMessage: numbe
 end
 
 --[=[
-    Identical to `debug.info`
+    Identical to `debug.info`.
 
     @within debug
     @param levelOrThreadOrFunction number | thread | (T...) -> U... -- The level/ function to get the information from. Or, optionally, the thread to get the information from.
@@ -231,7 +231,7 @@ function debug.info<T..., U..., K...>(
 end
 
 --[=[
-    Returns information about the function that is currently using the given stack frame or of a given function.
+    Returns information about the function that is currently using the given stack frame, or of the given function.
 
     @within debug
     @param level number | (T...) -> U... -- The level/ function to get the information from.
