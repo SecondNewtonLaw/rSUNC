@@ -1,5 +1,5 @@
 --[=[
-    Contains functions that modify the Lua(u) Virtual Machine runtime.
+    Contains functions that modify the Luau Virtual Machine runtime.
 
     @class runtime
     @tag Library
@@ -7,7 +7,7 @@
 local runtime = {}
 
 --[=[
-    Disables the execution of native generated code for the provided function.
+    Disables the execution of native code for the provided function.
 
     :::tip Hooking functions
     You may need to call this function in the future before hooking functions!
@@ -49,7 +49,7 @@ local runtime = {}
 function runtime.disablenative<T..., U...>(fn: (T...) -> U...): () end
 
 --[=[
-    Enables the execution of native generated code, if the Lua(u) VM is prepared for it.
+    Enables the execution of native code for the provided function, if the Luau VM is prepared for it.
 
     @within runtime
     @param fn (T...) -> U... -- The function to enable native code execution for.
@@ -69,7 +69,7 @@ function runtime.isnativecode<T..., U...>(fn: (T...) -> U...): boolean
 end
 
 --[=[
-    Checks if the current Lua(u) VM can run native code.
+    Checks if the current Luau VM can run native code.
     
     @within runtime
     @return boolean -- Whether the VM can run native code.
@@ -91,7 +91,7 @@ function runtime.getstringatom(str: string): number
 end
 
 --[=[
-    Obtains the hash of the given string `str` that was assigned to it by Lua(u).
+    Obtains the hash of the given string `str` that was assigned to it by Luau.
     
     @param str string -- The string to get the hash of.
     @return number -- The hash of str, as an unsigned integer.
@@ -103,7 +103,7 @@ function runtime.getstringhash(str: string): number
 end
 
 --[=[
-    Enables pointer encoding for the Lua(u) VM.
+    Enables pointer encoding for the Luau VM.
 
     @within runtime
 
@@ -115,7 +115,7 @@ end
 function runtime.enablepointerencoding(): () end
 
 --[=[
-    Disables pointer encoding for the Lua(u) VM.
+    Disables pointer encoding for the Luau VM.
 
     @within runtime
 
@@ -140,14 +140,14 @@ function runtime.getrawaddress<T>(obj: T): string
 end
 
 --[=[
-    Returns whether the given object is a userdata of type Instance.
+    Returns a boolean indicating whether or not the given object is a `userdata` of type `Instance`.
 
     @param obj userdata -- The object to check.
     @return boolean -- Whether the object is a `userdata` of type `Instance`.
     @within runtime
 
     :::warning Implementation
-    This function should **NEVER** be implemented as a __type check. You must figure out a way to do it yourself.
+    This function should **NEVER** be implemented as an `__type` check. You must figure out a way to do it yourself.
     :::
 ]=]
 function runtime.isinstance(obj: Instance): boolean
@@ -155,7 +155,7 @@ function runtime.isinstance(obj: Instance): boolean
 end
 
 --[=[
-    Returns the userdata tag for the provided object.
+    Returns the `userdata` tag for the provided object.
 
     @within runtime
     @param obj userdata -- The object which inherits from userdata.
@@ -168,7 +168,7 @@ function runtime.getuserdatatag(obj: userdata): number
 end
 
 --[=[
-    Sets a fast flag in the Lua(u) VM for specific behaviour.
+    Sets a fast flag in the Luau VM for specific behaviour.
 
     @param flagName string -- The name of the flag to set.
     @param flagValue boolean -- The value to set the flag to.
@@ -191,14 +191,14 @@ function runtime.setluaufflag(flagName: string, flagValue: boolean): () end
 ]=]
 function runtime.disableerrorlogging(): () end
 --[=[
-    Enables the error logging Roblox does on the VM. This is **NOT** the same as disabling error logging in the VM itself, it simply enables the `ScriptContext.Error` signal again after being disabled.
+    Enables the error logging Roblox does on the VM. This is **NOT** the same as enabling error logging in the VM itself, it simply enables the `ScriptContext.Error` signal again, after it being disabled.
     
     @within runtime
 ]=]
 function runtime.enableerrorlogging(): () end
 
 --[=[
-    Returns the Version hash of the current, running ROBLOX version. The version hash is the hash that follows the 'version' string in `version-...`.
+    Returns the Roblox build hash of the currently running Roblox version. The version hash is the hash that follows the 'version' string in `version-...`.
 
     @return string -- The ROBLOX build hash.
     @within runtime
@@ -223,7 +223,7 @@ function runtime.gethwid(): string
 end
 
 --[=[
-    Returns whether the current thread was created by the executor.
+    Returns a boolean indicating whether or not the current thread was created by the executor.
 
     @within runtime
     @return boolean -- Whether the current thread was created by the executor.
@@ -274,7 +274,7 @@ end
 function runtime.setthreadidentity(threadIdentity: number) end
 
 --[=[
-    Sets the maximum amount of frames per second (fps) to run the game engine can run at.
+    Sets the maximum amount of frames per second (FPS) the game engine can run at.
 
     @within runtime
     @param fps number? -- The maximum amount of frames per second (fps). If no value is provided, it automatically defaults to 1000.
@@ -287,7 +287,7 @@ function runtime.setthreadidentity(threadIdentity: number) end
 function runtime.setfpscap(fps: number?): () end
 
 --[=[
-    Sets the maximum amount of frames per second (fps) to run the game engine can run at.
+    Returns the maximum amount of frames per second (FPS) the game engine can run at.
 
     @within runtime
     @return number -- The current target FPS of the game engine.

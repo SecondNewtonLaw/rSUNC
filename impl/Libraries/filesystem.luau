@@ -21,7 +21,7 @@ local filesystem = {}
 function filesystem.writefile(path: string, content: string | buffer): () end
 
 --[=[
-    Reads the content of a specified file, returning it as a string or a buffer.
+    Reads the content of the specified file at `path`, returning it as a string or a buffer.
 
     @within filesystem
     @param path string -- The path to the file.
@@ -34,10 +34,10 @@ function filesystem.readfile(path: string, asBuffer: boolean?): string | buffer
 end
 
 --[=[
-    Loads a Lua chunk from the specified file but does not run it.
+    Loads a Luau chunk from the specified file at `path` but does not run it.
 
     @within filesystem
-    @param path string -- The path to the Lua file.
+    @param path string -- The path to the file containing valid Luau code.
     @return ((...any) -> ...any) | nil -- The loaded chunk as a function, or nil if loading failed.
     @return string? -- An error message if loading failed.
     @error Cannot read file '%s' -- The file does not exist or cannot be read due to permissions.
@@ -55,10 +55,10 @@ function filesystem.loadfile(path: string): ((...any) -> ...any | nil, string?)
 end
 
 --[=[
-    Loads and runs a Lua chunk from the specified file.
+    Loads and runs a Luau chunk from the specified file.
 
     @within filesystem
-    @param path string -- The path to the Lua file.
+    @param path string -- The path to the file containing valid Luau code.
     @return ...any -- The values returned by the executed chunk.
     @error Cannot read file '%s' -- The file does not exist or cannot be read due to permissions.
     @error ... -- Any runtime error originating from the executed chunk.
@@ -72,7 +72,7 @@ function filesystem.dofile(path: string): ...any
 end
 
 --[=[
-    Deletes a specified file.
+    Deletes the specified file at `path`.
 
     @within filesystem
     @param path string -- The path to the file to delete.
@@ -81,7 +81,7 @@ end
 function filesystem.delfile(path: string): () end
 
 --[=[
-    Appends content (string or buffer) to the end of a specified file. Creates the file if it does not exist.
+    Appends content (string or buffer) to the end of the specified file at `path`. Creates the file if it does not exist.
 
     @within filesystem
     @param path string -- The path to the file.
@@ -170,7 +170,7 @@ function filesystem.copyfile(sourcepath: string, destinationpath: string): () en
 function filesystem.copyfolder(sourcepath: string, destinationpath: string): () end
 
 --[=[
-    Lists all files and folders within a specified directory path according to the provided options.
+    Returns a table containing all file and folder paths within a specified directory path according to the provided options.
 
     @within filesystem
     @param path string -- The path to the directory.
@@ -183,7 +183,7 @@ function filesystem.listfiles(path: string, options: ListfilesOptions?): {string
 end
 
 --[=[
-    Checks if a given path points to an existing file.
+    Returns a boolean indicating whether or not `path` points to an existing file.
 
     @within filesystem
     @param path string -- The path to check.
@@ -194,7 +194,7 @@ function filesystem.isfile(path: string): boolean
 end
 
 --[=[
-    Checks if a given path points to an existing folder (directory).
+    Returns a boolean indicating whether or not `path` points to an existing folder (directory).
 
     @within filesystem
     @param path string -- The path to check.
@@ -247,7 +247,7 @@ function filesystem.delfolderasync(path: string): ()
 end
 
 --[=[
-    Retrieves properties of a specified file or folder.
+    Retrieves properties of the specified file/folder at `path`.
 
     @within filesystem
     @param path string -- The path to the file or folder.

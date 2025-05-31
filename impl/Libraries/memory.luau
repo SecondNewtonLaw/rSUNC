@@ -54,7 +54,7 @@ function memory.resumegc(): ()
 end
 
 --[=[
-    Retrieves a copy of the current state of the garbage collector.
+    Returns a copy of the current state of the garbage collector.
 
     @within memory
     @return GcState -- The current state of the Garbage Collector
@@ -75,14 +75,14 @@ end
 function memory.gc(): () end
 
 --[=[
-    Executes a step on the garbage collection cycle, regardless if it should be ran or not.
+    Executes a step on the garbage collection cycle, regardless of whether should be run or not.
 
     @within memory
 ]=]
 function memory.stepgc(): () end
 
 --[=[
-    Checks if the given object is currently referenced in the Lua(u) registry.
+    Checks if the given object is currently referenced in the Luau registry.
 
     @within memory
     @param object any -- The object to check.

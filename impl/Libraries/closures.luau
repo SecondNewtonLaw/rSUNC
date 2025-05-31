@@ -1,14 +1,14 @@
 --!strict
 
 --[=[
-    Contains functions which interact and modify closures and their behaviour.
+    Contains functions which interact with and modify closures and their behaviour.
     @class closures
     @tag Library
 ]=]
 local closures = {}
 
 --[=[
-    Provides a hash with a digest size of 48 bytes (384 bits) in hex format for the given luau function
+    Provides a hash with a digest size of 48 bytes (384 bits) in hex format for the given Luau function
 
     @within closures
     @param fn (T...) -> U... -- The function to hash.
@@ -30,8 +30,8 @@ local closures = {}
     If such a closure is a C closure, then the function must error.
     :::
 
-    @error the closure must resolve to a Luau closure -- A wrapper function was provided, but when resolving its root closure, it didn't point to a luau closure.
-    @error function must be a Luau closure. -- The first parameter was a C function instead of a Luau function.
+    @error the closure must resolve to a L closure -- A wrapper function was provided, but when resolving its root closure, it didn't point to a L closure.
+    @error function must be a L closure. -- The first parameter was a C function instead of a Luau function.
     @error Unsupported hash type. -- The given hash type is not supported by the executor.
 ]=]
 function closures.getfunctionhash<T..., U...>(fn: (T...) -> U..., hashType: "SHA384" | "BLAKE2B" | "BLAKE3"): string
@@ -39,7 +39,7 @@ function closures.getfunctionhash<T..., U...>(fn: (T...) -> U..., hashType: "SHA
 end
 
 --[=[
-    Hooks the given function with the desired hook. This function supports hooking all kinds of closures, from Lua to C, C to Lua, etc.
+    Hooks the given function with the desired hook. This function supports hooking all kinds of closures, from Luau to C, C to Luau, etc.
 
     @within closures
     @param fn (T...) -> U... -- Function to hook.
@@ -102,7 +102,7 @@ end
 
     --[[
         When hooking and suspending, the current instruction is saved into the threads' CallInfo->savedpc to resume. But as we have changed the Proto object, the address and offset of this savedpc, is NO LONGER VALID!
-        Attempting to do anything with it would likely yield us either: a Luau C error with line number of the error in a completely invalid line, undefined behaviour and inexplicable crashes.
+        Attempting to do anything with it would likely yield us a Luau C error with line number of the error in a completely invalid line, undefined behaviour or inexplicable crashes.
 
         This is a potential ACE that MUST be fixed and handled properly.
     ]]
@@ -180,7 +180,7 @@ function closures.hookfunction<T..., U...>(fn: (T...) -> U..., hook: (T...) -> U
 end
 
 --[=[
-    Restores any hooks done to `restoreWhat`, regardless of the hook type (i.e., C closure hook, Luau closure hook, ...) and of how many hooks were done to `restoreWhat`.
+    Restores any hooks done to `restoreWhat`, regardless of the hook type (i.e., C closure hook, L closure hook, ...) and of how many hooks were done to `restoreWhat`.
 
     @param restoreWhat (T...) -> U... -- The function that should be restored.
     @error Function is not hooked -- The function is not hooked, and thus cannot be restored. Use `ishooked` before calling this function!
@@ -192,7 +192,7 @@ end
 function closures.restorefunction<T..., U...>(restoreWhat: (T...) -> U...): () end
 
 --[=[
-    Compiles and loads the given `luauCode`. If `chunkName` is not provided, it must default to either: a pseudo-randomly generated string, or `=loadstring`.
+    Compiles and loads the given `luauCode`. If `chunkName` is not provided, it must default to either a pseudo-randomly generated string, or `=loadstring`.
 
     Loadstring must compile the code with the following compile configuration:
         - Optimization Level 1
@@ -213,7 +213,7 @@ function closures.loadstring<T..., U...>(luauCode: string, chunkName: string?): 
 end
 
 --[=[
-    Wraps the given closure into a upvalue-less C closure.
+    Wraps the given closure in an upvalue-less C closure.
 
     @within closures
     @param fn (T...) -> U... -- Function to wrap
@@ -235,7 +235,7 @@ function closures.newcclosure<T..., U...>(fn: (T...) -> U..., debugName: string?
 end
 
 --[=[
-    Wraps the given closure into a upvalue-less L closure.
+    Wraps the given closure into an upvalue-less L closure.
 
     @within closures
     @param fn (T...) -> U... -- Function to wrap
@@ -309,7 +309,7 @@ function closures.wrapclosure<T..., U...>(fn: (T...) -> U...): (T...) -> U...
 end
 
 --[=[
-    Checks if the given function is an executor closure.
+    Checks if the given function is a closure created by the executor.
 
     @within closures
     @param fn (T...) -> U... -- The function to check.
@@ -341,7 +341,7 @@ function closures.clonefunction<T..., U...>(fn: (T...) -> U...): (T...) -> U...
 end
 
 --[=[
-    Returns if the given function is protected against hooks.
+    Returns a boolean indicating whether or not the given function is protected against hooks.
 
     @within closures
     @param fn (T...) -> U... -- The function to check.
@@ -356,7 +356,7 @@ function closures.isfunctionprotected<T..., U...>(fn: (T...) -> U...): boolean
 end
 
 --[=[
-    Returns if the given function has been hooked.
+    Returns a boolean indicating whether or not the given function has been hooked.
 
     @within closures
     @param fn (T...) -> U... -- The function to check.
@@ -371,7 +371,7 @@ function closures.ishooked<T..., U...>(fn: (T...) -> U...): boolean
 end
 
 --[=[
-    Makes a function unable to be hooked. This function automatically reverts ANY hooks placed on the function if there are any set.
+    Makes a function unable to be hooked. This function automatically reverts any hooks placed on the function, if there are any set.
 
     @within closures
     @param fn (T...) -> U... -- The function to make unhookable and remove all hooks of.
@@ -380,7 +380,7 @@ end
 function closures.protectfunction<T..., U...>(fn: (T...) -> U...): () end
 
 --[=[
-    Returns true if the function points to the same code. The function should return false if the function type results in a mis-match (i.e., `fn1` is a Luau closure and `fn2` is a C closure).
+    Returns a boolean indicating whether or not `fn1` and `fn2` point to the same code. The function will return `false` if the function types result in a mis-match (i.e., `fn1` is a L closure and `fn2` is a C closure).
 
     @within closures
     @param fn1 (T...) -> U... -- The first function to compare.
@@ -390,8 +390,8 @@ function closures.protectfunction<T..., U...>(fn: (T...) -> U...): () end
     :::danger newcclosures/ newlclosure comparison
     For newcclosures and newlclosures, the result must be derived from the 'deepest' closure it wraps.
 
-    For example, if `fn1` is a newcclosure that wraps a newlclosure that wraps a luau function, and `fn2` is a Luau function, you must search to the deepest call fn1 can do and check if it is `fn2`.
-    The same should happen if `fn2` is the nested one and `fn1` is a luau function.
+    For example, if `fn1` is a newcclosure that wraps a newlclosure that wraps a Luau function, and `fn2` is a Luau function, you must search to the deepest call fn1 can do and check if it is `fn2`.
+    The same should happen if `fn2` is the nested one and `fn1` is a Luau function.
     :::
 
     This function does not check if the function code is the same, only if the two functions point to the same 'Prototype' or 'C function'.
@@ -437,7 +437,7 @@ function closures.comparefunction<T1..., U1..., T2..., U2...>(fn1: (T1...) -> U1
 end
 
 --[=[
-    Returns if the given function is a wrapper function.
+    Returns a boolean indicating whether or not the given function is a wrapper function.
 
     @within closures
     @param fn (T...) -> U... -- The function to check.
@@ -448,7 +448,7 @@ function closures.iswrappedclosure<T..., U...>(fn: (T...) -> U...): boolean
 end
 
 --[=[
-    Hides a function from functions which expose the callstack to users (i.e., `getfenv`, `setfenv`, `debug.info` and `debug.traceback`).
+    Hides a function from functions which expose the callstack to users (`getfenv`, `setfenv`, `debug.info` and `debug.traceback`).
 
     @within closures
     @param fnOrLevel number | (T...) -> U... -- The function or stack level to hide.
@@ -465,7 +465,7 @@ end
 function closures.sethiddenstack<T..., U...>(fnOrLevel: number | (T...) -> U..., hidden: boolean): () end
 
 --[=[
-    Returns if the given function or stack level is hidden from functions which expose the callstack to users.
+    Returns a boolean indicating whether or not the given function or stack level is hidden from functions which expose the callstack to users.
 
     @within closures
     @param fnOrLevel number | (T...) -> U... -- The function or stack level to check.
@@ -506,7 +506,7 @@ function closures.trampoline_call<T..., U..., K..., J...>(
 end
 
 --[=[
-    Checks if the given object is a C closure.
+    Returns a boolean indicating whether or not the given object is a C closure.
 
     @within closures
     @param fn any -- The object to check.
@@ -517,11 +517,11 @@ function closures.iscclosure(fn: any): boolean
 end
 
 --[=[
-    Checks if the given object is a Luau closure.
+    Returns a boolean indicating whether or not the given object is a L closure.
 
     @within closures
     @param fn any -- The object to check.
-    @return boolean -- Whether the object is a Luau closure.
+    @return boolean -- Whether the object is a L closure.
 ]=]
 function closures.islclosure(fn: any): boolean
     return nil :: any

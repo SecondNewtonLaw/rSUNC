@@ -6,7 +6,7 @@
 local instances = {}
 
 --[=[
-    Clones a reference of the given instance.
+    Clones a reference of the given instance and returns it.
 
     @within instances
     @param object Instance -- The instance to clone.
@@ -67,7 +67,7 @@ function instances.isreferencevalid<T>(object: T & Instance): boolean
 end
 
 --[=[
-    Makes all references that are `object1` point to what `object2` is referencing instead.
+    Makes all references that point to `object1` point to what `object2` is referencing instead.
     
     @within instances
     @param object1 Instance -- The instance to replace.
@@ -85,7 +85,7 @@ end
 function instances.replacereference<T>(object1: T & Instance, object2: T & Instance): () end
 
 --[=[
-    Gets the version of the ROBLOX place you are in.
+    Gets the version of the place you are in.
 
     @within instances
     @return number -- The version of the place.
@@ -99,7 +99,7 @@ function instances.getplaceversion(): number
 end
 
 --[=[
-    Gets the callback value of the given instance and property.
+    Returns the callback value of the given instance and property.
     
     @within instances
     @param instance Instance -- The instance to get the callback value from.
@@ -112,7 +112,7 @@ function instances.getcallbackvalue<T..., U...>(instance: Instance, prop: string
 end
 
 --[=[
-    Gets the property of the given instance.
+    Returns the property of the given instance.
     
     @within instances
     @param instance T & Instance -- The instance to get the property from.
@@ -134,7 +134,7 @@ function instances.gethiddenproperty<T, U>(instance: T & Instance, prop: string)
 end
 
 --[=[
-    Retrieves the names of the arguments that a signal's `OnConnect` callback receives.
+    Returns the names of the arguments that a signal's `OnConnect` callback receives.
 
     @within instances
     @param signal RBXScriptSignal -- The signal instance (e.g., `game.Players.PlayerAdded`).
@@ -146,7 +146,7 @@ function instances.getsignalargumentnames(signal: RBXScriptSignal): { string }
 end
 
 --[=[
-    Retrieves the types (or class names for Instances) of the arguments that a signal's `OnConnect` callback receives.
+    Retrieves the type(s) (or class name(s) for Instances) of the arguments that a signal's `OnConnect` callback receives.
 
     @within instances
     @param signal RBXScriptSignal -- The signal instance (e.g., `game.Players.PlayerAdded`).
@@ -158,7 +158,7 @@ function instances.getsignalargumenttypes(signal: RBXScriptSignal): { string }
 end
 
 --[=[
-    Retrieves the raw Luau bytecode of a `LuaSourceContainer` (Script, LocalScript, ModuleScript).
+    Retrieves the raw Luau bytecode of the given `LuaSourceContainer` (Script, LocalScript, ModuleScript).
 
     @within instances
     @param script LuaSourceContainer -- The script instance.
@@ -186,7 +186,7 @@ function instances.getcallingscript(): (LuaSourceContainer | string)?
 end
 
 --[=[
-    Gets the environment of a running script.
+    Returns the environment of the given running script.
 
     @param script LuaSourceContainer -- The script to obtain the environment of.
     @return T | nil -- The environment of the script, nil if the script is not running.
@@ -205,7 +205,7 @@ function instances.getsenv<T>(script: LuaSourceContainer): T?
 end
 
 --[=[
-    Gets a non-runnable closure which holds debug info (constants, upreferences, debugname, etc) of the script's main thread.
+    Returns a non-runnable closure which holds debug info (constants, upreferences, debugname, etc.) of the script's main thread.
     @param instance LuaSourceContainer -- The script to get the closure of.
     @return ((T...) -> (U...)) | nil -- The 'main' closure of the script, `nil` if the script has no bytecode.
     @error Cannot get closure of a server script -- The script provided is a server script, and its source isn't available.
@@ -258,7 +258,7 @@ function instances.fireclickdetector(
 end
 
 --[=[
-    Describes a TouchType for the firetouchinterest function. 
+    Describes a TouchType for the firetouchinterest function.
 
     **`1`** stands for **`Touch`**, while **`0`** stands for **`TouchEnded`**.
 
@@ -269,7 +269,7 @@ end
 type TouchType = typeof(1) | typeof(0)
 
 --[=[
-    Fires a physics interaction between BasePart objects, which replicates to the server.
+    Fires a physics interaction between the given `BasePart` objects, which replicates to the server.
 
     @within instances
     @param part1 BasePart -- The first part.
@@ -287,7 +287,7 @@ function instances.firetouchinterest(part1: BasePart, part2: BasePart, touchType
 end
 
 --[=[
-    Fires a proximity prompt's Triggered event, which replicates to the server.
+    Fires a proximity prompt's `Triggered` signal, which replicates to the server.
 
     @within instances
     @param prompt ProximityPrompt -- The prompt to fire the event on.
@@ -334,7 +334,7 @@ function instances.getinstances(): { Instance }
 end
 
 --[=[
-    Returns a list with all instances that are currently referenced by the game and are not parented anything.
+    Returns a list with all instances that are currently referenced by the game and are not parented to anything.
     
     @within instances
     @return { Instance } -- All instances that are currently referenced by the game, but with no parent.

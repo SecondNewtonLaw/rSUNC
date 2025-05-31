@@ -8,7 +8,7 @@ local global = {}
 
 do
     --[=[
-        The global roblox environment, as a table.
+        The global Roblox environment, as a table.
         @prop _RENV { [any]: any }
         @within global
         @tag Global
@@ -154,7 +154,7 @@ function global.getscriptglobals(): { _G: { [any]: any }, shared: { [any]: any }
 end
 
 --[=[
-    Sets the content of the system clipboard.
+    Returns current executor's name and version.
 
     @within global
     @tag Global
