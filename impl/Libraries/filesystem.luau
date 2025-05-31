@@ -37,7 +37,7 @@ end
     Loads a Luau chunk from the specified file at `path` but does not run it.
 
     @within filesystem
-    @param path string -- The path to the Lua/Luau file.
+    @param path string -- The path to the file containing valid Luau code.
     @return ((...any) -> ...any) | nil -- The loaded chunk as a function, or nil if loading failed.
     @return string? -- An error message if loading failed.
     @error Cannot read file '%s' -- The file does not exist or cannot be read due to permissions.
@@ -58,7 +58,7 @@ end
     Loads and runs a Luau chunk from the specified file.
 
     @within filesystem
-    @param path string -- The path to the Lua/Luau file.
+    @param path string -- The path to the file containing valid Luau code.
     @return ...any -- The values returned by the executed chunk.
     @error Cannot read file '%s' -- The file does not exist or cannot be read due to permissions.
     @error ... -- Any runtime error originating from the executed chunk.

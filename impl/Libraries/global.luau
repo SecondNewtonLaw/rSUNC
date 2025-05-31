@@ -44,7 +44,7 @@ function global.gettenv(thread: thread?): { [any]: any }
 end
 
 --[=[
-    Fetches the Body of a HTTP server using a GET HTTP request.
+    Fetches the Body of an HTTP server using a GET HTTP request.
 
     @param url string -- The URL to send the request to.
     @return string -- The body of the response.

@@ -16,7 +16,7 @@ type rSUNCHttpResponse = {
 }
 
 --[=[
-    Performs a HTTP request with the given options, returning the given response.
+    Performs an HTTP request with the given options, returning the given response.
 
     @param options rSUNCHttpRequest -- The parameters for the http request.
     @return rSUNCHttpResponse -- A response to the rSUNCHttpRequest.
