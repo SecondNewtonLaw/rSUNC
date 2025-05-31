@@ -448,7 +448,7 @@ function closures.iswrappedclosure<T..., U...>(fn: (T...) -> U...): boolean
 end
 
 --[=[
-    Hides a function from functions which expose the callstack to users (`getfenv`, `setfenv`, `debug.info` and `debug.traceback`).
+    Hides a function from functions which expose the callstack to users (i.e., `getfenv`, `setfenv`, `debug.info` and `debug.traceback`).
 
     @within closures
     @param fnOrLevel number | (T...) -> U... -- The function or stack level to hide.
