@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.7.0">
 <title data-rh="true">instances | RbxStu Unified Naming Convention</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://SecondNewtonLaw.github.io/rSUNC/api/instances"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="instances | RbxStu Unified Naming Convention"><meta data-rh="true" name="description" content="Provides functions to manipulate instances."><meta data-rh="true" property="og:description" content="Provides functions to manipulate instances."><link data-rh="true" rel="canonical" href="https://SecondNewtonLaw.github.io/rSUNC/api/instances"><link data-rh="true" rel="alternate" href="https://SecondNewtonLaw.github.io/rSUNC/api/instances" hreflang="en"><link data-rh="true" rel="alternate" href="https://SecondNewtonLaw.github.io/rSUNC/api/instances" hreflang="x-default"><link rel="stylesheet" href="/rSUNC/assets/css/styles.5cbed574.css">
-<script src="/rSUNC/assets/js/runtime~main.bb309a47.js" defer="defer"></script>
-<script src="/rSUNC/assets/js/main.2e47c085.js" defer="defer"></script>
+<script src="/rSUNC/assets/js/runtime~main.9102cfc2.js" defer="defer"></script>
+<script src="/rSUNC/assets/js/main.3b659c42.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();null!==e?t(e):window.matchMedia("(prefers-color-scheme: dark)").matches?t("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,t("light"))}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/rSUNC/"><b class="navbar__title text--truncate">RbxStu Unified Naming Convention</b></a><a class="navbar__item navbar__link" href="/rSUNC/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/rSUNC/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://discord.gg/Xj3ffmahJd" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://github.com/SecondNewtonLaw/rSUNC" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0 docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC/api/global">Uncategorized/Miscellaneous</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/rSUNC/api/closures">Libraries</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/closures">closures</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/debug">debug</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/filesystem">filesystem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/http">http</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/rSUNC/api/instances">instances</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/memory">memory</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/metatables">metatables</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/runtime">runtime</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/scheduler">scheduler</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/websocket">websocket</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC/api/CallStack">Custom Types</a></div></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">instances</span></h1><div class="luaClassTags_EipM"><span class="docTag__6UZ" style="border-color:#218c74;color:#218c74">Library</span></div><div>
@@ -18,7 +18,7 @@
 </span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
 <p>A brand new reference to the given instance.</p>
 </span></span></div><div>
-<p>Clones a reference of the given instance.</p>
+<p>Clones a reference of the given instance and returns it.</p>
 
   
     
@@ -111,7 +111,7 @@
 </span></span></div><div><code>object2<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
 <p>The instance to replace it with.</p>
 </span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
-<p>Makes all references that are <code>object1</code> point to what <code>object2</code> is referencing instead.</p>
+<p>Makes all references that point to <code>object1</code> point to what <code>object2</code> is referencing instead.</p>
 
   
     
@@ -149,7 +149,7 @@
 </div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>The reference cannot be modified (not in cache)</td><td>The reference you provided cannot be modified, this is due to it not being on the instance cache.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getplaceversion"><code style="text-decoration:none">getplaceversion</code><a href="#getplaceversion" class="hash-link" aria-label="Direct link to getplaceversion" title="Direct link to getplaceversion">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/instances.luau#L97"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>instances<!-- -->.</code><code class="green_DgR4">getplaceversion</code><code>(</code><code>) → </code><code class="blue_P4bS">number</code><span class="inlineDescription_G7Er">-- <span>
 <p>The version of the place.</p>
 </span></span></div><div>
-<p>Gets the version of the ROBLOX place you are in.</p>
+<p>Gets the version of the place you are in.</p>
 
   
     
@@ -174,7 +174,7 @@
 </span></span></div></div><code>) → </code><code class="purple_ieR2">(</code><code class="blue_P4bS">T...</code><code class="purple_ieR2">)</code><code class="purple_ieR2"> → </code><code class="blue_P4bS">U...</code><code class="op_lSLc"> | </code><code class="blue_P4bS">nil</code><span class="inlineDescription_G7Er">-- <span>
 <p>The callback that the instance contains at the given property.</p>
 </span></span></div><div>
-<p>Gets the callback value of the given instance and property.</p>
+<p>Returns the callback value of the given instance and property.</p>
 </div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>property with name &#x27;%s&#x27; does not exist.</td><td>The given property (named %s) does not exist on the given instance.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="gethiddenproperty"><code style="text-decoration:none">gethiddenproperty</code><a href="#gethiddenproperty" class="hash-link" aria-label="Direct link to gethiddenproperty" title="Direct link to gethiddenproperty">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/instances.luau#L132"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>instances<!-- -->.</code><code class="green_DgR4">gethiddenproperty</code><code>(</code><div class="inset_uKQm"><div><code>instance<!-- -->: </code><code class="blue_P4bS">T</code><code class="op_lSLc"> &amp; </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>The instance to get the property from.</p>
 </span></span></div><div><code>prop<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
@@ -184,7 +184,7 @@
 </span></span></div><div><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
 <p>True if the property was hidden, false if it was not.</p>
 </span></span></div></div><code>)</code></div><div>
-<p>Gets the property of the given instance.</p>
+<p>Returns the property of the given instance.</p>
 
   
     
@@ -224,19 +224,19 @@
 </span></span></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code><span class="inlineDescription_G7Er">-- <span>
 <p>An array-like table containing the names of the arguments.</p>
 </span></span></div><div>
-<p>Retrieves the names of the arguments that a signal's <code>OnConnect</code> callback receives.</p>
+<p>Returns the names of the arguments that a signal's <code>OnConnect</code> callback receives.</p>
 </div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Expected RBXScriptSignal</td><td>The provided argument was not an `RBXScriptSignal`.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getsignalargumenttypes"><code style="text-decoration:none">getsignalargumenttypes</code><a href="#getsignalargumenttypes" class="hash-link" aria-label="Direct link to getsignalargumenttypes" title="Direct link to getsignalargumenttypes">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/instances.luau#L156"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>instances<!-- -->.</code><code class="green_DgR4">getsignalargumenttypes</code><code>(</code><div class="inset_uKQm"><div><code>signal<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/RBXScriptSignal" target="_blank" rel="noopener noreferrer">RBXScriptSignal<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
 <p>The signal instance (e.g., <code>game.Players.PlayerAdded</code>).</p>
 </span></span></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code><span class="inlineDescription_G7Er">-- <span>
 <p>An array-like table containing the type or class names of the arguments.</p>
 </span></span></div><div>
-<p>Retrieves the types (or class names for Instances) of the arguments that a signal's <code>OnConnect</code> callback receives.</p>
+<p>Retrieves the type(s) (or class name(s) for Instances) of the arguments that a signal's <code>OnConnect</code> callback receives.</p>
 </div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Expected RBXScriptSignal</td><td>The provided argument was not an `RBXScriptSignal`.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getscriptbytecode"><code style="text-decoration:none">getscriptbytecode</code><a href="#getscriptbytecode" class="hash-link" aria-label="Direct link to getscriptbytecode" title="Direct link to getscriptbytecode">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/instances.luau#L174"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>instances<!-- -->.</code><code class="green_DgR4">getscriptbytecode</code><code>(</code><div class="inset_uKQm"><div><code>script<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/LuaSourceContainer" target="_blank" rel="noopener noreferrer">LuaSourceContainer<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
 <p>The script instance.</p>
 </span></span></div></div><code>) → </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
 <p>The bytecode of the script.</p>
 </span></span></div><div>
-<p>Retrieves the raw Luau bytecode of a <code>LuaSourceContainer</code> (Script, LocalScript, ModuleScript).</p>
+<p>Retrieves the raw Luau bytecode of the given <code>LuaSourceContainer</code> (Script, LocalScript, ModuleScript).</p>
 
   
     
@@ -263,7 +263,7 @@
 </span></span></div></div><code>) → </code><code class="blue_P4bS">T</code><code class="op_lSLc"> | </code><code class="blue_P4bS">nil</code><span class="inlineDescription_G7Er">-- <span>
 <p>The environment of the script, nil if the script is not running.</p>
 </span></span></div><div>
-<p>Gets the environment of a running script.</p>
+<p>Returns the environment of the given running script.</p>
 
   
     
@@ -303,7 +303,7 @@
 </span></span></div></div><code>) → </code><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><code class="blue_P4bS">T...</code><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="green_DgR4">(</code><code class="blue_P4bS">U...</code><code class="green_DgR4">)</code><code class="purple_ieR2">)</code><code class="op_lSLc"> | </code><code class="blue_P4bS">nil</code><span class="inlineDescription_G7Er">-- <span>
 <p>The 'main' closure of the script, <code>nil</code> if the script has no bytecode.</p>
 </span></span></div><div>
-<p>Gets a non-runnable closure which holds debug info (constants, upreferences, debugname, etc) of the script's main thread.</p>
+<p>Returns a non-runnable closure which holds debug info (constants, upreferences, debugname, etc.) of the script's main thread.</p>
 
   
     
@@ -394,7 +394,7 @@
 </span></span></div><div><code>touchType<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rSUNC/api/instances#TouchType">TouchType</a></code><span class="inlineDescription_G7Er">-- <span>
 <p>The event to fire.</p>
 </span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
-<p>Fires a physics interaction between BasePart objects, which replicates to the server.</p>
+<p>Fires a physics interaction between the given <code>BasePart</code> objects, which replicates to the server.</p>
 
   
     
@@ -415,7 +415,7 @@
 </div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>no world found</td><td>No RBX::World was found for either Part1 or Part2.</td></tr><tr><td>overlap in a different world</td><td>Part1 and Part2 live in different RBX::World&#x27;s and they cannot interact with each other.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="fireproximityprompt"><code style="text-decoration:none">fireproximityprompt</code><a href="#fireproximityprompt" class="hash-link" aria-label="Direct link to fireproximityprompt" title="Direct link to fireproximityprompt">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/instances.luau#L299"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>instances<!-- -->.</code><code class="green_DgR4">fireproximityprompt</code><code>(</code><div class="inset_uKQm"><div><code>prompt<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/ProximityPrompt" target="_blank" rel="noopener noreferrer">ProximityPrompt<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
 <p>The prompt to fire the event on.</p>
 </span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
-<p>Fires a proximity prompt's Triggered event, which replicates to the server.</p>
+<p>Fires a proximity prompt's <code>Triggered</code> signal, which replicates to the server.</p>
 
   
     
@@ -499,7 +499,7 @@
 </div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getnilinstances"><code style="text-decoration:none">getnilinstances</code><a href="#getnilinstances" class="hash-link" aria-label="Direct link to getnilinstances" title="Direct link to getnilinstances">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/instances.luau#L346"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>instances<!-- -->.</code><code class="green_DgR4">getnilinstances</code><code>(</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/Instance" target="_blank" rel="noopener noreferrer">Instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code><span class="inlineDescription_G7Er">-- <span>
 <p>All instances that are currently referenced by the game, but with no parent.</p>
 </span></span></div><div>
-<p>Returns a list with all instances that are currently referenced by the game and are not parented anything.</p>
+<p>Returns a list with all instances that are currently referenced by the game and are not parented to anything.</p>
 
   
     
@@ -539,7 +539,28 @@
     
   
 
-</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getconnections"><code style="text-decoration:none">getconnections</code><a href="#getconnections" class="hash-link" aria-label="Direct link to getconnections" title="Direct link to getconnections">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/instances.luau#L385"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>instances<!-- -->.</code><code class="green_DgR4">getconnections</code><code>(</code><div class="inset_uKQm"><div><code>signal<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/RBXScriptSignal" target="_blank" rel="noopener noreferrer">RBXScriptSignal<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getscripts"><code style="text-decoration:none">getscripts</code><a href="#getscripts" class="hash-link" aria-label="Direct link to getscripts" title="Direct link to getscripts">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/instances.luau#L376"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>instances<!-- -->.</code><code class="green_DgR4">getscripts</code><code>(</code><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/class/LuaSourceContainer" target="_blank" rel="noopener noreferrer">LuaSourceContainer<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><code class="purple_ieR2">}</code><span class="inlineDescription_G7Er">-- <span>
+<p>An array-like table containing all script instances.</p>
+</span></span></div><div>
+<p>Retrieves a list of all script instances (i.e., <code>Script</code>, <code>LocalScript</code>, <code>ModuleScript</code> and <code>AuroraScript</code>) currently referenced by the game.</p>
+
+  
+    
+    
+      <div class="admonition admonition-warning alert alert--warning">
+        <div class="admonition-heading">
+          <h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path>
+              </svg></span><span class="admonition-title">Actors</span></h5>
+        </div>
+        <div class="admonition-content">
+          <p>If a script instance is referenced inside an actor, this list of instances should not contain it!</p>
+        </div>
+      </div>
+    
+  
+
+</div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="getconnections"><code style="text-decoration:none">getconnections</code><a href="#getconnections" class="hash-link" aria-label="Direct link to getconnections" title="Direct link to getconnections">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/instances.luau#L399"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>instances<!-- -->.</code><code class="green_DgR4">getconnections</code><code>(</code><div class="inset_uKQm"><div><code>signal<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="https://developer.roblox.com/en-us/api-reference/datatype/RBXScriptSignal" target="_blank" rel="noopener noreferrer">RBXScriptSignal<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound" style="color:gray;vertical-align:middle;margin-left:2px"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></code><span class="inlineDescription_G7Er">-- <span>
 <p>The signal instance (e.g., <code>game.Players.PlayerAdded</code>) to get connections from.</p>
 </span></span></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rSUNC/api/Connection">Connection</a></code><code class="purple_ieR2">}</code><span class="inlineDescription_G7Er">-- <span>
 <p>An array-like table containing <code>Connection</code> objects for each active connection to the signal.</p>
@@ -587,7 +608,7 @@
     &quot;functions&quot;: [
         {
             &quot;name&quot;: &quot;cloneref&quot;,
-            &quot;desc&quot;: &quot;Clones a reference of the given instance.\n\n\n:::tip Usage\nBy cloning references to instances, you can bypass weak table-style attacks, which is a way of detecting references to objects which should not have references.\n:::&quot;,
+            &quot;desc&quot;: &quot;Clones a reference of the given instance and returns it.\n\n\n:::tip Usage\nBy cloning references to instances, you can bypass weak table-style attacks, which is a way of detecting references to objects which should not have references.\n:::&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;object&quot;,
@@ -681,7 +702,7 @@
         },
         {
             &quot;name&quot;: &quot;replacereference&quot;,
-            &quot;desc&quot;: &quot;Makes all references that are `object1` point to what `object2` is referencing instead.\n\n\n:::tip Usage\nYou can use this function to replace references to an instance all throughout the game. i.e.: replacing a Value instance and affecting all already obtained references to it.\n:::\n\n:::note Remarks\nSome instances, such as the DataModel (aka `game`), are not affected by this function.\n:::&quot;,
+            &quot;desc&quot;: &quot;Makes all references that point to `object1` point to what `object2` is referencing instead.\n\n\n:::tip Usage\nYou can use this function to replace references to an instance all throughout the game. i.e.: replacing a Value instance and affecting all already obtained references to it.\n:::\n\n:::note Remarks\nSome instances, such as the DataModel (aka `game`), are not affected by this function.\n:::&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;object1&quot;,
@@ -709,7 +730,7 @@
         },
         {
             &quot;name&quot;: &quot;getplaceversion&quot;,
-            &quot;desc&quot;: &quot;Gets the version of the ROBLOX place you are in.\n\n\n:::tip Usage\nThis function can be used to guarantee features work only on a version deemed &#x27;safe&#x27; of the game. Useful for premium scripts.\n:::&quot;,
+            &quot;desc&quot;: &quot;Gets the version of the place you are in.\n\n\n:::tip Usage\nThis function can be used to guarantee features work only on a version deemed &#x27;safe&#x27; of the game. Useful for premium scripts.\n:::&quot;,
             &quot;params&quot;: [],
             &quot;returns&quot;: [
                 {
@@ -725,7 +746,7 @@
         },
         {
             &quot;name&quot;: &quot;getcallbackvalue&quot;,
-            &quot;desc&quot;: &quot;Gets the callback value of the given instance and property.&quot;,
+            &quot;desc&quot;: &quot;Returns the callback value of the given instance and property.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;instance&quot;,
@@ -758,7 +779,7 @@
         },
         {
             &quot;name&quot;: &quot;gethiddenproperty&quot;,
-            &quot;desc&quot;: &quot;Gets the property of the given instance.\n\n\n:::warning Remarks\nYou must support pushing unserializable properties such as &#x27;`SharedString`&#x27; and &#x27;`SystemAddress`&#x27;.\n:::\n\n:::tip Implementation\nYou are supposed to obtain the property using the `RBX::Instance::getProperty`/ `RBX::Instance::setProperty` methods. You must not set the property public or scriptable. \n:::&quot;,
+            &quot;desc&quot;: &quot;Returns the property of the given instance.\n\n\n:::warning Remarks\nYou must support pushing unserializable properties such as &#x27;`SharedString`&#x27; and &#x27;`SystemAddress`&#x27;.\n:::\n\n:::tip Implementation\nYou are supposed to obtain the property using the `RBX::Instance::getProperty`/ `RBX::Instance::setProperty` methods. You must not set the property public or scriptable. \n:::&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;instance&quot;,
@@ -795,7 +816,7 @@
         },
         {
             &quot;name&quot;: &quot;getsignalargumentnames&quot;,
-            &quot;desc&quot;: &quot;Retrieves the names of the arguments that a signal&#x27;s `OnConnect` callback receives.&quot;,
+            &quot;desc&quot;: &quot;Returns the names of the arguments that a signal&#x27;s `OnConnect` callback receives.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;signal&quot;,
@@ -823,7 +844,7 @@
         },
         {
             &quot;name&quot;: &quot;getsignalargumenttypes&quot;,
-            &quot;desc&quot;: &quot;Retrieves the types (or class names for Instances) of the arguments that a signal&#x27;s `OnConnect` callback receives.&quot;,
+            &quot;desc&quot;: &quot;Retrieves the type(s) (or class name(s) for Instances) of the arguments that a signal&#x27;s `OnConnect` callback receives.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;signal&quot;,
@@ -851,7 +872,7 @@
         },
         {
             &quot;name&quot;: &quot;getscriptbytecode&quot;,
-            &quot;desc&quot;: &quot;Retrieves the raw Luau bytecode of a `LuaSourceContainer` (Script, LocalScript, ModuleScript).\n\n\n:::warning Team Create\nFetching bytecode for Server Scripts in Team Create sessions may not be supported.\n:::&quot;,
+            &quot;desc&quot;: &quot;Retrieves the raw Luau bytecode of the given `LuaSourceContainer` (Script, LocalScript, ModuleScript).\n\n\n:::warning Team Create\nFetching bytecode for Server Scripts in Team Create sessions may not be supported.\n:::&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;script&quot;,
@@ -903,7 +924,7 @@
         },
         {
             &quot;name&quot;: &quot;getsenv&quot;,
-            &quot;desc&quot;: &quot;Gets the environment of a running script.\n\n\n:::tip Implementation\nThis function may perform GC scans to find script threads and obtain their environment.\n:::\n\n:::danger Actors\nIf the script is running in a different `mainthread` you must throw the &#x27;script is running in a different Luau VM&#x27; error in order to prevent possible vulnerabilities and other issues associated with actors.\n:::&quot;,
+            &quot;desc&quot;: &quot;Returns the environment of the given running script.\n\n\n:::tip Implementation\nThis function may perform GC scans to find script threads and obtain their environment.\n:::\n\n:::danger Actors\nIf the script is running in a different `mainthread` you must throw the &#x27;script is running in a different Luau VM&#x27; error in order to prevent possible vulnerabilities and other issues associated with actors.\n:::&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;script&quot;,
@@ -931,7 +952,7 @@
         },
         {
             &quot;name&quot;: &quot;getscriptclosure&quot;,
-            &quot;desc&quot;: &quot;Gets a non-runnable closure which holds debug info (constants, upreferences, debugname, etc) of the script&#x27;s main thread.\n\n:::danger Implementation \nThis function may not perform a GC scan in an effort to find the Script object.\n:::&quot;,
+            &quot;desc&quot;: &quot;Returns a non-runnable closure which holds debug info (constants, upreferences, debugname, etc.) of the script&#x27;s main thread.\n\n:::danger Implementation \nThis function may not perform a GC scan in an effort to find the Script object.\n:::&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;instance&quot;,
@@ -1008,7 +1029,7 @@
         },
         {
             &quot;name&quot;: &quot;firetouchinterest&quot;,
-            &quot;desc&quot;: &quot;Fires a physics interaction between BasePart objects, which replicates to the server.\n\n\n:::danger Implementations\nYou should not implement this function in luau.\n:::&quot;,
+            &quot;desc&quot;: &quot;Fires a physics interaction between the given `BasePart` objects, which replicates to the server.\n\n\n:::danger Implementations\nYou should not implement this function in luau.\n:::&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;part1&quot;,
@@ -1045,7 +1066,7 @@
         },
         {
             &quot;name&quot;: &quot;fireproximityprompt&quot;,
-            &quot;desc&quot;: &quot;Fires a proximity prompt&#x27;s Triggered event, which replicates to the server.\n\n\n:::danger Implementations\nYou should not implement this function in luau.\n:::&quot;,
+            &quot;desc&quot;: &quot;Fires a proximity prompt&#x27;s `Triggered` signal, which replicates to the server.\n\n\n:::danger Implementations\nYou should not implement this function in luau.\n:::&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;prompt&quot;,
@@ -1094,7 +1115,7 @@
         },
         {
             &quot;name&quot;: &quot;getnilinstances&quot;,
-            &quot;desc&quot;: &quot;Returns a list with all instances that are currently referenced by the game and are not parented anything.\n\n\n:::warning Actors\nIf an instance is referenced inside an actor, this list of instances should not contain it!\n:::&quot;,
+            &quot;desc&quot;: &quot;Returns a list with all instances that are currently referenced by the game and are not parented to anything.\n\n\n:::warning Actors\nIf an instance is referenced inside an actor, this list of instances should not contain it!\n:::&quot;,
             &quot;params&quot;: [],
             &quot;returns&quot;: [
                 {
@@ -1121,6 +1142,22 @@
             &quot;function_type&quot;: &quot;static&quot;,
             &quot;source&quot;: {
                 &quot;line&quot;: 362,
+                &quot;path&quot;: &quot;impl/Libraries/instances.luau&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;getscripts&quot;,
+            &quot;desc&quot;: &quot;Retrieves a list of all script instances (i.e., `Script`, `LocalScript`, `ModuleScript` and `AuroraScript`) currently referenced by the game.\n\n\n:::warning Actors\nIf a script instance is referenced inside an actor, this list of instances should not contain it!\n:::&quot;,
+            &quot;params&quot;: [],
+            &quot;returns&quot;: [
+                {
+                    &quot;desc&quot;: &quot;An array-like table containing all script instances.&quot;,
+                    &quot;lua_type&quot;: &quot;{ LuaSourceContainer }&quot;
+                }
+            ],
+            &quot;function_type&quot;: &quot;static&quot;,
+            &quot;source&quot;: {
+                &quot;line&quot;: 376,
                 &quot;path&quot;: &quot;impl/Libraries/instances.luau&quot;
             }
         },
@@ -1152,7 +1189,7 @@
                 }
             ],
             &quot;source&quot;: {
-                &quot;line&quot;: 385,
+                &quot;line&quot;: 399,
                 &quot;path&quot;: &quot;impl/Libraries/instances.luau&quot;
             }
         }
@@ -1161,7 +1198,7 @@
     &quot;types&quot;: [
         {
             &quot;name&quot;: &quot;TouchType&quot;,
-            &quot;desc&quot;: &quot;Describes a TouchType for the firetouchinterest function. \n\n**`1`** stands for **`Touch`**, while **`0`** stands for **`TouchEnded`**.&quot;,
+            &quot;desc&quot;: &quot;Describes a TouchType for the firetouchinterest function.\n\n**`1`** stands for **`Touch`**, while **`0`** stands for **`TouchEnded`**.&quot;,
             &quot;lua_type&quot;: &quot;1 | 0&quot;,
             &quot;tags&quot;: [
                 &quot;Type&quot;
@@ -1181,6 +1218,6 @@
         &quot;line&quot;: 6,
         &quot;path&quot;: &quot;impl/Libraries/instances.luau&quot;
     }
-}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#TouchType" class="table-of-contents__link toc-highlight">TouchType</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#cloneref" class="table-of-contents__link toc-highlight">.cloneref</a></li><li><a href="#compareinstances" class="table-of-contents__link toc-highlight">.compareinstances</a></li><li><a href="#exchangeinstancepointer" class="table-of-contents__link toc-highlight">.exchangeinstancepointer</a></li><li><a href="#fireclickdetector" class="table-of-contents__link toc-highlight">.fireclickdetector</a></li><li><a href="#fireproximityprompt" class="table-of-contents__link toc-highlight">.fireproximityprompt</a></li><li><a href="#firetouchinterest" class="table-of-contents__link toc-highlight">.firetouchinterest</a></li><li><a href="#getcallbackvalue" class="table-of-contents__link toc-highlight">.getcallbackvalue</a></li><li><a href="#getcallingscript" class="table-of-contents__link toc-highlight">.getcallingscript</a></li><li><a href="#getconnections" class="table-of-contents__link toc-highlight">.getconnections</a></li><li><a href="#gethiddenproperty" class="table-of-contents__link toc-highlight">.gethiddenproperty</a></li><li><a href="#gethui" class="table-of-contents__link toc-highlight">.gethui</a></li><li><a href="#getinstancelist" class="table-of-contents__link toc-highlight">.getinstancelist</a></li><li><a href="#getinstances" class="table-of-contents__link toc-highlight">.getinstances</a></li><li><a href="#getnilinstances" class="table-of-contents__link toc-highlight">.getnilinstances</a></li><li><a href="#getplaceversion" class="table-of-contents__link toc-highlight">.getplaceversion</a></li><li><a href="#getscriptbytecode" class="table-of-contents__link toc-highlight">.getscriptbytecode</a></li><li><a href="#getscriptclosure" class="table-of-contents__link toc-highlight">.getscriptclosure</a></li><li><a href="#getsenv" class="table-of-contents__link toc-highlight">.getsenv</a></li><li><a href="#getsignalargumentnames" class="table-of-contents__link toc-highlight">.getsignalargumentnames</a></li><li><a href="#getsignalargumenttypes" class="table-of-contents__link toc-highlight">.getsignalargumenttypes</a></li><li><a href="#invalidatereference" class="table-of-contents__link toc-highlight">.invalidatereference</a></li><li><a href="#isreferencevalid" class="table-of-contents__link toc-highlight">.isreferencevalid</a></li><li><a href="#replacereference" class="table-of-contents__link toc-highlight">.replacereference</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 SecondNewtonLaw. Built with Moonwave and Docusaurus</div></div></div></footer></div>
+}</pre></details></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#types" class="table-of-contents__link toc-highlight">Types</a><ul><li><a href="#TouchType" class="table-of-contents__link toc-highlight">TouchType</a></li></ul></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions</a><ul><li><a href="#cloneref" class="table-of-contents__link toc-highlight">.cloneref</a></li><li><a href="#compareinstances" class="table-of-contents__link toc-highlight">.compareinstances</a></li><li><a href="#exchangeinstancepointer" class="table-of-contents__link toc-highlight">.exchangeinstancepointer</a></li><li><a href="#fireclickdetector" class="table-of-contents__link toc-highlight">.fireclickdetector</a></li><li><a href="#fireproximityprompt" class="table-of-contents__link toc-highlight">.fireproximityprompt</a></li><li><a href="#firetouchinterest" class="table-of-contents__link toc-highlight">.firetouchinterest</a></li><li><a href="#getcallbackvalue" class="table-of-contents__link toc-highlight">.getcallbackvalue</a></li><li><a href="#getcallingscript" class="table-of-contents__link toc-highlight">.getcallingscript</a></li><li><a href="#getconnections" class="table-of-contents__link toc-highlight">.getconnections</a></li><li><a href="#gethiddenproperty" class="table-of-contents__link toc-highlight">.gethiddenproperty</a></li><li><a href="#gethui" class="table-of-contents__link toc-highlight">.gethui</a></li><li><a href="#getinstancelist" class="table-of-contents__link toc-highlight">.getinstancelist</a></li><li><a href="#getinstances" class="table-of-contents__link toc-highlight">.getinstances</a></li><li><a href="#getnilinstances" class="table-of-contents__link toc-highlight">.getnilinstances</a></li><li><a href="#getplaceversion" class="table-of-contents__link toc-highlight">.getplaceversion</a></li><li><a href="#getscriptbytecode" class="table-of-contents__link toc-highlight">.getscriptbytecode</a></li><li><a href="#getscriptclosure" class="table-of-contents__link toc-highlight">.getscriptclosure</a></li><li><a href="#getscripts" class="table-of-contents__link toc-highlight">.getscripts</a></li><li><a href="#getsenv" class="table-of-contents__link toc-highlight">.getsenv</a></li><li><a href="#getsignalargumentnames" class="table-of-contents__link toc-highlight">.getsignalargumentnames</a></li><li><a href="#getsignalargumenttypes" class="table-of-contents__link toc-highlight">.getsignalargumenttypes</a></li><li><a href="#invalidatereference" class="table-of-contents__link toc-highlight">.invalidatereference</a></li><li><a href="#isreferencevalid" class="table-of-contents__link toc-highlight">.isreferencevalid</a></li><li><a href="#replacereference" class="table-of-contents__link toc-highlight">.replacereference</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 SecondNewtonLaw. Built with Moonwave and Docusaurus</div></div></div></footer></div>
 </body>
 </html>

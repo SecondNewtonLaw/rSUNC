@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.7.0">
 <title data-rh="true">filesystem | RbxStu Unified Naming Convention</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://SecondNewtonLaw.github.io/rSUNC/api/filesystem"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="filesystem | RbxStu Unified Naming Convention"><meta data-rh="true" name="description" content="Provides functions to interact with the local filesystem."><meta data-rh="true" property="og:description" content="Provides functions to interact with the local filesystem."><link data-rh="true" rel="canonical" href="https://SecondNewtonLaw.github.io/rSUNC/api/filesystem"><link data-rh="true" rel="alternate" href="https://SecondNewtonLaw.github.io/rSUNC/api/filesystem" hreflang="en"><link data-rh="true" rel="alternate" href="https://SecondNewtonLaw.github.io/rSUNC/api/filesystem" hreflang="x-default"><link rel="stylesheet" href="/rSUNC/assets/css/styles.5cbed574.css">
-<script src="/rSUNC/assets/js/runtime~main.bb309a47.js" defer="defer"></script>
-<script src="/rSUNC/assets/js/main.2e47c085.js" defer="defer"></script>
+<script src="/rSUNC/assets/js/runtime~main.9102cfc2.js" defer="defer"></script>
+<script src="/rSUNC/assets/js/main.3b659c42.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();null!==e?t(e):window.matchMedia("(prefers-color-scheme: dark)").matches?t("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,t("light"))}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/rSUNC/"><b class="navbar__title text--truncate">RbxStu Unified Naming Convention</b></a><a class="navbar__item navbar__link" href="/rSUNC/docs/intro">Docs</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/rSUNC/api/">API</a></div><div class="navbar__items navbar__items--right"><a href="https://discord.gg/Xj3ffmahJd" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://github.com/SecondNewtonLaw/rSUNC" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0 docPageContainer_wNNk"><div class="docPage_Dpn1"><div class="docSidebarContainer_o_re"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC/api/global">Uncategorized/Miscellaneous</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/rSUNC/api/closures">Libraries</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/closures">closures</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/debug">debug</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/rSUNC/api/filesystem">filesystem</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/http">http</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/instances">instances</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/memory">memory</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/metatables">metatables</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/runtime">runtime</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/scheduler">scheduler</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/rSUNC/api/websocket">websocket</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/rSUNC/api/CallStack">Custom Types</a></div></li></ul></nav></div></div><main class="docMainContainer_HJE1"><div class="container padding-vert--lg"><div class="row"><div class="col docItemCol_MU3C"><div class="docItemContainer_Wv98"><article><div class="member_J0w1 markdown"><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_oUs_"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><header><h1 class="docTitle_mZRt" style="text-decoration:none"><span style="display:inline-block">filesystem</span></h1><div class="luaClassTags_EipM"><span class="docTag__6UZ" style="border-color:#218c74;color:#218c74">Library</span></div><div>
@@ -40,15 +40,15 @@
 </span></span></div></div><code>) → </code><code class="blue_P4bS">string</code><code class="op_lSLc"> | </code><code class="blue_P4bS">buffer</code><span class="inlineDescription_G7Er">-- <span>
 <p>The content of the file, either as a string or a buffer based on the asBuffer flag.</p>
 </span></span></div><div>
-<p>Reads the content of a specified file, returning it as a string or a buffer.</p>
+<p>Reads the content of the specified file at <code>path</code>, returning it as a string or a buffer.</p>
 </div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot read file &#x27;%s&#x27;</td><td>The file does not exist or cannot be read due to permissions.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="loadfile"><code style="text-decoration:none">loadfile</code><a href="#loadfile" class="hash-link" aria-label="Direct link to loadfile" title="Direct link to loadfile">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L53"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">loadfile</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
-<p>The path to the Lua file.</p>
+<p>The path to the file containing valid Luau code.</p>
 </span></span></div></div><code>) → </code><code>(</code><div class="inset_uKQm"><div><code class="purple_ieR2">(</code><code class="green_DgR4">(</code><code class="blue_P4bS">...any</code><code class="green_DgR4">)</code><code class="green_DgR4"> → </code><code class="blue_P4bS">...any</code><code class="purple_ieR2">)</code><code class="op_lSLc"> | </code><code class="blue_P4bS">nil</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>The loaded chunk as a function, or nil if loading failed.</p>
 </span></span></div><div><code class="blue_P4bS">string?</code><span class="inlineDescription_G7Er">-- <span>
 <p>An error message if loading failed.</p>
 </span></span></div></div><code>)</code></div><div>
-<p>Loads a Lua chunk from the specified file but does not run it.</p>
+<p>Loads a Luau chunk from the specified file at <code>path</code> but does not run it.</p>
 
   
     
@@ -84,11 +84,11 @@
   
 
 </div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot read file &#x27;%s&#x27;</td><td>The file does not exist or cannot be read due to permissions.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="dofile"><code style="text-decoration:none">dofile</code><a href="#dofile" class="hash-link" aria-label="Direct link to dofile" title="Direct link to dofile">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L70"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">dofile</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
-<p>The path to the Lua file.</p>
+<p>The path to the file containing valid Luau code.</p>
 </span></span></div></div><code>) → </code><code class="blue_P4bS">...any</code><span class="inlineDescription_G7Er">-- <span>
 <p>The values returned by the executed chunk.</p>
 </span></span></div><div>
-<p>Loads and runs a Lua chunk from the specified file.</p>
+<p>Loads and runs a Luau chunk from the specified file.</p>
 
   
     
@@ -109,13 +109,13 @@
 </div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot read file &#x27;%s&#x27;</td><td>The file does not exist or cannot be read due to permissions.</td></tr><tr><td>...</td><td>Any runtime error originating from the executed chunk.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="delfile"><code style="text-decoration:none">delfile</code><a href="#delfile" class="hash-link" aria-label="Direct link to delfile" title="Direct link to delfile">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L81"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">delfile</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
 <p>The path to the file to delete.</p>
 </span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
-<p>Deletes a specified file.</p>
+<p>Deletes the specified file at <code>path</code>.</p>
 </div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot delete file &#x27;%s&#x27;</td><td>The file does not exist, cannot be deleted due to permissions, or the path isn&#x27;t a file or other issues.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="appendfile"><code style="text-decoration:none">appendfile</code><a href="#appendfile" class="hash-link" aria-label="Direct link to appendfile" title="Direct link to appendfile">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L91"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">appendfile</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>The path to the file.</p>
 </span></span></div><div><code>content<!-- -->: </code><code class="blue_P4bS">string</code><code class="op_lSLc"> | </code><code class="blue_P4bS">buffer</code><span class="inlineDescription_G7Er">-- <span>
 <p>The content to append to the file.</p>
 </span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
-<p>Appends content (string or buffer) to the end of a specified file. Creates the file if it does not exist.</p>
+<p>Appends content (string or buffer) to the end of the specified file at <code>path</code>. Creates the file if it does not exist.</p>
 </div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot append to file &#x27;%s&#x27;</td><td>The file could not be appended to due to permissions or other OS-level issues.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="movefile"><code style="text-decoration:none">movefile</code><a href="#movefile" class="hash-link" aria-label="Direct link to movefile" title="Direct link to movefile">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L105"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">movefile</code><code>(</code><div class="inset_uKQm"><div><code>oldpath<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>The current path of the file.</p>
 </span></span></div><div><code>newpath<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
@@ -239,19 +239,19 @@
 </span></span></div></div><code>) → </code><code class="purple_ieR2">{</code><code class="blue_P4bS">string</code><code class="purple_ieR2">}</code><span class="inlineDescription_G7Er">-- <span>
 <p>A list of names (or relative paths if recursive) of files and folders within the directory.</p>
 </span></span></div><div>
-<p>Lists all files and folders within a specified directory path according to the provided options.</p>
+<p>Returns a table containing all file and folder paths within a specified directory path according to the provided options.</p>
 </div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot list directory &#x27;%s&#x27;</td><td>The directory does not exist or cannot be accessed.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="isfile"><code style="text-decoration:none">isfile</code><a href="#isfile" class="hash-link" aria-label="Direct link to isfile" title="Direct link to isfile">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L192"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">isfile</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
 <p>The path to check.</p>
 </span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
 <p>True if the path points to an existing file, false otherwise.</p>
 </span></span></div><div>
-<p>Checks if a given path points to an existing file.</p>
+<p>Returns a boolean indicating whether or not <code>path</code> points to an existing file.</p>
 </div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="isfolder"><code style="text-decoration:none">isfolder</code><a href="#isfolder" class="hash-link" aria-label="Direct link to isfolder" title="Direct link to isfolder">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L203"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">isfolder</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
 <p>The path to check.</p>
 </span></span></div></div><code>) → </code><code class="blue_P4bS">boolean</code><span class="inlineDescription_G7Er">-- <span>
 <p>True if the path points to an existing folder, false otherwise.</p>
 </span></span></div><div>
-<p>Checks if a given path points to an existing folder (directory).</p>
+<p>Returns a boolean indicating whether or not <code>path</code> points to an existing folder (directory).</p>
 </div><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="makefolder"><code style="text-decoration:none">makefolder</code><a href="#makefolder" class="hash-link" aria-label="Direct link to makefolder" title="Direct link to makefolder">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L214"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">makefolder</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><span class="inlineDescription_G7Er">-- <span>
 <p>The path where the folder should be created.</p>
 </span></span></div></div><code>) → </code><code>(</code><code>)</code></div><div>
@@ -304,7 +304,7 @@
 </span></span></div></div><code>) → </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rSUNC/api/ItemProperties">ItemProperties?</a></code><span class="inlineDescription_G7Er">-- <span>
 <p>A table containing properties (size, creation time, last modified time, hidden, read-only), or nil if the path does not exist. Size will always be <code>0</code> for folders.</p>
 </span></span></div><div>
-<p>Retrieves properties of a specified file or folder.</p>
+<p>Retrieves properties of the specified file/folder at <code>path</code>.</p>
 </div><h3>Errors</h3><table class="errorTable_jfN8"><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Cannot get properties for &#x27;%s&#x27;</td><td>Permissions error or other OS issue preventing access.</td></tr></tbody></table><div class="divider_rE5g"></div><h3 class="anchor anchorWithStickyNavbar_LWe7" id="setproperties"><code style="text-decoration:none">setproperties</code><a href="#setproperties" class="hash-link" aria-label="Direct link to setproperties" title="Direct link to setproperties">​</a></h3><div class="repositoryDetailsContainer_BPdw"><a class="sourceButton_sEho" href="https://github.com/SecondNewtonLaw/rSUNC/blob/dev/impl/Libraries/filesystem.luau#L273"><div class="sourceButtonText_Vh0m">&lt;/&gt;</div></a></div><div class="memberString_GwaU"><code>filesystem<!-- -->.</code><code class="green_DgR4">setproperties</code><code>(</code><div class="inset_uKQm"><div><code>path<!-- -->: </code><code class="blue_P4bS">string</code><code>,</code><span class="inlineDescription_G7Er">-- <span>
 <p>The path to the file or folder.</p>
 </span></span></div><div><code>properties<!-- -->: </code><code class="blue_P4bS"><a style="text-decoration:underline;color:inherit" href="/rSUNC/api/ItemProperties">ItemProperties</a></code><span class="inlineDescription_G7Er">-- <span>
@@ -394,7 +394,7 @@
         },
         {
             &quot;name&quot;: &quot;readfile&quot;,
-            &quot;desc&quot;: &quot;Reads the content of a specified file, returning it as a string or a buffer.&quot;,
+            &quot;desc&quot;: &quot;Reads the content of the specified file at `path`, returning it as a string or a buffer.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;path&quot;,
@@ -427,11 +427,11 @@
         },
         {
             &quot;name&quot;: &quot;loadfile&quot;,
-            &quot;desc&quot;: &quot;Loads a Lua chunk from the specified file but does not run it.\n\n\n:::info Environment\nThe loaded chunk inherits the environment of the caller.\n:::\n\n:::tip `loadstring`\nThis function behaves similarly to `loadstring` but operates on file paths instead of raw strings. Refer to `closures.loadstring` for potential compilation settings.\n:::&quot;,
+            &quot;desc&quot;: &quot;Loads a Luau chunk from the specified file at `path` but does not run it.\n\n\n:::info Environment\nThe loaded chunk inherits the environment of the caller.\n:::\n\n:::tip `loadstring`\nThis function behaves similarly to `loadstring` but operates on file paths instead of raw strings. Refer to `closures.loadstring` for potential compilation settings.\n:::&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;path&quot;,
-                    &quot;desc&quot;: &quot;The path to the Lua file.&quot;,
+                    &quot;desc&quot;: &quot;The path to the file containing valid Luau code.&quot;,
                     &quot;lua_type&quot;: &quot;string&quot;
                 }
             ],
@@ -459,11 +459,11 @@
         },
         {
             &quot;name&quot;: &quot;dofile&quot;,
-            &quot;desc&quot;: &quot;Loads and runs a Lua chunk from the specified file.\n\n\n:::info Environment\nThe executed chunk inherits the environment of the caller.\n:::&quot;,
+            &quot;desc&quot;: &quot;Loads and runs a Luau chunk from the specified file.\n\n\n:::info Environment\nThe executed chunk inherits the environment of the caller.\n:::&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;path&quot;,
-                    &quot;desc&quot;: &quot;The path to the Lua file.&quot;,
+                    &quot;desc&quot;: &quot;The path to the file containing valid Luau code.&quot;,
                     &quot;lua_type&quot;: &quot;string&quot;
                 }
             ],
@@ -491,7 +491,7 @@
         },
         {
             &quot;name&quot;: &quot;delfile&quot;,
-            &quot;desc&quot;: &quot;Deletes a specified file.&quot;,
+            &quot;desc&quot;: &quot;Deletes the specified file at `path`.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;path&quot;,
@@ -514,7 +514,7 @@
         },
         {
             &quot;name&quot;: &quot;appendfile&quot;,
-            &quot;desc&quot;: &quot;Appends content (string or buffer) to the end of a specified file. Creates the file if it does not exist.&quot;,
+            &quot;desc&quot;: &quot;Appends content (string or buffer) to the end of the specified file at `path`. Creates the file if it does not exist.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;path&quot;,
@@ -699,7 +699,7 @@
         },
         {
             &quot;name&quot;: &quot;listfiles&quot;,
-            &quot;desc&quot;: &quot;Lists all files and folders within a specified directory path according to the provided options.&quot;,
+            &quot;desc&quot;: &quot;Returns a table containing all file and folder paths within a specified directory path according to the provided options.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;path&quot;,
@@ -732,7 +732,7 @@
         },
         {
             &quot;name&quot;: &quot;isfile&quot;,
-            &quot;desc&quot;: &quot;Checks if a given path points to an existing file.&quot;,
+            &quot;desc&quot;: &quot;Returns a boolean indicating whether or not `path` points to an existing file.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;path&quot;,
@@ -754,7 +754,7 @@
         },
         {
             &quot;name&quot;: &quot;isfolder&quot;,
-            &quot;desc&quot;: &quot;Checks if a given path points to an existing folder (directory).&quot;,
+            &quot;desc&quot;: &quot;Returns a boolean indicating whether or not `path` points to an existing folder (directory).&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;path&quot;,
@@ -854,7 +854,7 @@
         },
         {
             &quot;name&quot;: &quot;getproperties&quot;,
-            &quot;desc&quot;: &quot;Retrieves properties of a specified file or folder.&quot;,
+            &quot;desc&quot;: &quot;Retrieves properties of the specified file/folder at `path`.&quot;,
             &quot;params&quot;: [
                 {
                     &quot;name&quot;: &quot;path&quot;,
