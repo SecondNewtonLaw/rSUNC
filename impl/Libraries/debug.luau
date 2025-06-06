@@ -226,7 +226,7 @@ end
 function debug.info<T..., U..., K...>(
     levelOrThreadOrFunction: number | thread | (T...) -> U...,
     whatOrLevelOrFunction: number | string | (T...) -> U...,
-    what: string?
+    options: string?
 ): K...
 end
 
