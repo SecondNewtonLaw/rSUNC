@@ -160,7 +160,7 @@ function metatables.hookmetamethod<T, U..., O...>(object: T, metamethod: metafie
 end
 
 --[=[
-    Restores a metamethod hooked with `hookmetamethod`.
+    Restores a metamethod which was hooked with `hookmetamethod`.
 
     @within metatables
     @param object T -- The object with the metatable and metamethod to restore.

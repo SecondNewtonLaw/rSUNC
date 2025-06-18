@@ -8,7 +8,7 @@
 local closures = {}
 
 --[=[
-    Provides a hash with a digest size of 48 bytes (384 bits) in hex format for the given Luau function
+    Provides a hash with a digest size of 48 bytes (384 bits) in hex format for the given Luau function.
 
     @within closures
     @param fn (T...) -> U... -- The function to hash.
@@ -356,11 +356,11 @@ function closures.isfunctionprotected<T..., U...>(fn: (T...) -> U...): boolean
 end
 
 --[=[
-    Returns a boolean indicating whether or not the given function has been hooked.
+    Returns a boolean indicating whether or not the given function is currently hooked.
 
     @within closures
     @param fn (T...) -> U... -- The function to check.
-    @return boolean -- Whether the function has been hooked.
+    @return boolean -- Whether the function is currently hooked.
 
     :::tip Whitelists
     You can use this function if your executor abides by rSUNC to determine if the environment is proper for your whitelist.
@@ -371,7 +371,7 @@ function closures.ishooked<T..., U...>(fn: (T...) -> U...): boolean
 end
 
 --[=[
-    Makes a function unable to be hooked. This function automatically reverts any hooks placed on the function, if there are any set.
+    Makes function `fn` unable to be hooked. This function automatically reverts any hooks placed on `fn`, if there are any set.
 
     @within closures
     @param fn (T...) -> U... -- The function to make unhookable and remove all hooks of.
@@ -506,7 +506,7 @@ function closures.trampoline_call<T..., U..., K..., J...>(
 end
 
 --[=[
-    Returns a boolean indicating whether or not the given object is a C closure.
+    Returns a boolean indicating whether or not the given closure is a C closure.
 
     @within closures
     @param fn any -- The object to check.
@@ -517,7 +517,7 @@ function closures.iscclosure(fn: any): boolean
 end
 
 --[=[
-    Returns a boolean indicating whether or not the given object is a L closure.
+    Returns a boolean indicating whether or not the given closure is an L closure.
 
     @within closures
     @param fn any -- The object to check.

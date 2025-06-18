@@ -1,5 +1,5 @@
 --[=[
-    This is not a library! It represents any globals pushed to the thread's environment!
+    This is not a library! It represents any globals pushed to the thread's environment.
 
     @class global
     @tag Miscellaneous
@@ -32,7 +32,7 @@ do
 end
 
 --[=[
-    Fetches the environment of a thread.
+    Fetches the environment of thread `thread`.
 
     @param thread thread -- The thread to fetch the environment of.
     @return { [any]: any } -- The environment of the thread.
@@ -74,7 +74,7 @@ function global.messagebox(text: string, caption: string, flags: number): number
 end
 
 --[=[
-    Obtains the global environment of the executor. Contains all of rSUNC globals.
+    Returns the global environment of the executor, which contains all of the rSUNC globals.
 
     @within global
     @tag Global
@@ -154,7 +154,7 @@ function global.getscriptglobals(): { _G: { [any]: any }, shared: { [any]: any }
 end
 
 --[=[
-    Returns current executor's name and version.
+    Returns the current executor's name and version.
 
     @within global
     @tag Global

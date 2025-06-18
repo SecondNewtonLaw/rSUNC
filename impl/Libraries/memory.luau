@@ -54,7 +54,7 @@ function memory.resumegc(): ()
 end
 
 --[=[
-    Returns a copy of the current state of the garbage collector.
+    Returns a copy of the current state of the Garbage Collector.
 
     @within memory
     @return GcState -- The current state of the Garbage Collector
@@ -75,7 +75,7 @@ end
 function memory.gc(): () end
 
 --[=[
-    Executes a step on the garbage collection cycle, regardless of whether should be run or not.
+    Executes a step on the garbage collection cycle, regardless of whether or not it should be run.
 
     @within memory
 ]=]
