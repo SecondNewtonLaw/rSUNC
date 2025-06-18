@@ -364,6 +364,20 @@ function instances.getinstancelist(): { [userdata]: Instance }
 end
 
 --[=[
+    Retrieves a list of all script instances (i.e., `Script`, `LocalScript`, `ModuleScript` and `AuroraScript`) currently referenced by the game.
+
+    @within instances
+    @return { LuaSourceContainer } -- An array-like table containing all script instances.
+
+    :::warning Actors
+    If a script instance is referenced inside an actor, this list of instances should not contain it!
+    :::
+]=]
+function instances.getscripts(): { LuaSourceContainer }
+    return nil :: any
+end
+
+--[=[
     Retrieves a list of connection objects associated with a given signal.
 
     @within instances
