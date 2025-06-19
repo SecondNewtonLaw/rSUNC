@@ -135,7 +135,7 @@ end
 
     @within global
     @tag Global
-    @return {[any]: any} -- The Luau registry
+    @return {[any]: any} -- The Luau registry.
 ]=]
 function global.getreg(): { [any]: any }
     return nil :: any
