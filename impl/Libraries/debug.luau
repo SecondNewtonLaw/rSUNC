@@ -106,7 +106,7 @@ function debug.getupvalues<T..., U...>(fnOrIndex: number | (T...) -> U...): { an
 end
 
 --[=[
-    Returns the up-value or up-reference of the given function or call-stack index `fnOrIndex` at the given up-reference/up-value `index`.
+    Returns the up-value or up-reference of the given function or call-stack index `fnOrIndex` at the given up-reference/up-value index `index`.
 
     @within debug
     @param fnOrIndex number | (T...) -> U... -- The function or call-stack index to get.
