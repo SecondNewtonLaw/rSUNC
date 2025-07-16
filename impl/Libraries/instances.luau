@@ -400,4 +400,24 @@ function instances.getconnections(signal: RBXScriptSignal): { Connection }
     return {} :: any -- Placeholder return
 end
 
+--[=[
+    Retrieves a list of information about active `RunService.RenderStepped` callbacks.
+
+    @within instances
+    @param bypassForeignCheck boolean? -- If `true`, includes the `Thread` and `Function` for callbacks running in a different Luau VM. Defaults to `false`.
+    @return { RenderSteppedCallbackInfo } -- An array-like table containing information about each active RenderStepped callback.
+    @error global 'game' is not a DataModel -- The global `game` object is not a `DataModel` instance.
+    @error 'game:GetService' is not a function -- The `GetService` method is not a function on the `game` object.
+    @error Failed to call 'game:GetService("RunService")': %s -- An error occurred while calling `game:GetService("RunService")`.
+    @error game:GetService("RunService") did not return a valid RunService instance. -- The `RunService` was not successfully obtained.
+
+    :::warning Remarks
+    - The `Thread` and `Function` fields are only available for callbacks not marked as `Foreign` (i.e., running in the same Luau VM) unless `bypassForeignCheck` is set to `true`.
+    - Accessing foreign threads or functions directly can be unstable and may lead to unexpected behavior or crashes.
+    :::
+]=]
+function instances.getrendersteppedlist(bypassForeignCheck: boolean?): { RenderSteppedCallbackInfo }
+    return {} :: any -- Placeholder return
+end
+
 return instances
