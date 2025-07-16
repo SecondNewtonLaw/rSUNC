@@ -214,7 +214,7 @@ end
 function filesystem.makefolder(path: string): () end
 
 --[=[
-    Deletes a specified folder (directory) and all of its contents recursively.
+    Recursively deletes the folder (directory) at `path` and all of its contents.
 
     @within filesystem
     @param path string -- The path to the folder to delete.
@@ -227,7 +227,7 @@ function filesystem.makefolder(path: string): () end
 function filesystem.delfolder(path: string): () end
 
 --[=[
-    Deletes a specified folder (directory) and all of its contents recursively, asynchronously.
+    Recursively deletes the folder (directory) at `path` and all of its contents asynchronously.
 
     This function yields the current thread until the folder deletion operation is complete or an error occurs.
 
@@ -259,7 +259,7 @@ function filesystem.getproperties(path: string): ItemProperties?
 end
 
 --[=[
-    Sets modifiable properties of a specified file or folder.
+    Sets modifiable properties of a specified file or folder at `path`.
 
     @within filesystem
     @param path string -- The path to the file or folder.
@@ -289,7 +289,7 @@ function filesystem.getcustomasset(path: string): string
 end
 
 --[=[
-    Reads the content of a specified file asynchronously, returning it as a string or a buffer.
+    Asynchronously reads the contents of the specified file at `path`, returning it as a string or a buffer.
 
     This function yields the current thread until the file reading operation is complete or an error occurs.
 

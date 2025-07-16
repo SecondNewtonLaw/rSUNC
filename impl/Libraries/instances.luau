@@ -85,7 +85,7 @@ end
 function instances.replacereference<T>(object1: T & Instance, object2: T & Instance): () end
 
 --[=[
-    Gets the version of the place you are in.
+    Returns the version of the place you are in.
 
     @within instances
     @return number -- The version of the place.
@@ -348,7 +348,7 @@ function instances.getnilinstances(): { Instance }
 end
 
 --[=[
-    Returns a dictionary with all instances that are currently referenced by the game as their value, and a lightuserdata as their key.
+    Returns a dictionary with all instances that are currently referenced by the game as their value, and a `lightuserdata` as their key.
 
     This dictionary is also known as the instance cache.
     
@@ -378,7 +378,7 @@ function instances.getscripts(): { LuaSourceContainer }
 end
 
 --[=[
-    Retrieves a list of connection objects associated with a given signal.
+    Retrieves a list of connection objects associated with the given signal.
 
     @within instances
     @param signal RBXScriptSignal -- The signal instance (e.g., `game.Players.PlayerAdded`) to get connections from.
